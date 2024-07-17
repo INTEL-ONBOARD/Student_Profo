@@ -11,13 +11,13 @@ namespace stu_profo.Model
     class engine
     {
         HttpClient httpClient ;
-        public void initCon() {try { httpClient = new HttpClient(); }catch(Exception e){ Console.WriteLine(e.Message); }}
-        public void closeCon() { try { httpClient.Dispose(); }catch(Exception ex){ Console.WriteLine(ex.Message); } }
+        engine() { try { httpClient = new HttpClient(); } catch (Exception e) { System.Diagnostics.Debug.WriteLine(e.Message); } }
+        public void closeCon() { try { httpClient.Dispose(); }catch(Exception ex){ System.Diagnostics.Debug.WriteLine(ex.Message); } }
         public void getCon(string con,string path) { 
             httpClient.BaseAddress = new Uri(con); 
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = httpClient.GetAsync(path).Result;
-            if (response.IsSuccessStatusCode) { string dataset = response.Content.ReadAsStringAsync().Result; Console.WriteLine(dataset); } else { Console.WriteLine(response.StatusCode); }
+            if (response.IsSuccessStatusCode) { string dataset = response.Content.ReadAsStringAsync().Result; System.Diagnostics.Debug.WriteLine(dataset); } else { System.Diagnostics.Debug.WriteLine(response.StatusCode); }
         }
     }
 }
