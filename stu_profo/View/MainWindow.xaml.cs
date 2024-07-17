@@ -11,7 +11,7 @@ using System.Windows.Shapes;
 using System.Net.NetworkInformation;
 using static System.Net.WebRequestMethods;
 using System.Data;
-
+using stu_profo.Controller;
 
 namespace stu_profo
 {
@@ -25,12 +25,14 @@ namespace stu_profo
         {
             InitializeComponent();
             loadingScreen.Visibility = Visibility.Visible;
-            validateLoad();
-            
+            //validateLoad();
+
+
         }
         public Boolean validateLoad() {
             try
             {
+
                 Ping myPing = new Ping();
                 String host = "www.nibmworldwide.com";
                 byte[] buffer = new byte[32];
@@ -61,32 +63,39 @@ namespace stu_profo
         {
             // Trigger binding update
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void cont(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("This is your message.");
-            Console.WriteLine("hwelo");
+            statusLabel.Content = "Checking....";
+            statusLabel.Visibility = Visibility.Visible;
+
+            await Task.Delay(1000);
+
+            statusLabel.Content = "Checking dependencies";
+            if (validateLoad())
+            {
+                statusLabel.Content = "Checking done";
+                System.Diagnostics.Debug.WriteLine("Connection success!");
+
+                await Task.Delay(3000);
+
+                loadingScreen.Visibility = Visibility.Hidden;
+                signupScreen.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                statusLabel.Content = "Checking faild! Restart the application....";
+                signupScreen.Visibility = Visibility.Hidden;
+                loadingScreen.Visibility = Visibility.Visible;
+                System.Diagnostics.Debug.WriteLine("Connection failed!");
+            }
         }
 
-        private void callValidate(object sender, RoutedEventArgs e)
+        private void Login(object sender, RoutedEventArgs e)
         {
-            System.Threading.Thread.Sleep(5000);
-            while (true)
-            {
-                if (validateLoad())
-                {
-                    System.Diagnostics.Debug.WriteLine("Conection success!");
-                    System.Threading.Thread.Sleep(3000);
-                    loadingScreen.Visibility = Visibility.Hidden;
-                    signupScreen.Visibility = Visibility.Visible;
-                    break;
-                }
-                else
-                {
-                    signupScreen.Visibility = Visibility.Hidden;
-                    loadingScreen.Visibility = Visibility.Visible;
-                    System.Diagnostics.Debug.WriteLine("Conection faild!");
-                }
-            }
+            userController.validateUser();
+            System.Diagnostics.Debug.WriteLine("calling");
+            //signupScreen.Visibility= Visibility.Hidden;
+            //desktop3.Visibility= Visibility.Visible;
         }
     }
 }

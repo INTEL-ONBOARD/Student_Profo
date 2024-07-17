@@ -1,21 +1,20 @@
-﻿using stu_profo.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿    using stu_profo.Model;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
 
-namespace stu_profo.Controller
-{
-    class userController
+    namespace stu_profo.Controller
     {
-        public static void validateUser()
+        class userController
         {
-            try {
-                //engine en = new engine();
-                //en.getCon();
-            }catch (Exception e) { }  
+            public static void validateUser()
+            {
+                engine en = new engine();
+                var dataset = en.getData("https://www.nibmworldwide.com/", "/exams/mis");
+                //System.Diagnostics.Debug.WriteLine(dataset.ToString());
         }
-    }
+        }
 
-}
+    }
