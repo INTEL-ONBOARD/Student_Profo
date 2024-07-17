@@ -24,6 +24,7 @@ namespace stu_profo
         {
             InitializeComponent();
             loadingScreen.Visibility = Visibility.Visible;
+            
         }
         public Boolean validateLoad() {
             try
