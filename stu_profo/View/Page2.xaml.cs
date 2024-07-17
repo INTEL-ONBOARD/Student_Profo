@@ -37,5 +37,11 @@ namespace WpfApp1
         {
             // Trigger binding update
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("This is your message.");
+            Console.WriteLine("Fuck You ");
+        }
     }
 }
