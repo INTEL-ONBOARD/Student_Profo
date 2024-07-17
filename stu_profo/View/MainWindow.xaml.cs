@@ -37,5 +37,24 @@ namespace stu_profo
             catch { }
             return result;
         }
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void EmailTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Trigger binding update
+        }
+
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            // Trigger binding update
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("This is your message.");
+            Console.WriteLine("hwelo");
+        }
     }
 }
