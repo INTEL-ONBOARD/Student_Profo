@@ -40,16 +40,15 @@ namespace WpfApp1
             // Trigger binding update
         }
 
-<<<<<<< HEAD
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("This is your message.");
-            Console.WriteLine("Fuck You ");
-=======
-        private void clickme(object sender, RoutedEventArgs e)
-        {
-
->>>>>>> cd1a8a93efb4d653d6b23393757bc5b15170bab4
+            System.Diagnostics.Debug.WriteLine("Fuck You");
         }
+
+      /*  private void clickme(object sender, RoutedEventArgs e)
+        {
+        }*/
     }
 }
