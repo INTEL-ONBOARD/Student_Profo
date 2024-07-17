@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="850" Width="1400">
     <Grid>
+        <Grid Background="#FFE82B2B" Margin="32,50,30,10" Visibility="Visible">
 
+        </Grid>
+        <Grid Background="#FFC7C7C7" Margin="32,50,30,10" Visibility="Hidden">
+
+        </Grid>
     </Grid>
 </Window>
