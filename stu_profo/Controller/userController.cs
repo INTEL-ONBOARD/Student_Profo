@@ -12,8 +12,8 @@ namespace stu_profo.Controller
         public static void validateUser()
         {
             try {
-                engine en = new engine();
-                en.getCon();
+                //engine en = new engine();
+                //en.getCon();
             }catch (Exception e) { }  
         }
     }

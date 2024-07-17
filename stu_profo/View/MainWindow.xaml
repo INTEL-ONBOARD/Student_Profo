@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:stu_profo"
         mc:Ignorable="d"
         Title="MainWindow" Height="850" Width="1400"
-        WindowStyle="None">
+        WindowStyle="None" Loaded="callValidate">
     <Grid>
         <Border CornerRadius="10" BorderThickness="1" BorderBrush="Gray">
             <Border.Background>
@@ -30,7 +30,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Grid Background="#0C3771" Margin="32,50,30,10" Visibility="Visible">
+        <Grid x:Name="loadingScreen" Background="#0C3771" Margin="32,50,30,10" Visibility="Visible">
 
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,20">
                 <TextBlock Text="NIBM" Foreground="White" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10" FontFamily="Fonts/#YourCustomFontName"/>
@@ -44,7 +44,7 @@
             </StackPanel>
         </Grid>
         
-        <Grid Background="#FFC7C7C7" Margin="32,50,30,10" Visibility="Hidden">
+        <Grid x:Name="signupScreen" Background="#FFC7C7C7" Margin="32,50,30,10" Visibility="Hidden">
 
 
             <Grid Margin="20,40,20,20">

@@ -10,6 +10,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net.NetworkInformation;
 using static System.Net.WebRequestMethods;
+using System.Data;
 
 
 namespace stu_profo
@@ -22,7 +23,7 @@ namespace stu_profo
         public MainWindow()
         {
             InitializeComponent();
-            System.Diagnostics.Debug.WriteLine(validateLoad());
+            loadingScreen.Visibility = Visibility.Visible;
         }
         public Boolean validateLoad() {
             try
@@ -58,6 +59,27 @@ namespace stu_profo
         {
             MessageBox.Show("This is your message.");
             Console.WriteLine("hwelo");
+        }
+
+        private void callValidate(object sender, RoutedEventArgs e)
+        {
+            //System.Threading.Thread.Sleep(5000);
+            while (true)
+            {
+                if (validateLoad())
+                {
+                    System.Diagnostics.Debug.WriteLine("Conection success!");
+                    System.Threading.Thread.Sleep(3000);
+                    loadingScreen.Visibility = Visibility.Hidden;
+                    signupScreen.Visibility = Visibility.Visible;
+                    break;
+                }
+                else
+                {
+                    signupScreen.Visibility = Visibility.Visible;
+                    System.Diagnostics.Debug.WriteLine("Conection faild!");
+                }
+            }
         }
     }
 }
