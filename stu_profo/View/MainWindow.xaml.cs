@@ -8,6 +8,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Net.NetworkInformation;
+using static System.Net.WebRequestMethods;
+
 
 namespace stu_profo
 {
@@ -19,7 +22,20 @@ namespace stu_profo
         public MainWindow()
         {
             InitializeComponent();
-
+            System.Diagnostics.Debug.WriteLine(validateLoad());
+        }
+        public Boolean validateLoad() {
+            string host = "https://www.nibmworldwide.com/";  
+            bool result = false;
+            Ping p = new Ping();
+            try
+            {
+                PingReply reply = p.Send(host, 3000);
+                if (reply.Status == IPStatus.Success)
+                    return true;
+            }
+            catch { }
+            return result;
         }
     }
 }
