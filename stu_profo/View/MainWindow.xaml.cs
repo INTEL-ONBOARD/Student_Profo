@@ -19,6 +19,7 @@ namespace stu_profo
         public MainWindow()
         {
             InitializeComponent();
+
         }
     }
 }

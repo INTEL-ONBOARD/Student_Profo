@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using stu_profo.Model;
+
 namespace WpfApp1
 {
     /// <summary>
@@ -25,7 +27,7 @@ namespace WpfApp1
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+
         }
 
         private void EmailTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -36,6 +38,11 @@ namespace WpfApp1
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             // Trigger binding update
+        }
+
+        private void clickme(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
