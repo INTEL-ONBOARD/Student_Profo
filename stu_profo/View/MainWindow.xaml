@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:stu_profo"
         mc:Ignorable="d"
         Title="MainWindow" Height="850" Width="1400"
-        WindowStyle="None" Loaded="callValidate">
-    <Grid>
-        <Border CornerRadius="10" BorderThickness="1" BorderBrush="Gray">
+        WindowStyle="None" Loaded="callValidate" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FFF30000">
+        <Border CornerRadius="10" BorderThickness="1" Margin="0,-21,0,0">
             <Border.Background>
                 <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
                     <GradientStop Color="#194785" Offset="0.1"/>

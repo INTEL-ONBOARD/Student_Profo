@@ -20,10 +20,12 @@ namespace stu_profo
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool status = false;  
         public MainWindow()
         {
             InitializeComponent();
             loadingScreen.Visibility = Visibility.Visible;
+            validateLoad();
             
         }
         public Boolean validateLoad() {
@@ -35,10 +37,13 @@ namespace stu_profo
                 int timeout = 1000;
                 PingOptions pingOptions = new PingOptions();
                 PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
+                status = false;
                 return (reply.Status == IPStatus.Success);
             }
             catch (Exception)
             {
+                
+                status = true;
                 return false;
             }
         }
@@ -64,7 +69,7 @@ namespace stu_profo
 
         private void callValidate(object sender, RoutedEventArgs e)
         {
-            //System.Threading.Thread.Sleep(5000);
+            System.Threading.Thread.Sleep(5000);
             while (true)
             {
                 if (validateLoad())
@@ -77,7 +82,8 @@ namespace stu_profo
                 }
                 else
                 {
-                    signupScreen.Visibility = Visibility.Visible;
+                    signupScreen.Visibility = Visibility.Hidden;
+                    loadingScreen.Visibility = Visibility.Visible;
                     System.Diagnostics.Debug.WriteLine("Conection faild!");
                 }
             }
