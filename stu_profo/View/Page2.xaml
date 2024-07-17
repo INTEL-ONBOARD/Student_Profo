@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Page2" Height="600" Width="900" WindowStyle="None"
-        AllowsTransparency="True" Background="Transparent">
+        Title="Page2" Height="850" Width="1400"
+        AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Border Background="#0C3771" CornerRadius="10" BorderThickness="1" BorderBrush="Gray">
             <Grid>
