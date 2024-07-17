@@ -1,4 +1,5 @@
-﻿using System;
+﻿using stu_profo.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,13 @@ namespace stu_profo.Controller
 {
     class userController
     {
-        public static void validateUser() { }
+        public static void validateUser()
+        {
+            try {
+                engine en = new engine();
+                en.getCon();
+            }catch (Exception e) { }  
+        }
     }
 
 }

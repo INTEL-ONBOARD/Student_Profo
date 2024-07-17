@@ -25,17 +25,20 @@ namespace stu_profo
             System.Diagnostics.Debug.WriteLine(validateLoad());
         }
         public Boolean validateLoad() {
-            string host = "https://www.nibmworldwide.com/";  
-            bool result = false;
-            Ping p = new Ping();
             try
             {
-                PingReply reply = p.Send(host, 3000);
-                if (reply.Status == IPStatus.Success)
-                    return true;
+                Ping myPing = new Ping();
+                String host = "www.nibmworldwide.com";
+                byte[] buffer = new byte[32];
+                int timeout = 1000;
+                PingOptions pingOptions = new PingOptions();
+                PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
+                return (reply.Status == IPStatus.Success);
             }
-            catch { }
-            return result;
+            catch (Exception)
+            {
+                return false;
+            }
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
