@@ -9,15 +9,17 @@
         WindowStyle="None"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{x:Null}">
     <Window.Resources>
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="24"/>
+            <!-- Adjust this value as needed -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="15"
-                                Width="{TemplateBinding Width}"
-                                Height="{TemplateBinding Height}">
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="10"
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
@@ -28,6 +30,7 @@
             <Setter Property="BorderThickness" Value="1"/>
         </Style>
     </Window.Resources>
+
     <Grid Background="Transparent">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -53,7 +56,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Grid x:Name="loadingScreen" Margin="37,36,25,24" Visibility="Visible">
+        <Grid x:Name="loadingScreen" Margin="37,36,25,24" Visibility="Hidden">
 
 
             <Button x:Name="contBtn" Margin="607,451,619,236" Click="cont" RenderTransformOrigin="0.5,0.5" Background="Transparent" BorderThickness="0" Panel.ZIndex="3" Focusable="False">
@@ -267,15 +270,15 @@
 
 
 
-        <Grid x:Name="desktop3" Background="#0C3771" Margin="32,50,30,10" Visibility="Hidden">
-
-
+        <Grid x:Name="desktop3" Background="#0C3771" Margin="32,50,30,10" Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
-            <Border Grid.Column="0" Margin="10" Background="#F5F5F5" CornerRadius="10">
+            <Image Source="/View/image 42.png" Stretch="Fill" Margin="610,54,17,703" Grid.Column="1"/>
+
+            <Border Grid.Column="0" Margin="10,70,10,68" Background="#F5F5F5" CornerRadius="10">
                 <StackPanel>
                     <!-- User Info Section -->
                     <StackPanel Orientation="Horizontal" Margin="10">
@@ -318,49 +321,78 @@
                 </StackPanel>
             </Border>
 
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="28,51,0,645" Grid.Column="1">
+                <Button Content="🏠" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0"/>
+                <Button Content="🔔" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0"/>
+                <Button Content="⚙" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0"/>
+               
+            </StackPanel>
 
-            <Border Grid.Column="1" Margin="10" Background="#FFFFFF" CornerRadius="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="769" Margin="0,145,0,603" Grid.Column="1">
+                <TextBox Width="309" Height="34" Margin="0,0,10,0">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Text" Value="Programme"/>
+                            <Setter Property="Foreground" Value="Gray"/>
+                            <Setter Property="BorderBrush" Value="Gray"/>
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="Padding" Value="5"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="TextBox">
+                                        <Border Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="1" 
+                                    CornerRadius="7">
+                                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="Text" Value=""/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+                <TextBox Width="388" Height="34" Margin="0,0,10,0">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Text" Value="Batch"/>
+                            <Setter Property="Foreground" Value="Gray"/>
+                            <Setter Property="BorderBrush" Value="Gray"/>
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="Padding" Value="5"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="TextBox">
+                                        <Border Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="1" 
+                                    CornerRadius="7">
+                                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="Text" Value=""/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+                <Button Content="🔍" Background="White" Width="40" Height="40" Margin="10,0,0,0" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0"/>
+            </StackPanel>
+
+
+            <Border Grid.Column="1" Margin="10,201,10,68" Background="#FFFFFF" CornerRadius="10">
                 <StackPanel>
-                    <!-- Top Buttons -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
-                        <Button Content="🔔" Width="30" Height="30" Margin="5"/>
-                        <Button Content="⚙" Width="30" Height="30" Margin="5"/>
-                    </StackPanel>
-
-                    <!-- Search Fields -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0">
-                        <TextBox Width="200" Height="20" Margin="0,0,10,0">
-                            <TextBox.Style>
-                                <Style TargetType="TextBox">
-                                    <Setter Property="Text" Value="Programme"/>
-                                    <Setter Property="Foreground" Value="Gray"/>
-                                    <Style.Triggers>
-                                        <Trigger Property="IsKeyboardFocused" Value="True">
-                                            <Setter Property="Foreground" Value="Black"/>
-                                            <Setter Property="Text" Value=""/>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBox.Style>
-                        </TextBox>
-                        <TextBox Width="200" Height="20" Margin="0,0,10,0">
-                            <TextBox.Style>
-                                <Style TargetType="TextBox">
-                                    <Setter Property="Text" Value="Batch"/>
-                                    <Setter Property="Foreground" Value="Gray"/>
-                                    <Style.Triggers>
-                                        <Trigger Property="IsKeyboardFocused" Value="True">
-                                            <Setter Property="Foreground" Value="Black"/>
-                                            <Setter Property="Text" Value=""/>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBox.Style>
-                        </TextBox>
-                        <Button Content="🔍" Width="20" Height="20" Margin="10,0,0,0"/>
-                    </StackPanel>
-
-                    <!-- Programme Info -->
                     <Grid Background="#F0F4F8" Margin="10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -370,23 +402,32 @@
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                             <Ellipse Width="40" Height="40" Fill="LightGray"/>
                             <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
-                                <TextBlock Text="Diploma in Software Engineering" FontSize="16" FontWeight="Bold"/>
-                                <TextBlock Text="DSE231F/CO CODSE231F-055" FontSize="14"/>
+                                <TextBlock Text="Diploma in Software Engineering" FontSize="20" FontWeight="DemiBold"/>
+                                <TextBlock Text="DSE231F/CO " FontSize="14" FontWeight="Light"/>
+                                <TextBlock Text="CODSE231F-055" FontSize="16" FontWeight="Bold"/>
                             </StackPanel>
                         </StackPanel>
 
-                        <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0">
-                            <Button Content="Select" Width="60" Height="20" Margin="0,0,0,10"/>
-                            <Button Content="Remove" Width="60" Height="20"/>
+                        <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Bottom" Margin="10,0,0,0">
+                            <Button Content="Select" Width="73" Height="23" Margin="0,0,0,10" Background="White" Foreground="LightBlue" BorderBrush="LightBlue" BorderThickness="1">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="5" Padding="5,0">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
                         </StackPanel>
                     </Grid>
                 </StackPanel>
-
             </Border>
 
-
-
         </Grid>
+
 
         <Grid x:Name="mainpage" Background="#0C3771" Margin="32,50,30,10" Visibility="Hidden">
 
@@ -504,7 +545,7 @@
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-
+            <Image Source="/View/image 42.png" Stretch="Fill" Margin="610,54,17,703" Grid.Column="1"/>
             <!-- Left side content -->
             <Border Grid.Column="0" Margin="44,42,10,50" CornerRadius="10">
                 <Grid>
