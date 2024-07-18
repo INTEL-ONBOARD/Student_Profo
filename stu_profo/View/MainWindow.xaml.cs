@@ -74,7 +74,7 @@ namespace stu_profo
             if (validateLoad())
             {
                 statusLabel.Content = "Checking done";
-               loadingImage.Visibility = Visibility.Visible;
+            
 
                 System.Diagnostics.Debug.WriteLine("Connection success!");
 
@@ -95,7 +95,7 @@ namespace stu_profo
         private void Login(object sender, RoutedEventArgs e)
         {
             userController userCtn = new userController();
-            //userCtn.validateUser();
+            userCtn.validateUser(emailInput.Text,passwordInput.Text);
             System.Diagnostics.Debug.WriteLine("calling");
             //signupScreen.Visibility= Visibility.Hidden;
             //desktop3.Visibility= Visibility.Visible;
