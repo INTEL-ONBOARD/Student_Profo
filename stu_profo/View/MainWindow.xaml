@@ -37,8 +37,8 @@
         </Button>
         <Grid x:Name="loadingScreen" Margin="37,36,25,24" Visibility="Visible">
 
-            <Image Margin="596,335,605,413" Source="/View/Images/NIBM.png" Stretch="Fill"/>
-            <Image Margin="547,395,537,359" Source="/View/Images/loadinglogo2.png" Stretch="Fill"/>
+            <Image Margin="596,335,605,413" Source="/View/NIBM.png" Stretch="Fill"/>
+            <Image Margin="547,395,537,359" Source="/View/loadinglogo2.png" Stretch="Fill"/>
             <MediaElement x:Name="loadingImage" LoadedBehavior="Play" Source="\View\Images\loading.gif" Margin="600,364,605,284" Visibility="Hidden" />
             <Button x:Name="contBtn" Margin="622,451,621,243" Click="cont" RenderTransformOrigin="0.5,0.5" Background="Transparent" BorderThickness="0">
                 <Button.RenderTransform>
@@ -126,7 +126,7 @@
                             </Button>
                         </StackPanel>
                     </Border>
-                    <Image Grid.Column="1" Margin="85,118,259,196" Source="/View/Images/signuphead.png" Stretch="Fill"/>
+                    <Image Grid.Column="1" Margin="85,118,259,196" Source="/View/signuphead.png" Stretch="Fill"/>
 
                 </Grid>
             </Border>
