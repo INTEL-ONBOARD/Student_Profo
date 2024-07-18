@@ -10,11 +10,18 @@
 
   <ItemGroup>
     <None Remove="View\BackgroundImage.png" />
+    <None Remove="View\bellicon.png" />
+    <None Remove="View\boxicon.png" />
     <None Remove="View\button.png" />
+    <None Remove="View\exiticon.png" />
+    <None Remove="View\gearicon.png" />
+    <None Remove="View\Green.png" />
     <None Remove="View\Group 1000001063.png" />
+    <None Remove="View\homeicon.png" />
     <None Remove="View\image 42.png" />
     <None Remove="View\loadinglogo2.png" />
     <None Remove="View\NIBM.png" />
+    <None Remove="View\serchicon.png" />
     <None Remove="View\SignupImage.png" />
     <None Remove="View\tenor.gif" />
   </ItemGroup>
@@ -31,11 +38,18 @@
 
   <ItemGroup>
     <Resource Include="View\BackgroundImage.png" />
+    <Resource Include="View\bellicon.png" />
+    <Resource Include="View\boxicon.png" />
     <Resource Include="View\button.png" />
+    <Resource Include="View\exiticon.png" />
+    <Resource Include="View\gearicon.png" />
+    <Resource Include="View\Green.png" />
     <Resource Include="View\Group 1000001063.png" />
+    <Resource Include="View\homeicon.png" />
     <Resource Include="View\image 42.png" />
     <Resource Include="View\loadinglogo2.png" />
     <Resource Include="View\NIBM.png" />
+    <Resource Include="View\serchicon.png" />
     <Resource Include="View\SignupImage.png" />
     <Resource Include="View\tenor.gif" />
   </ItemGroup>

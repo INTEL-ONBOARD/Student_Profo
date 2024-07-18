@@ -29,6 +29,10 @@
             <Setter Property="BorderBrush" Value="DarkGray"/>
             <Setter Property="BorderThickness" Value="1"/>
         </Style>
+        <Geometry x:Key="BellIconGeometry">M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm4 11h-1v-1.09c0-.73-.22-1.41-.62-1.97L11.35 6h.65c.55 0 1-.45 1-1s-.45-1-1-1H6c-.55 0-1 .45-1 1s.45 1 1 1h.65L7.62 8.03c-.4.56-.62 1.24-.62 1.97V11H6c-.55 0-1 .45-1 1s.45 1 1 1h6c.55 0 1-.45 1-1s-.45-1-1-1zm-2 0H6v-1h4v1zm0-4V5c0-.55-.45-1-1-1s-1 .45-1 1v2h2z</Geometry>
+        <Geometry x:Key="GearIconGeometry">M10 20v-2H4v2H2v-2H0v-2h2v-1.27C.79 14.41 0 12.3 0 10s.79-4.41 2-5.73V3h2V1h2v2h6V1h2v2h2v1.27C19.21 5.59 20 7.7 20 10s-.79 4.41-2 5.73V18h-2v2h-2v-2H10zm-8-7.45c0 2.63 1.79 4.78 4.24 5.32V16h4.52v1.87C15.21 16.78 17 14.63 17 12s-1.79-4.78-4.24-5.32V4h-4.52v1.87C3.79 7.22 2 9.37 2 12zm14-.45h-2v-1h2v1z</Geometry>
+        <Geometry x:Key="ArrowIconGeometry">M10 20v-2H4v2H2v-2H0v-2h2v-1.27C.79 14.41 0 12.3 0 10s.79-4.41 2-5.73V3h2V1h2v2h6V1h2v2h2v1.27C19.21 5.59 20 7.7 20 10s-.79 4.41-2 5.73V18h-2v2h-2v-2H10zm-8-7.45c0 2.63 1.79 4.78 4.24 5.32V16h4.52v1.87C15.21 16.78 17 14.63 17 12s-1.79-4.78-4.24-5.32V4h-4.52v1.87C3.79 7.22 2 9.37 2 12zm14-.45h-2v-1h2v1z</Geometry>
+        <Geometry x:Key="GridIconGeometry">M10 20v-2H4v2H2v-2H0v-2h2v-1.27C.79 14.41 0 12.3 0 10s.79-4.41 2-5.73V3h2V1h2v2h6V1h2v2h2v1.27C19.21 5.59 20 7.7 20 10s-.79 4.41-2 5.73V18h-2v2h-2v-2H10zm-8-7.45c0 2.63 1.79 4.78 4.24 5.32V16h4.52v1.87C15.21 16.78 17 14.63 17 12s-1.79-4.78-4.24-5.32V4h-4.52v1.87C3.79 7.22 2 9.37 2 12zm14-.45h-2v-1h2v1z</Geometry>
     </Window.Resources>
 
     <Grid Background="{Binding MainBackground}">
@@ -105,19 +109,36 @@
                             <Storyboard>
                                 <DoubleAnimation Storyboard.TargetName="buttonScale"
                          Storyboard.TargetProperty="ScaleX"
-                         From="1" To="1.2"
+                         From="1" To="0.8"
                          Duration="0:0:0.2"
-                         AutoReverse="True"/>
+                         AutoReverse="False"/>
                                 <DoubleAnimation Storyboard.TargetName="buttonScale"
                          Storyboard.TargetProperty="ScaleY"
-                         From="1" To="1.2"
+                         From="1" To="0.8"
                          Duration="0:0:0.2"
-                         AutoReverse="True"/>
+                         AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Button.MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="buttonScale"
+                         Storyboard.TargetProperty="ScaleX"
+                         From="0.8" To="1"
+                         Duration="0:0:0.2"
+                         AutoReverse="False"/>
+                                <DoubleAnimation Storyboard.TargetName="buttonScale"
+                         Storyboard.TargetProperty="ScaleY"
+                         From="0.8" To="1"
+                         Duration="0:0:0.2"
+                         AutoReverse="False"/>
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
                 </Button.Triggers>
             </Button>
+
 
 
 
@@ -195,10 +216,10 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="Button">
                                                     <Border Background="{TemplateBinding Background}" 
-                                BorderBrush="{TemplateBinding BorderBrush}" 
-                                BorderThickness="1" 
-                                CornerRadius="5" 
-                                Padding="10,0">
+        BorderBrush="{TemplateBinding BorderBrush}" 
+        BorderThickness="1" 
+        CornerRadius="5" 
+        Padding="10,0">
                                                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                                     </Border>
                                                 </ControlTemplate>
@@ -224,15 +245,15 @@
                                         <BeginStoryboard>
                                             <Storyboard>
                                                 <DoubleAnimation Storyboard.TargetName="loginButtonScale"
-                                     Storyboard.TargetProperty="ScaleX"
-                                     From="1" To="1.1"
-                                     Duration="0:0:0.2"
-                                     AutoReverse="True"/>
+             Storyboard.TargetProperty="ScaleX"
+             From="1" To="1.1"
+             Duration="0:0:0.2"
+             AutoReverse="True"/>
                                                 <DoubleAnimation Storyboard.TargetName="loginButtonScale"
-                                     Storyboard.TargetProperty="ScaleY"
-                                     From="1" To="1.1"
-                                     Duration="0:0:0.2"
-                                     AutoReverse="True"/>
+             Storyboard.TargetProperty="ScaleY"
+             From="1" To="1.1"
+             Duration="0:0:0.2"
+             AutoReverse="True"/>
                                             </Storyboard>
                                         </BeginStoryboard>
                                     </EventTrigger>
@@ -240,20 +261,37 @@
                                         <BeginStoryboard>
                                             <Storyboard>
                                                 <DoubleAnimation Storyboard.TargetName="loginButtonScale"
-                                     Storyboard.TargetProperty="ScaleX"
-                                     From="1" To="1.1"
-                                     Duration="0:0:0.2"
-                                     AutoReverse="True"/>
+             Storyboard.TargetProperty="ScaleX"
+             From="1" To="0.9"
+             Duration="0:0:0.2"
+             AutoReverse="False"/>
                                                 <DoubleAnimation Storyboard.TargetName="loginButtonScale"
-                                     Storyboard.TargetProperty="ScaleY"
-                                     From="1" To="1.1"
-                                     Duration="0:0:0.2"
-                                     AutoReverse="True"/>
+             Storyboard.TargetProperty="ScaleY"
+             From="1" To="0.9"
+             Duration="0:0:0.2"
+             AutoReverse="False"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="Button.MouseLeave">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="loginButtonScale"
+             Storyboard.TargetProperty="ScaleX"
+             From="0.9" To="1"
+             Duration="0:0:0.2"
+             AutoReverse="False"/>
+                                                <DoubleAnimation Storyboard.TargetName="loginButtonScale"
+             Storyboard.TargetProperty="ScaleY"
+             From="0.9" To="1"
+             Duration="0:0:0.2"
+             AutoReverse="False"/>
                                             </Storyboard>
                                         </BeginStoryboard>
                                     </EventTrigger>
                                 </Button.Triggers>
                             </Button>
+
 
                         </StackPanel>
                     </Border>
@@ -367,9 +405,23 @@
 
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="28,51,0,645" Grid.Column="1">
-                <Button Content="🏠" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0"/>
-                <Button Content="🔔" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0"/>
-                <Button Content="⚙" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0"/>
+                <Button Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0">
+                    <Button.Content>
+                        <Image Source="/View/homeicon.png" Stretch="Uniform"/>
+                    </Button.Content>
+                </Button>
+
+                <Button Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="1">
+                    <Button.Content>
+                        <Image Source="/View/bellicon.png" Stretch="Uniform"/>
+                    </Button.Content>
+                </Button>
+
+                <Button Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="0">
+                    <Button.Content>
+                        <Image Source="/View/gearicon.png" Stretch="Uniform"/>
+                    </Button.Content>
+                </Button>
 
             </StackPanel>
 
@@ -432,7 +484,11 @@
                         </Style>
                     </TextBox.Style>
                 </TextBox>
-                <Button Content="🔍" Background="White" Width="40" Height="40" Margin="10,0,0,0" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0"/>
+                <Button Width="40" Height="40" Margin="10,0,0,0" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0">
+                    <Button.Content>
+                        <Image Source="/View/serchicon.png" Stretch="Uniform"/>
+                    </Button.Content>
+                </Button>
             </StackPanel>
 
             <Border Grid.Column="1" Margin="10,201,113,68" Background="#FFFFFF" CornerRadius="20">
@@ -644,7 +700,11 @@
                     </Border>
 
                     <!-- Skill Card -->
-                    <Border Background="#4CAF50" CornerRadius="10" Margin="0,10" Padding="10" Height="120">
+                    <Border CornerRadius="10" Margin="0,10" Padding="10" Height="120">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/View/Green.png" Stretch="None"/>
+                            <!-- Replace with your actual image path -->
+                        </Border.Background>
                         <Grid>
                             <!-- Content Overlay -->
                             <StackPanel>
@@ -661,6 +721,7 @@
                             </Canvas>
                         </Grid>
                     </Border>
+
 
                     <!-- Stats Card -->
                     <Border Background="White" CornerRadius="10" Margin="0,10" Padding="10" Width="200" Height="242">
@@ -702,19 +763,41 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <Button Content="🔔" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0"/>
-                        <Button Content="⚙" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="1"/>
-                        <Button Content="🔔" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="0"/>
-                        <Button x:Name="showinfo" Content="⚙" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="1" Click="showinfo_Click"/>
+                        <Button Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0">
+                            <Button.Content>
+                                <Image Source="/View/bellicon.png" Stretch="Uniform"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="1">
+                            <Button.Content>
+                                <Image Source="/View/gearicon.png" Stretch="Uniform"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="0">
+                            <Button.Content>
+                                <Image Source="/View/exiticon.png" Stretch="Uniform"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button x:Name="showinfo" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="1" Click="showinfo_Click">
+                            <Button.Content>
+                                <Image Source="/View/boxicon.png" Stretch="Uniform"/>
+                            </Button.Content>
+                        </Button>
                     </Grid>
 
                     <!-- First Card -->
                     <Border Background="#E3F2FD" CornerRadius="15" Padding="10" Width="121" Height="132" Canvas.Left="197" Canvas.Top="86" HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <StackPanel>
-                            <TextBlock Text="I" Foreground="#2196F3" FontSize="24" FontWeight="Bold"/>
-                            <TextBlock Text="30%" Foreground="#2196F3" FontSize="24" FontWeight="Bold"/>
+                        <StackPanel VerticalAlignment="Bottom">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                <TextBlock Text="I" Foreground="#2196F3" FontSize="24" FontWeight="Bold" />
+                                <TextBlock Text="30%" Foreground="#2196F3" FontSize="24" FontWeight="Bold" Margin="5,0,0,0"/>
+                            </StackPanel>
                         </StackPanel>
                     </Border>
+
 
                     <!-- Second Card -->
                     <Border Background="#3C3F41" CornerRadius="15" Padding="10" Width="255" Height="150" Canvas.Left="63" Canvas.Top="230" HorizontalAlignment="Left" VerticalAlignment="Center">
