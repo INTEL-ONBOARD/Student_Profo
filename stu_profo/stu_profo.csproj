@@ -21,6 +21,7 @@
     <None Remove="View\homeicon.png" />
     <None Remove="View\image 42.png" />
     <None Remove="View\loadinglogo2.png" />
+    <None Remove="View\loghead.png" />
     <None Remove="View\NIBM.png" />
     <None Remove="View\serchicon.png" />
     <None Remove="View\SignupImage.png" />
@@ -50,6 +51,7 @@
     <Resource Include="View\homeicon.png" />
     <Resource Include="View\image 42.png" />
     <Resource Include="View\loadinglogo2.png" />
+    <Resource Include="View\loghead.png" />
     <Resource Include="View\NIBM.png" />
     <Resource Include="View\serchicon.png" />
     <Resource Include="View\SignupImage.png" />

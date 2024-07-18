@@ -136,7 +136,7 @@ namespace stu_profo
             if (userCtn.validateUser(emailInput.Text, passwordInput.Text))
             {
                 signupScreen.Visibility = Visibility.Hidden;
-                desktop4.Visibility = Visibility.Visible;
+                home.Visibility = Visibility.Visible;
 
                 // Set background for desktop4
                 MainBackground = Brushes.White;
@@ -151,8 +151,8 @@ namespace stu_profo
 
         private void showinfo_Click(object sender, RoutedEventArgs e)
         {
-            desktop4.Visibility = Visibility.Hidden;
-            desktop3.Visibility = Visibility.Visible;
+            home.Visibility = Visibility.Hidden;
+            studentview.Visibility = Visibility.Visible;
 
             // Set background for desktop3
             MainBackground = Brushes.White;

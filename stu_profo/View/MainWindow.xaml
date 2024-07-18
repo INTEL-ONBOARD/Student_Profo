@@ -161,7 +161,7 @@
 
         <Grid x:Name="signupScreen" Margin="32,50,30,40" Visibility="Hidden">
 
-            <Border Margin="246,54,244,50" BorderBrush="White" BorderThickness="2" CornerRadius="10">
+            <Border Margin="246,54,244,50" BorderBrush="White" BorderThickness="2" CornerRadius="10" Opacity="40">
                 <Grid Margin="20,40,20,20">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="170*"/>
@@ -302,7 +302,7 @@
 
 
 
-        <Grid x:Name="desktop3" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">
+        <Grid x:Name="studentview" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">
 
             <!-- Content here will use the specific background -->
             <Grid.ColumnDefinitions>
@@ -510,7 +510,8 @@
 
             <Border Grid.Column="1" Margin="10,122,113,68" Background="#FFFFFF" CornerRadius="20">
                 <StackPanel>
-                    <Border Background="#F0F4F8" CornerRadius="10" Margin="10" Width="733">
+                    
+                    <Border Background="#F0F4F8" CornerRadius="10" Margin="10" Width="660">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -660,7 +661,7 @@
 
         </Grid>
 
-        <Grid x:Name="desktop4" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">
+        <Grid x:Name="home" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
@@ -823,7 +824,410 @@
                 </Canvas>
             </StackPanel>
         </Grid>
+        
+        <Grid x:Name="config1" Margin="37,36,25,24" Visibility="Hidden">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="Please provide your information to configure your profile" 
+                   Foreground="White" FontSize="36" FontWeight="DemiBold" 
+                   TextWrapping="Wrap" HorizontalAlignment="Center" 
+                   Margin="0,0,0,40" Width="583" TextAlignment="Center"/>
 
+                <!-- Programme ComboBox -->
+                <ComboBox Width="288" Height="34" Margin="0,0,0,20" Tag="Programme">
+                    <ComboBox.Style>
+                        <Style TargetType="ComboBox">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ComboBox">
+                                        <Grid>
+                                            <Border x:Name="Border" Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="7">
+                                                <Grid>
+                                                    <TextBlock x:Name="Placeholder" Text="Programme" Foreground="Gray" Margin="5,0,25,0" VerticalAlignment="Center"/>
+                                                    <ToggleButton x:Name="ToggleButton" Focusable="False" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center" Width="20" Height="20">
+                                                        <Path x:Name="Arrow" Data="M 0 0 L 4 4 L 8 0 Z" Fill="Gray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </ToggleButton>
+                                                    <ContentPresenter x:Name="ContentSite" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" Content="{TemplateBinding SelectionBoxItem}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,25,0" />
+                                                </Grid>
+                                            </Border>
+                                            <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" Focusable="False" PopupAnimation="Slide">
+                                                <Grid x:Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                                    <Border x:Name="DropDownBorder" Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="7">
+                                                        <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                                            <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                                        </ScrollViewer>
+                                                    </Border>
+                                                </Grid>
+                                            </Popup>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="HasItems" Value="false">
+                                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                                            </Trigger>
+                                            <Trigger Property="IsGrouping" Value="true">
+                                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                                            </Trigger>
+                                            <Trigger SourceName="ToggleButton" Property="ToggleButton.IsChecked" Value="true">
+                                                <Setter TargetName="ContentSite" Property="Visibility" Value="Collapsed"/>
+                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Collapsed"/>
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="false">
+                                                <Setter Property="Foreground" Value="Gray"/>
+                                            </Trigger>
+                                            <DataTrigger Binding="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" Value="{x:Null}">
+                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" Value="">
+                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ComboBox.Style>
+                    <ComboBoxItem Content="Programme 1"/>
+                    <ComboBoxItem Content="Programme 2"/>
+                    <ComboBoxItem Content="Programme 3"/>
+                </ComboBox>
+
+                <!-- Batch ComboBox -->
+                <ComboBox Width="288" Height="34" Margin="0,0,0,20" Tag="Batch">
+                    <ComboBox.Style>
+                        <Style TargetType="ComboBox">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ComboBox">
+                                        <Grid>
+                                            <Border x:Name="Border" Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="7">
+                                                <Grid>
+                                                    <TextBlock x:Name="Placeholder" Text="Batch" Foreground="Gray" Margin="5,0,25,0" VerticalAlignment="Center"/>
+                                                    <ToggleButton x:Name="ToggleButton" Focusable="False" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center" Width="20" Height="20">
+                                                        <Path x:Name="Arrow" Data="M 0 0 L 4 4 L 8 0 Z" Fill="Gray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </ToggleButton>
+                                                    <ContentPresenter x:Name="ContentSite" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" Content="{TemplateBinding SelectionBoxItem}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,25,0" />
+                                                </Grid>
+                                            </Border>
+                                            <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" Focusable="False" PopupAnimation="Slide">
+                                                <Grid x:Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                                    <Border x:Name="DropDownBorder" Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="7">
+                                                        <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                                            <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                                        </ScrollViewer>
+                                                    </Border>
+                                                </Grid>
+                                            </Popup>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="HasItems" Value="false">
+                                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                                            </Trigger>
+                                            <Trigger Property="IsGrouping" Value="true">
+                                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                                            </Trigger>
+                                            <Trigger SourceName="ToggleButton" Property="ToggleButton.IsChecked" Value="true">
+                                                <Setter TargetName="ContentSite" Property="Visibility" Value="Collapsed"/>
+                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Collapsed"/>
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="false">
+                                                <Setter Property="Foreground" Value="Gray"/>
+                                            </Trigger>
+                                            <DataTrigger Binding="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" Value="{x:Null}">
+                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" Value="">
+                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ComboBox.Style>
+                    <ComboBoxItem Content="Batch 1"/>
+                    <ComboBoxItem Content="Batch 2"/>
+                    <ComboBoxItem Content="Batch 3"/>
+                </ComboBox>
+
+                <!-- Continue Button -->
+                <Button Content="Continue" Width="98" Height="25" Margin="0,0,0,20" 
+        Background="White" Foreground="#0F458D" BorderBrush="LightGray" 
+        BorderThickness="1">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="{TemplateBinding BorderThickness}" 
+                    CornerRadius="5">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="OverridesDefaultStyle" Value="True"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="1" 
+                                CornerRadius="5" 
+                                Padding="10,0">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform x:Name="continueButtonScale" ScaleY="1" ScaleX="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="continueButtonScale"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     From="1" To="1.1"
+                                     Duration="0:0:0.2"
+                                     AutoReverse="True"/>
+                                    <DoubleAnimation Storyboard.TargetName="continueButtonScale"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     From="1" To="1.1"
+                                     Duration="0:0:0.2"
+                                     AutoReverse="True"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="continueButtonScale"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     From="1" To="0.9"
+                                     Duration="0:0:0.2"
+                                     AutoReverse="False"/>
+                                    <DoubleAnimation Storyboard.TargetName="continueButtonScale"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     From="1" To="0.9"
+                                     Duration="0:0:0.2"
+                                     AutoReverse="False"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="continueButtonScale"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     From="0.9" To="1"
+                                     Duration="0:0:0.2"
+                                     AutoReverse="False"/>
+                                    <DoubleAnimation Storyboard.TargetName="continueButtonScale"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     From="0.9" To="1"
+                                     Duration="0:0:0.2"
+                                     AutoReverse="False"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+
+
+
+            </StackPanel>
+            <!-- Bottom Text -->
+            <TextBlock Text="It will take a few minutes to configure your profile... please wait..." 
+    Foreground="White" FontSize="12" HorizontalAlignment="Center" 
+    Margin="0,692,0,66"/>
+        </Grid>
+
+
+
+        <Grid x:Name="config2" Margin="37,36,25,24" Visibility="Hidden">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="Please provide your information to configure your profile" 
+               Foreground="White" FontSize="36" FontWeight="DemiBold" 
+               TextWrapping="Wrap" HorizontalAlignment="Center" 
+               Margin="0,0,0,40" Width="583" TextAlignment="Center"/>
+
+                <!-- Programme ComboBox -->
+                <ComboBox Width="288" Height="34" Margin="0,0,0,20" Tag="StudentId">
+                    <ComboBox.Style>
+                        <Style TargetType="ComboBox">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ComboBox">
+                                        <Grid>
+                                            <Border x:Name="Border" Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="7">
+                                                <Grid>
+                                                    <TextBlock x:Name="Placeholder" Text="Student Id" Foreground="Gray" Margin="5,0,25,0" VerticalAlignment="Center"/>
+                                                    <ToggleButton x:Name="ToggleButton" Focusable="False" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center" Width="20" Height="20">
+                                                        <Path x:Name="Arrow" Data="M 0 0 L 4 4 L 8 0 Z" Fill="Gray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </ToggleButton>
+                                                    <ContentPresenter x:Name="ContentSite" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" Content="{TemplateBinding SelectionBoxItem}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,25,0" />
+                                                </Grid>
+                                            </Border>
+                                            <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" Focusable="False" PopupAnimation="Slide">
+                                                <Grid x:Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                                    <Border x:Name="DropDownBorder" Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="7">
+                                                        <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                                            <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                                        </ScrollViewer>
+                                                    </Border>
+                                                </Grid>
+                                            </Popup>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="HasItems" Value="false">
+                                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                                            </Trigger>
+                                            <Trigger Property="IsGrouping" Value="true">
+                                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                                            </Trigger>
+                                            <Trigger SourceName="ToggleButton" Property="ToggleButton.IsChecked" Value="true">
+                                                <Setter TargetName="ContentSite" Property="Visibility" Value="Collapsed"/>
+                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Collapsed"/>
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="false">
+                                                <Setter Property="Foreground" Value="Gray"/>
+                                            </Trigger>
+                                            <DataTrigger Binding="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" Value="{x:Null}">
+                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" Value="">
+                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ComboBox.Style>
+                    <ComboBoxItem Content="Programme 1"/>
+                    <ComboBoxItem Content="Programme 2"/>
+                    <ComboBoxItem Content="Programme 3"/>
+                </ComboBox>
+
+               
+
+                <!-- Continue Button -->
+                <Button Content="Done" Width="84" Height="25" Margin="0,0,0,20" 
+        Background="White" Foreground="#0F458D" BorderBrush="LightGray" 
+        BorderThickness="1">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="{TemplateBinding BorderThickness}" 
+                    CornerRadius="5">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="OverridesDefaultStyle" Value="True"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="1" 
+                                CornerRadius="5" 
+                                Padding="10,0">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform x:Name="doneButtonScale" ScaleY="1" ScaleX="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="doneButtonScale"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     From="1" To="1.1"
+                                     Duration="0:0:0.2"
+                                     AutoReverse="True"/>
+                                    <DoubleAnimation Storyboard.TargetName="doneButtonScale"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     From="1" To="1.1"
+                                     Duration="0:0:0.2"
+                                     AutoReverse="True"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="doneButtonScale"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     From="1" To="0.9"
+                                     Duration="0:0:0.2"
+                                     AutoReverse="False"/>
+                                    <DoubleAnimation Storyboard.TargetName="doneButtonScale"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     From="1" To="0.9"
+                                     Duration="0:0:0.2"
+                                     AutoReverse="False"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="doneButtonScale"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     From="0.9" To="1"
+                                     Duration="0:0:0.2"
+                                     AutoReverse="False"/>
+                                    <DoubleAnimation Storyboard.TargetName="doneButtonScale"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     From="0.9" To="1"
+                                     Duration="0:0:0.2"
+                                     AutoReverse="False"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+
+
+
+            </StackPanel>
+            <!-- Bottom Text -->
+            <TextBlock Text="You almost there....please wait...." 
+Foreground="White" FontSize="12" HorizontalAlignment="Center" 
+Margin="0,692,0,66"/>
+        </Grid>
 
         <!-- Warning Overlay Grid -->
         <Grid x:Name="warningOverlayGrid" Visibility="Hidden" Background="#80000000" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
