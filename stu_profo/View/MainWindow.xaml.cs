@@ -95,10 +95,20 @@ namespace stu_profo
         private void Login(object sender, RoutedEventArgs e)
         {
             userController userCtn = new userController();
-            userCtn.validateUser(emailInput.Text,passwordInput.Text);
+            if (userCtn.validateUser(emailInput.Text, passwordInput.Text))
+            {
+                //blurScreen.Visibility = Visibility.Hidden;
+                signupScreen.Visibility = Visibility.Hidden;
+                desktop3.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                signupScreen.Visibility = Visibility.Hidden;
+                desktop3.Visibility = Visibility.Visible;
+                //blurScreen.Visibility = Visibility.Visible;
+            }
             System.Diagnostics.Debug.WriteLine("calling");
-            //signupScreen.Visibility= Visibility.Hidden;
-            //desktop3.Visibility= Visibility.Visible;
+
         }
     }
 }
