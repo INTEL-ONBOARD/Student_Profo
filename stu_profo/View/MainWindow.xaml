@@ -293,7 +293,7 @@
                         </StackPanel>
                     </Border>
 
-                    <Image Source="/View/loghead.png" Stretch="Fill" Margin="84,114,264,204" RenderTransformOrigin="0.315,0.373" Grid.Column="1" />
+                    <Image Source="/View/signuphead.png" Stretch="Fill" Margin="84,114,264,204" RenderTransformOrigin="0.315,0.373" Grid.Column="1" />
                 </Grid>
             </Border>
 
