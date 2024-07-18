@@ -266,7 +266,7 @@
 
 
 
-        <Grid x:Name="desktop3" Background="White" Margin="32,50,30,10" Visibility="Hidden">
+        <Grid x:Name="desktop3" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">
            
             <!-- Content here will use the specific background -->
             <Grid.ColumnDefinitions>
@@ -587,7 +587,7 @@
 
         </Grid>
 
-        <Grid x:Name="desktop4" Background="White" Margin="32,50,30,10" Visibility="Hidden">
+        <Grid x:Name="desktop4" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">
            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
