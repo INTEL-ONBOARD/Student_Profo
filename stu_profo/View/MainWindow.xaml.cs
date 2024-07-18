@@ -95,7 +95,7 @@ namespace stu_profo
         private void Login(object sender, RoutedEventArgs e)
         {
             userController userCtn = new userController();
-            userCtn.validateUser();
+            //userCtn.validateUser();
             System.Diagnostics.Debug.WriteLine("calling");
             //signupScreen.Visibility= Visibility.Hidden;
             //desktop3.Visibility= Visibility.Visible;
