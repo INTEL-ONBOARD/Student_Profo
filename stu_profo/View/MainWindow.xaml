@@ -38,7 +38,7 @@
         <Grid x:Name="loadingScreen" Margin="37,36,25,24" Visibility="Visible">
 
 
-            <Button x:Name="contBtn" Margin="622,451,621,243" Click="cont" RenderTransformOrigin="0.5,0.5" Background="Transparent" BorderThickness="0" Panel.ZIndex="3">
+            <Button x:Name="contBtn" Margin="607,451,619,236" Click="cont" RenderTransformOrigin="0.5,0.5" Background="Transparent" BorderThickness="0" Panel.ZIndex="3">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="1"/>
@@ -54,11 +54,17 @@
             </Button>
 
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="194" Width="314">
-                <TextBlock Text="NIBM" Foreground="White" FontSize="67" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10" FontFamily="Fonts/#YourCustomFontName"/>
+                <TextBlock Text="NIBM" Foreground="White" FontSize="67" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="0,0,0,10" FontFamily="Barlow">
+                    <TextBlock.RenderTransform>
+                        <SkewTransform AngleX="-5"/>
+                        <!-- Adjust the AngleX value to control the slant angle -->
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="Student Profo" Foreground="White" FontSize="30" FontWeight="Thin" HorizontalAlignment="Center" FontFamily="Fonts/#YourCustomFontName"/>
-                    <Border Background="White" CornerRadius="5" Padding="5,0,5,0" Margin="5,0,0,0" Width="57">
-                        <TextBlock Text="bro" Foreground="Blue" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Fonts/#YourCustomFontName" Height="26"/>
+                    <TextBlock Text="Student Profo" Foreground="White" FontSize="40" FontWeight="Thin" FontFamily="Barlow" Width="243"/>
+                    <Border Background="White" CornerRadius="10" Padding="5,0,5,0" Margin="5,0,0,0" Width="60" Height="29">
+                        <TextBlock Text="PRO" Foreground="#164381" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Center" FontFamily="Fonts/#YourCustomFontName" Height="26" Margin="0,3,0,-3"/>
                     </Border>
                 </StackPanel>
 
