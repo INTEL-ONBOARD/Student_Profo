@@ -107,8 +107,9 @@ namespace stu_profo
                 signupScreen.Visibility = Visibility.Visible;
                 desktop3.Visibility = Visibility.Hidden;
                 //blurScreen.Visibility = Visibility.Visible;
+                
             }
-            System.Diagnostics.Debug.WriteLine("calling");
+            System.Diagnostics.Debug.WriteLine("Login reqested!");
 
         }
     }
