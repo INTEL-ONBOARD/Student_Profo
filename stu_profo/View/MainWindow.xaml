@@ -29,10 +29,7 @@
             <Setter Property="BorderBrush" Value="DarkGray"/>
             <Setter Property="BorderThickness" Value="1"/>
         </Style>
-        <Geometry x:Key="BellIconGeometry">M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm4 11h-1v-1.09c0-.73-.22-1.41-.62-1.97L11.35 6h.65c.55 0 1-.45 1-1s-.45-1-1-1H6c-.55 0-1 .45-1 1s.45 1 1 1h.65L7.62 8.03c-.4.56-.62 1.24-.62 1.97V11H6c-.55 0-1 .45-1 1s.45 1 1 1h6c.55 0 1-.45 1-1s-.45-1-1-1zm-2 0H6v-1h4v1zm0-4V5c0-.55-.45-1-1-1s-1 .45-1 1v2h2z</Geometry>
-        <Geometry x:Key="GearIconGeometry">M10 20v-2H4v2H2v-2H0v-2h2v-1.27C.79 14.41 0 12.3 0 10s.79-4.41 2-5.73V3h2V1h2v2h6V1h2v2h2v1.27C19.21 5.59 20 7.7 20 10s-.79 4.41-2 5.73V18h-2v2h-2v-2H10zm-8-7.45c0 2.63 1.79 4.78 4.24 5.32V16h4.52v1.87C15.21 16.78 17 14.63 17 12s-1.79-4.78-4.24-5.32V4h-4.52v1.87C3.79 7.22 2 9.37 2 12zm14-.45h-2v-1h2v1z</Geometry>
-        <Geometry x:Key="ArrowIconGeometry">M10 20v-2H4v2H2v-2H0v-2h2v-1.27C.79 14.41 0 12.3 0 10s.79-4.41 2-5.73V3h2V1h2v2h6V1h2v2h2v1.27C19.21 5.59 20 7.7 20 10s-.79 4.41-2 5.73V18h-2v2h-2v-2H10zm-8-7.45c0 2.63 1.79 4.78 4.24 5.32V16h4.52v1.87C15.21 16.78 17 14.63 17 12s-1.79-4.78-4.24-5.32V4h-4.52v1.87C3.79 7.22 2 9.37 2 12zm14-.45h-2v-1h2v1z</Geometry>
-        <Geometry x:Key="GridIconGeometry">M10 20v-2H4v2H2v-2H0v-2h2v-1.27C.79 14.41 0 12.3 0 10s.79-4.41 2-5.73V3h2V1h2v2h6V1h2v2h2v1.27C19.21 5.59 20 7.7 20 10s-.79 4.41-2 5.73V18h-2v2h-2v-2H10zm-8-7.45c0 2.63 1.79 4.78 4.24 5.32V16h4.52v1.87C15.21 16.78 17 14.63 17 12s-1.79-4.78-4.24-5.32V4h-4.52v1.87C3.79 7.22 2 9.37 2 12zm14-.45h-2v-1h2v1z</Geometry>
+        
     </Window.Resources>
 
     <Grid Background="{Binding MainBackground}">
@@ -56,6 +53,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
+        
         <Grid x:Name="loadingScreen" Margin="37,36,25,24" Visibility="Visible">
 
 
@@ -312,9 +310,18 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
-            <Image Source="/View/image 42.png" Stretch="Fill" Margin="514,54,113,703" Grid.Column="1"/>
+            <Image Source="/View/image 42.png" Stretch="Fill" Margin="63,42,179,690" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="3.27"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0.943"/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
 
-            <Border Grid.Column="0" Margin="44,70,10,68" Background="#F5F5F5" CornerRadius="10">
+            <Border Grid.Column="0" Margin="44,122,10,68" Background="#F5F5F5" CornerRadius="10">
                 <StackPanel>
                     <!-- User Info Section -->
                     <StackPanel Orientation="Horizontal" Margin="10,30,10,10" Width="310" >
@@ -345,58 +352,9 @@
                                 <TextBlock Text="DSE231F/CO/Introduction to Computer Science"/>
                             </StackPanel>
                         </ListBoxItem>
-                        <ListBoxItem>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Content="A+" Width="32" Height="30" Background="#0F458D" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0">
-                                    <Button.Template>
-                                        <ControlTemplate TargetType="Button">
-                                            <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="5" Padding="5,0">
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Button.Template>
-                                </Button>
-                                <TextBlock Text="DSE231F/CO/Introduction to Computer Science"/>
-                            </StackPanel>
-                        </ListBoxItem>
-                        <!-- Repeat ListBoxItem for other courses -->
-                        <ListBoxItem>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Content="A+" Width="32" Height="30" Background="#0F458D" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0">
-                                    <Button.Template>
-                                        <ControlTemplate TargetType="Button">
-                                            <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="5" Padding="5,0">
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Button.Template>
-                                </Button>
-                                <TextBlock Text="DSE231F/CO/Introduction to Computer Science"/>
-                            </StackPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Content="A+" Width="32" Height="30" Background="#0F458D" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0">
-                                    <Button.Template>
-                                        <ControlTemplate TargetType="Button">
-                                            <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="5" Padding="5,0">
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Button.Template>
-                                </Button>
-                                <TextBlock Text="DSE231F/CO/Introduction to Computer Science"/>
-                            </StackPanel>
-                        </ListBoxItem>
+                       
+                       
+                      
                         <!-- Add more ListBoxItems as needed -->
                     </ListBox>
                 </StackPanel>
@@ -404,94 +362,153 @@
 
 
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="28,51,0,645" Grid.Column="1">
-                <Button Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="451,56,0,676" Width="58">
+                
+                <Button Width="40" Height="40" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="0">
                     <Button.Content>
-                        <Image Source="/View/homeicon.png" Stretch="Uniform"/>
-                    </Button.Content>
-                </Button>
-
-                <Button Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="1">
-                    <Button.Content>
-                        <Image Source="/View/bellicon.png" Stretch="Uniform"/>
-                    </Button.Content>
-                </Button>
-
-                <Button Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="0">
-                    <Button.Content>
-                        <Image Source="/View/gearicon.png" Stretch="Uniform"/>
+                        <Image Source="/View/backicon.png" Stretch="Uniform"/>
                     </Button.Content>
                 </Button>
 
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="688" Margin="18,145,0,603" Grid.Column="1">
-                <TextBox Width="254" Height="34" Margin="0,0,10,0">
-                    <TextBox.Style>
-                        <Style TargetType="TextBox">
-                            <Setter Property="Text" Value="Programme"/>
-                            <Setter Property="Foreground" Value="Gray"/>
-                            <Setter Property="BorderBrush" Value="Gray"/>
-                            <Setter Property="Background" Value="White"/>
-                            <Setter Property="Padding" Value="5"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="715" Margin="510,67,0,681" Grid.ColumnSpan="2">
+                <!-- Programme ComboBox -->
+                <ComboBox Width="288" Height="34" Margin="0,0,10,0" Tag="Programme">
+                    <ComboBox.Style>
+                        <Style TargetType="ComboBox">
                             <Setter Property="Template">
                                 <Setter.Value>
-                                    <ControlTemplate TargetType="TextBox">
-                                        <Border Background="{TemplateBinding Background}" 
-                                    BorderBrush="{TemplateBinding BorderBrush}" 
-                                    BorderThickness="1" 
-                                    CornerRadius="7">
-                                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
-                                        </Border>
+                                    <ControlTemplate TargetType="ComboBox">
+                                        <Grid>
+                                            <Border x:Name="Border" Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="7">
+                                                <Grid>
+                                                    <TextBlock x:Name="Placeholder" Text="Programme" Foreground="Gray" Margin="5,0,25,0" VerticalAlignment="Center"/>
+                                                    <ToggleButton x:Name="ToggleButton" Focusable="False" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center" Width="20" Height="20">
+                                                        <Path x:Name="Arrow" Data="M 0 0 L 4 4 L 8 0 Z" Fill="Gray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </ToggleButton>
+                                                    <ContentPresenter x:Name="ContentSite" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" Content="{TemplateBinding SelectionBoxItem}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,25,0" />
+                                                </Grid>
+                                            </Border>
+                                            <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" Focusable="False" PopupAnimation="Slide">
+                                                <Grid x:Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                                    <Border x:Name="DropDownBorder" Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="7">
+                                                        <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                                            <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                                        </ScrollViewer>
+                                                    </Border>
+                                                </Grid>
+                                            </Popup>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="HasItems" Value="false">
+                                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                                            </Trigger>
+                                            <Trigger Property="IsGrouping" Value="true">
+                                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                                            </Trigger>
+                                            <Trigger SourceName="ToggleButton" Property="ToggleButton.IsChecked" Value="true">
+                                                <Setter TargetName="ContentSite" Property="Visibility" Value="Collapsed"/>
+                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Collapsed"/>
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="false">
+                                                <Setter Property="Foreground" Value="Gray"/>
+                                            </Trigger>
+                                            <DataTrigger Binding="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" Value="{x:Null}">
+                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" Value="">
+                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </ControlTemplate.Triggers>
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsKeyboardFocused" Value="True">
-                                    <Setter Property="Foreground" Value="Black"/>
-                                    <Setter Property="Text" Value=""/>
-                                </Trigger>
-                            </Style.Triggers>
                         </Style>
-                    </TextBox.Style>
-                </TextBox>
-                <TextBox Width="346" Height="34" Margin="0,0,10,0">
-                    <TextBox.Style>
-                        <Style TargetType="TextBox">
-                            <Setter Property="Text" Value="Batch"/>
-                            <Setter Property="Foreground" Value="Gray"/>
-                            <Setter Property="BorderBrush" Value="Gray"/>
-                            <Setter Property="Background" Value="White"/>
-                            <Setter Property="Padding" Value="5"/>
+                    </ComboBox.Style>
+                    <ComboBoxItem Content="Programme 1"/>
+                    <ComboBoxItem Content="Programme 2"/>
+                    <ComboBoxItem Content="Programme 3"/>
+                </ComboBox>
+
+                <!-- Batch ComboBox -->
+                <ComboBox Width="346" Height="34" Margin="0,0,10,0" Tag="Batch">
+                    <ComboBox.Style>
+                        <Style TargetType="ComboBox">
                             <Setter Property="Template">
                                 <Setter.Value>
-                                    <ControlTemplate TargetType="TextBox">
-                                        <Border Background="{TemplateBinding Background}" 
-                                    BorderBrush="{TemplateBinding BorderBrush}" 
-                                    BorderThickness="1" 
-                                    CornerRadius="7">
-                                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
-                                        </Border>
+                                    <ControlTemplate TargetType="ComboBox">
+                                        <Grid>
+                                            <Border x:Name="Border" Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="7">
+                                                <Grid>
+                                                    <TextBlock x:Name="Placeholder" Text="Batch" Foreground="Gray" Margin="5,0,25,0" VerticalAlignment="Center"/>
+                                                    <ToggleButton x:Name="ToggleButton" Focusable="False" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center" Width="20" Height="20">
+                                                        <Path x:Name="Arrow" Data="M 0 0 L 4 4 L 8 0 Z" Fill="Gray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </ToggleButton>
+                                                    <ContentPresenter x:Name="ContentSite" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" Content="{TemplateBinding SelectionBoxItem}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,25,0" />
+                                                </Grid>
+                                            </Border>
+                                            <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" Focusable="False" PopupAnimation="Slide">
+                                                <Grid x:Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                                    <Border x:Name="DropDownBorder" Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="7">
+                                                        <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                                            <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                                        </ScrollViewer>
+                                                    </Border>
+                                                </Grid>
+                                            </Popup>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="HasItems" Value="false">
+                                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                                            </Trigger>
+                                            <Trigger Property="IsGrouping" Value="true">
+                                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                                            </Trigger>
+                                            <Trigger SourceName="ToggleButton" Property="ToggleButton.IsChecked" Value="true">
+                                                <Setter TargetName="ContentSite" Property="Visibility" Value="Collapsed"/>
+                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Collapsed"/>
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="false">
+                                                <Setter Property="Foreground" Value="Gray"/>
+                                            </Trigger>
+                                            <DataTrigger Binding="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" Value="{x:Null}">
+                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" Value="">
+                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </ControlTemplate.Triggers>
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsKeyboardFocused" Value="True">
-                                    <Setter Property="Foreground" Value="Black"/>
-                                    <Setter Property="Text" Value=""/>
-                                </Trigger>
-                            </Style.Triggers>
                         </Style>
-                    </TextBox.Style>
-                </TextBox>
-                <Button Width="40" Height="40" Margin="10,0,0,0" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0">
+                    </ComboBox.Style>
+                    <ComboBoxItem Content="Batch 1"/>
+                    <ComboBoxItem Content="Batch 2"/>
+                    <ComboBoxItem Content="Batch 3"/>
+                </ComboBox>
+
+                <!-- Search Button -->
+                <Button Width="40" Height="40" Margin="10,0,0,0" Grid.Row="0" Grid.Column="0">
                     <Button.Content>
-                        <Image Source="/View/serchicon.png" Stretch="Uniform"/>
+                        <Image Source="/View/searchicon.png" Stretch="Uniform"/>
                     </Button.Content>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        CornerRadius="7">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
                 </Button>
             </StackPanel>
 
-            <Border Grid.Column="1" Margin="10,201,113,68" Background="#FFFFFF" CornerRadius="20">
+
+            <Border Grid.Column="1" Margin="10,122,113,68" Background="#FFFFFF" CornerRadius="20">
                 <StackPanel>
                     <Border Background="#F0F4F8" CornerRadius="10" Margin="10" Width="733">
                         <Grid>
@@ -649,7 +666,7 @@
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-            <Image Source="/View/image 42.png" Stretch="Fill" Margin="514,54,113,703" Grid.Column="1"/>
+            <Image Source="/View/image 42.png" Stretch="Fill" Margin="449,357,113,390" Grid.Column="1"/>
             <!-- Left side content -->
             <Border Grid.Column="0" Margin="44,42,10,50" CornerRadius="10">
                 <Grid>

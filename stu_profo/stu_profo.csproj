@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="View\BackgroundImage.png" />
+    <None Remove="View\backicon.png" />
     <None Remove="View\bellicon.png" />
     <None Remove="View\boxicon.png" />
     <None Remove="View\button.png" />
@@ -38,6 +39,7 @@
 
   <ItemGroup>
     <Resource Include="View\BackgroundImage.png" />
+    <Resource Include="View\backicon.png" />
     <Resource Include="View\bellicon.png" />
     <Resource Include="View\boxicon.png" />
     <Resource Include="View\button.png" />
