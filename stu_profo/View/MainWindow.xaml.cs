@@ -74,6 +74,8 @@ namespace stu_profo
             if (validateLoad())
             {
                 statusLabel.Content = "Checking done";
+               loadingImage.Visibility = Visibility.Visible;
+
                 System.Diagnostics.Debug.WriteLine("Connection success!");
 
                 await Task.Delay(3000);
