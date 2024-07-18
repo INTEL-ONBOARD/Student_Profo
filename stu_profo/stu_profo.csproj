@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <None Remove="View\button.png" />
+    <None Remove="View\loadinglogo2.png" />
+    <None Remove="View\NIBM.png" />
     <None Remove="View\SignupImage.png" />
     <None Remove="View\tenor.gif" />
   </ItemGroup>
@@ -26,6 +28,8 @@
 
   <ItemGroup>
     <Resource Include="View\button.png" />
+    <Resource Include="View\loadinglogo2.png" />
+    <Resource Include="View\NIBM.png" />
     <Resource Include="View\SignupImage.png" />
     <Resource Include="View\tenor.gif" />
   </ItemGroup>
