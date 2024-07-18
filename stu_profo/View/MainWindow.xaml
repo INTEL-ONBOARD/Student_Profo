@@ -52,7 +52,7 @@
             </Button.Template>
         </Button>
 
-        <Grid x:Name="loadingScreen" Margin="37,36,25,24" Visibility="Hidden">
+        <Grid x:Name="loadingScreen" Margin="37,36,25,24" Visibility="Visible">
 
 
             <Button x:Name="contBtn" Margin="607,451,619,236" Click="cont" RenderTransformOrigin="0.5,0.5" Background="Transparent" BorderThickness="0" Panel.ZIndex="3" Focusable="False">
@@ -159,7 +159,7 @@
 
 
 
-        <Grid x:Name="signupScreen" Margin="32,50,30,40" Visibility="Visible">
+        <Grid x:Name="signupScreen" Margin="32,50,30,40" Visibility="Hidden">
 
             <Border Margin="246,54,244,50" BorderBrush="White" BorderThickness="2" CornerRadius="10">
                 <Grid Margin="20,40,20,20">
