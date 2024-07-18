@@ -31,7 +31,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Grid x:Name="loadingScreen" Margin="37,36,25,24" Visibility="Hidden" Grid.ColumnSpan="2">
+        <Grid x:Name="loadingScreen" Margin="37,36,25,24" Visibility="Visible" Grid.ColumnSpan="2">
 
             <Image Margin="596,335,605,413" Source="/View/NIBM.png" Stretch="Fill"/>
             <Image Margin="547,395,537,359" Source="/View/loadinglogo2.png" Stretch="Fill"/>
@@ -61,7 +61,7 @@
         </Grid>
 
 
-        <Grid x:Name="signupScreen" Margin="32,50,30,40" Visibility="Visible">
+        <Grid x:Name="signupScreen" Margin="32,50,30,40" Visibility="Hidden">
             <Border Margin="246,54,244,50" BorderBrush="White" BorderThickness="2" CornerRadius="10">
                 <Grid Margin="20,40,20,20">
                     <Grid.RowDefinitions>
