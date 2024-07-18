@@ -95,6 +95,7 @@ namespace stu_profo
         private void Login(object sender, RoutedEventArgs e)
         {
             userController userCtn = new userController();
+            System.Diagnostics.Debug.WriteLine(emailInput.Text + passwordInput.Text);
             if (userCtn.validateUser(emailInput.Text, passwordInput.Text))
             {
                 //blurScreen.Visibility = Visibility.Hidden;
@@ -103,8 +104,8 @@ namespace stu_profo
             }
             else
             {
-                signupScreen.Visibility = Visibility.Hidden;
-                desktop3.Visibility = Visibility.Visible;
+                signupScreen.Visibility = Visibility.Visible;
+                desktop3.Visibility = Visibility.Hidden;
                 //blurScreen.Visibility = Visibility.Visible;
             }
             System.Diagnostics.Debug.WriteLine("calling");
