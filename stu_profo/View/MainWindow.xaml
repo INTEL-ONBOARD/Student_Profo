@@ -7,6 +7,27 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="850" Width="1400"
         WindowStyle="None"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{x:Null}">
+    <Window.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="15"
+                                Width="{TemplateBinding Width}"
+                                Height="{TemplateBinding Height}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="DarkGray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </Window.Resources>
     <Grid Background="Transparent">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -21,7 +42,7 @@
                     <GradientStop Color="#0C3771" Offset="1.0"/>
                 </RadialGradientBrush>
             </Border.Background>
-            
+
         </Border>
         <Button Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" Click="CloseButton_Click" BorderBrush="#FF707070" Background="White">
             <Button.Template>
@@ -48,6 +69,11 @@
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                        </Style.Triggers>
                     </Style>
                 </Button.Style>
                 <Button.RenderTransform>
@@ -63,20 +89,37 @@
                         <BeginStoryboard>
                             <Storyboard>
                                 <DoubleAnimation Storyboard.TargetName="buttonScale"
-                                     Storyboard.TargetProperty="ScaleX"
-                                     From="1" To="1.2"
-                                     Duration="0:0:0.2"
-                                     AutoReverse="True"/>
+                         Storyboard.TargetProperty="ScaleX"
+                         From="1" To="1.2"
+                         Duration="0:0:0.2"
+                         AutoReverse="True"/>
                                 <DoubleAnimation Storyboard.TargetName="buttonScale"
-                                     Storyboard.TargetProperty="ScaleY"
-                                     From="1" To="1.2"
-                                     Duration="0:0:0.2"
-                                     AutoReverse="True"/>
+                         Storyboard.TargetProperty="ScaleY"
+                         From="1" To="1.2"
+                         Duration="0:0:0.2"
+                         AutoReverse="True"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Button.MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="buttonScale"
+                         Storyboard.TargetProperty="ScaleX"
+                         From="1" To="1.2"
+                         Duration="0:0:0.2"
+                         AutoReverse="True"/>
+                                <DoubleAnimation Storyboard.TargetName="buttonScale"
+                         Storyboard.TargetProperty="ScaleY"
+                         From="1" To="1.2"
+                         Duration="0:0:0.2"
+                         AutoReverse="True"/>
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
                 </Button.Triggers>
             </Button>
+
 
 
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="194" Width="314">
@@ -145,20 +188,74 @@
     <Run Text="Don't have an account? " Foreground="Gray" />
     <Run Text="Click here to register" Foreground="Black" FontWeight="Bold"/>
                             </TextBlock>
-
-                            <Button x:Name="loginBtn" Cursor="Hand" Content="Login" Background="#0F458D" Foreground="White" Height="40" Margin="0,20,0,10" Click="Login">
-                                <Button.Template>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}" 
-                            BorderBrush="{TemplateBinding BorderBrush}" 
-                            BorderThickness="1" 
-                            CornerRadius="5" 
-                            Padding="10,0">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Button.Template>
+                            <Button x:Name="loginBtn" Content="Login" Background="#0F458D" Foreground="White" Height="40" Margin="0,20,0,10" Click="Login" RenderTransformOrigin="0.5,0.5" BorderThickness="0" Focusable="False">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="1" 
+                                CornerRadius="5" 
+                                Padding="10,0">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Cursor" Value="Hand"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform x:Name="loginButtonScale" ScaleY="1" ScaleX="1"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Button.RenderTransform>
+                                <Button.Triggers>
+                                    <EventTrigger RoutedEvent="Button.Click">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="loginButtonScale"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     From="1" To="1.1"
+                                     Duration="0:0:0.2"
+                                     AutoReverse="True"/>
+                                                <DoubleAnimation Storyboard.TargetName="loginButtonScale"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     From="1" To="1.1"
+                                     Duration="0:0:0.2"
+                                     AutoReverse="True"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="Button.MouseEnter">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="loginButtonScale"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     From="1" To="1.1"
+                                     Duration="0:0:0.2"
+                                     AutoReverse="True"/>
+                                                <DoubleAnimation Storyboard.TargetName="loginButtonScale"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     From="1" To="1.1"
+                                     Duration="0:0:0.2"
+                                     AutoReverse="True"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Button.Triggers>
                             </Button>
+
                         </StackPanel>
                     </Border>
                     <Image Grid.Column="1" Margin="85,118,259,196" Source="/View/signuphead.png" Stretch="Fill"/>
@@ -402,7 +499,144 @@
 
         </Grid>
 
-        <Grid x:Name="Blured">
+        <Grid x:Name="desktop4" Background="#0C3771" Margin="32,50,30,10" Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left side content -->
+            <Border Grid.Column="0" Margin="44,42,10,50" CornerRadius="10">
+                <Grid>
+                    <!-- Background Image -->
+                    <Image Source="/View/BackgroundImage.png" Stretch="Fill"/>
+                    <!-- Replace with your actual background image path -->
+
+                    <Border Background="White" CornerRadius="15" Margin="10">
+                        <Canvas>
+                            <!-- Container for the adjustable StackPanel -->
+                            <StackPanel Orientation="Horizontal" Canvas.Left="54" Canvas.Top="61" HorizontalAlignment="Left" VerticalAlignment="Center" Width="376" Height="70">
+                                <Ellipse Width="50" Height="50">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="/View/button.png"/>
+                                        <!-- Replace with your actual image path -->
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock Text="DSE231F/CO" FontSize="12" FontWeight="Light" Foreground="Black" FontFamily="Open Sans"/>
+                                    <TextBlock Text="CODSE231F-055" FontSize="20" FontWeight="DemiBold" Foreground="Black" FontFamily="Open Sans" Width="167"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Canvas>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <!-- Right side empty border -->
+            <Border Grid.Column="1" Margin="18,56,466,66" CornerRadius="10" Background="#F3F3F3">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,46,0,0" Height="583">
+                    <!-- Academic Card -->
+                    <Border Background="#2196F3" CornerRadius="10" Margin="0,10" Padding="10" Height="120">
+                        <Grid>
+                            <!-- Content Overlay -->
+                            <StackPanel>
+                                <TextBlock Text="Academic" Foreground="White" FontSize="15" FontWeight="SemiBold"/>
+                                <Grid HorizontalAlignment="Right">
+                                    <TextBlock Text="GPA" Foreground="White" FontSize="25" FontWeight="DemiBold" Margin="-17,15,17,-15"/>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Ellipse in Lower Left Corner -->
+                            <Canvas HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10">
+                                <Ellipse Width="50" Height="50" Fill="Transparent" Stroke="White" StrokeThickness="3" HorizontalAlignment="Center" Canvas.Top="-44" VerticalAlignment="Top" Canvas.Left="-7"/>
+                                <TextBlock Text="75%" Foreground="White" FontSize="10" FontWeight="Bold" Canvas.Left="7" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="-26"/>
+                            </Canvas>
+                        </Grid>
+                    </Border>
+
+                    <!-- Skill Card -->
+                    <Border Background="#4CAF50" CornerRadius="10" Margin="0,10" Padding="10" Height="120">
+                        <Grid>
+                            <!-- Content Overlay -->
+                            <StackPanel>
+                                <TextBlock Text="Skill" Foreground="White" FontSize="15" FontWeight="SemiBold"/>
+                                <Grid HorizontalAlignment="Right">
+                                    <TextBlock Text="PRE" Foreground="White" FontSize="25" FontWeight="DemiBold" Margin="-33,17,19,-17"/>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Ellipse in Lower Left Corner -->
+                            <Canvas HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10">
+                                <Ellipse Width="50" Height="50" Fill="Transparent" Stroke="White" StrokeThickness="3" HorizontalAlignment="Center" Canvas.Top="-43" VerticalAlignment="Top" Canvas.Left="-4"/>
+                                <TextBlock Text="25%" Foreground="White" FontSize="10" FontWeight="Bold" Canvas.Left="11" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="-25"/>
+                            </Canvas>
+                        </Grid>
+                    </Border>
+
+                    <!-- Stats Card -->
+                    <Border Background="White" CornerRadius="10" Margin="0,10" Padding="10" Width="200" Height="242">
+                        <StackPanel HorizontalAlignment="Center" Width="180">
+                            <TextBlock Text="Your stats" Foreground="Black" FontSize="20" FontWeight="Light" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Servies Time" Foreground="Black" FontSize="10" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+                            <TextBlock Text="From 1-6 Dec, 2021" Foreground="Gray" FontSize="10" HorizontalAlignment="Center"/>
+                            <Grid Margin="10">
+                                <!-- Placeholder for circular chart -->
+                                <Ellipse Width="100" Height="100" Fill="#E1E1E1"/>
+                            </Grid>
+                            <Button Content="View Report" Background="#E1E1E1" Foreground="BlueViolet" BorderThickness="0" Width="100" Margin="10">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="0" 
+                                CornerRadius="5" Padding="10,2">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <!-- Last StackPanel with adjustable content -->
+            <StackPanel HorizontalAlignment="Left" Margin="380,324,0,38" Grid.Column="1" Width="389">
+                <Canvas>
+                    <Grid Canvas.Left="2" Canvas.Top="94" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Content="🔔" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0"/>
+                        <Button Content="⚙" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="1"/>
+                        <Button Content="🔔" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="0"/>
+                        <Button x:Name="showinfo" Content="⚙" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="1" Click="showinfo_Click"/>
+                    </Grid>
+
+                    <!-- First Card -->
+                    <Border Background="#E3F2FD" CornerRadius="15" Padding="10" Width="121" Height="132" Canvas.Left="137" Canvas.Top="86" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <StackPanel>
+                            <TextBlock Text="I" Foreground="#2196F3" FontSize="24" FontWeight="Bold"/>
+                            <TextBlock Text="30%" Foreground="#2196F3" FontSize="24" FontWeight="Bold"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Second Card -->
+                    <Border Background="#3C3F41" CornerRadius="15" Padding="10" Width="255" Height="150" Canvas.Left="7" Canvas.Top="230" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <!-- Add your content here -->
+                    </Border>
+                </Canvas>
+            </StackPanel>
+        </Grid>
+
+
+        <Grid x:Name="Blured" Background="#0C3771" Margin="32,50,30,10" Visibility="Hidden">
 
         </Grid>
 

@@ -100,7 +100,7 @@ namespace stu_profo
             {
                 //blurScreen.Visibility = Visibility.Hidden;
                 signupScreen.Visibility = Visibility.Hidden;
-                desktop3.Visibility = Visibility.Visible;
+                desktop4.Visibility = Visibility.Visible;
             }
             else
             {
@@ -110,6 +110,12 @@ namespace stu_profo
             }
             System.Diagnostics.Debug.WriteLine("calling");
 
+        }
+
+        private void showinfo_Click(object sender, RoutedEventArgs e)
+        {
+            desktop4.Visibility = Visibility.Hidden;
+            desktop3.Visibility = Visibility.Visible;
         }
     }
 }
