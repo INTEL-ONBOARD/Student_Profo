@@ -36,7 +36,7 @@
             </Button.Template>
         </Button>
         <Grid x:Name="loadingScreen" Margin="37,36,25,24" Visibility="Visible">
-            
+
 
             <Button x:Name="contBtn" Margin="622,451,621,243" Click="cont" RenderTransformOrigin="0.5,0.5" Background="Transparent" BorderThickness="0" Panel.ZIndex="3">
                 <Button.RenderTransform>
@@ -53,12 +53,12 @@
                 </Border>
             </Button>
 
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="NIBM" Foreground="White" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10" FontFamily="Fonts/#YourCustomFontName"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="194" Width="314">
+                <TextBlock Text="NIBM" Foreground="White" FontSize="67" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10" FontFamily="Fonts/#YourCustomFontName"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="Student Profo" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Fonts/#YourCustomFontName"/>
-                    <Border Background="White" CornerRadius="5" Padding="5,0,5,0" Margin="5,0,0,0">
-                        <TextBlock Text="PRO" Foreground="Black" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Fonts/#YourCustomFontName"/>
+                    <TextBlock Text="Student Profo" Foreground="White" FontSize="30" FontWeight="Thin" HorizontalAlignment="Center" FontFamily="Fonts/#YourCustomFontName"/>
+                    <Border Background="White" CornerRadius="5" Padding="5,0,5,0" Margin="5,0,0,0" Width="57">
+                        <TextBlock Text="bro" Foreground="Blue" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Fonts/#YourCustomFontName" Height="26"/>
                     </Border>
                 </StackPanel>
 
@@ -371,7 +371,7 @@
         </Grid>
 
         <Grid x:Name="Blured">
-            
+
         </Grid>
 
     </Grid>
