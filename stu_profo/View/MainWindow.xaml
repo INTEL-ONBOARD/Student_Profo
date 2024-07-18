@@ -276,43 +276,88 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
-            <Image Source="/View/image 42.png" Stretch="Fill" Margin="610,54,17,703" Grid.Column="1"/>
+            <Image Source="/View/image 42.png" Stretch="Fill" Margin="514,54,113,703" Grid.Column="1"/>
 
-            <Border Grid.Column="0" Margin="10,70,10,68" Background="#F5F5F5" CornerRadius="10">
+            <Border Grid.Column="0" Margin="44,70,10,68" Background="#F5F5F5" CornerRadius="10">
                 <StackPanel>
                     <!-- User Info Section -->
-                    <StackPanel Orientation="Horizontal" Margin="10">
+                    <StackPanel Orientation="Horizontal" Margin="10,30,10,10" Width="310" >
+                        <!-- Adjusted Margin -->
                         <Ellipse Width="50" Height="50" Fill="LightGray"/>
-                        <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
-                            <TextBlock Text="DSE231F/CO" FontSize="12" FontWeight="Bold"/>
-                            <TextBlock Text="CODSE231F-055" FontSize="16" FontWeight="Bold"/>
+                        <StackPanel Margin="10,0,0,0" VerticalAlignment="Center" >
+                            <TextBlock Text="DSE231F/CO" FontSize="12" FontWeight="Light" FontFamily="Open Sans"/>
+                            <TextBlock Text="CODSE231F-055" FontSize="24" FontWeight="DemiBold" FontFamily="Open Sans"/>
                         </StackPanel>
                     </StackPanel>
 
                     <!-- Course List Section -->
-                    <ListBox Margin="10" BorderThickness="0">
+                    <ListBox Margin="10" BorderThickness="0" Background="#F5F5F5">
                         <ListBoxItem>
                             <StackPanel Orientation="Horizontal">
-                                <Button Content="A+" Width="30" Height="30" Background="#3A7FD5" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0"/>
+                                <Button Content="A+" Width="32" Height="30" Background="#0F458D" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5" Padding="5,0">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
                                 <TextBlock Text="DSE231F/CO/Introduction to Computer Science"/>
                             </StackPanel>
                         </ListBoxItem>
                         <ListBoxItem>
                             <StackPanel Orientation="Horizontal">
-                                <Button Content="A+" Width="30" Height="30" Background="#3A7FD5" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0"/>
+                                <Button Content="A+" Width="32" Height="30" Background="#0F458D" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5" Padding="5,0">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
                                 <TextBlock Text="DSE231F/CO/Introduction to Computer Science"/>
                             </StackPanel>
                         </ListBoxItem>
                         <!-- Repeat ListBoxItem for other courses -->
                         <ListBoxItem>
                             <StackPanel Orientation="Horizontal">
-                                <Button Content="A+" Width="30" Height="30" Background="#3A7FD5" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0"/>
+                                <Button Content="A+" Width="32" Height="30" Background="#0F458D" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5" Padding="5,0">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
                                 <TextBlock Text="DSE231F/CO/Introduction to Computer Science"/>
                             </StackPanel>
                         </ListBoxItem>
                         <ListBoxItem>
                             <StackPanel Orientation="Horizontal">
-                                <Button Content="A+" Width="30" Height="30" Background="#3A7FD5" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0"/>
+                                <Button Content="A+" Width="32" Height="30" Background="#0F458D" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5" Padding="5,0">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
                                 <TextBlock Text="DSE231F/CO/Introduction to Computer Science"/>
                             </StackPanel>
                         </ListBoxItem>
@@ -321,15 +366,17 @@
                 </StackPanel>
             </Border>
 
+
+
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="28,51,0,645" Grid.Column="1">
                 <Button Content="🏠" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0"/>
                 <Button Content="🔔" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0"/>
                 <Button Content="⚙" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0"/>
-               
+
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="769" Margin="0,145,0,603" Grid.Column="1">
-                <TextBox Width="309" Height="34" Margin="0,0,10,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="688" Margin="18,145,0,603" Grid.Column="1">
+                <TextBox Width="254" Height="34" Margin="0,0,10,0">
                     <TextBox.Style>
                         <Style TargetType="TextBox">
                             <Setter Property="Text" Value="Programme"/>
@@ -358,7 +405,7 @@
                         </Style>
                     </TextBox.Style>
                 </TextBox>
-                <TextBox Width="388" Height="34" Margin="0,0,10,0">
+                <TextBox Width="346" Height="34" Margin="0,0,10,0">
                     <TextBox.Style>
                         <Style TargetType="TextBox">
                             <Setter Property="Text" Value="Batch"/>
@@ -390,41 +437,43 @@
                 <Button Content="🔍" Background="White" Width="40" Height="40" Margin="10,0,0,0" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0"/>
             </StackPanel>
 
-
-            <Border Grid.Column="1" Margin="10,201,10,68" Background="#FFFFFF" CornerRadius="10">
+            <Border Grid.Column="1" Margin="10,201,113,68" Background="#FFFFFF" CornerRadius="20">
                 <StackPanel>
-                    <Grid Background="#F0F4F8" Margin="10">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
+                    <Border Background="#F0F4F8" CornerRadius="10" Margin="10" Width="733">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
 
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <Ellipse Width="40" Height="40" Fill="LightGray"/>
-                            <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
-                                <TextBlock Text="Diploma in Software Engineering" FontSize="20" FontWeight="DemiBold"/>
-                                <TextBlock Text="DSE231F/CO " FontSize="14" FontWeight="Light"/>
-                                <TextBlock Text="CODSE231F-055" FontSize="16" FontWeight="Bold"/>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Ellipse Width="48" Height="48" Fill="LightGray" Margin="20,0,0,0"/>
+                                <StackPanel Margin="20,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock Text="Diploma in Software Engineering" FontSize="20" FontWeight="DemiBold"/>
+                                    <TextBlock Text="DSE231F/CO " FontSize="14" FontWeight="Light"/>
+                                    <TextBlock Text="CODSE231F-055" FontSize="16" FontWeight="Bold"/>
+                                </StackPanel>
                             </StackPanel>
-                        </StackPanel>
 
-                        <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Bottom" Margin="10,0,0,0">
-                            <Button Content="Select" Width="73" Height="23" Margin="0,0,0,10" Background="White" Foreground="LightBlue" BorderBrush="LightBlue" BorderThickness="1">
-                                <Button.Template>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="5" Padding="5,0">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
-                        </StackPanel>
-                    </Grid>
+                            <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,0">
+                                <Button Content="Select" Width="73" Height="23" Margin="0,0,0,10" Background="White" Foreground="#1a4e96" BorderBrush="LightBlue" BorderThickness="1">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="5" Padding="5,0">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
                 </StackPanel>
             </Border>
+
 
         </Grid>
 
@@ -545,7 +594,7 @@
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-            <Image Source="/View/image 42.png" Stretch="Fill" Margin="610,54,17,703" Grid.Column="1"/>
+            <Image Source="/View/image 42.png" Stretch="Fill" Margin="514,54,113,703" Grid.Column="1"/>
             <!-- Left side content -->
             <Border Grid.Column="0" Margin="44,42,10,50" CornerRadius="10">
                 <Grid>
@@ -553,7 +602,7 @@
                     <Image Source="/View/BackgroundImage.png" Stretch="Fill"/>
                     <!-- Replace with your actual background image path -->
 
-                    <Border Background="White" CornerRadius="15" Margin="10">
+                    <Border Background="White" CornerRadius="15" Margin="10,10,-14,10">
                         <Canvas>
                             <!-- Container for the adjustable StackPanel -->
                             <StackPanel Orientation="Horizontal" Canvas.Left="54" Canvas.Top="61" HorizontalAlignment="Left" VerticalAlignment="Center" Width="376" Height="70">
@@ -574,7 +623,7 @@
             </Border>
 
             <!-- Right side empty border -->
-            <Border Grid.Column="1" Margin="18,56,466,66" CornerRadius="10" Background="#F3F3F3">
+            <Border Grid.Column="1" Margin="44,56,402,66" CornerRadius="10" Background="#F3F3F3">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,46,0,0" Height="583">
                     <!-- Academic Card -->
                     <Border Background="#2196F3" CornerRadius="10" Margin="0,10" Padding="10" Height="120">
@@ -644,7 +693,7 @@
             <!-- Last StackPanel with adjustable content -->
             <StackPanel HorizontalAlignment="Left" Margin="380,324,0,38" Grid.Column="1" Width="389">
                 <Canvas>
-                    <Grid Canvas.Left="2" Canvas.Top="94" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Grid Canvas.Left="60" Canvas.Top="94" HorizontalAlignment="Left" VerticalAlignment="Center">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
@@ -661,7 +710,7 @@
                     </Grid>
 
                     <!-- First Card -->
-                    <Border Background="#E3F2FD" CornerRadius="15" Padding="10" Width="121" Height="132" Canvas.Left="137" Canvas.Top="86" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Border Background="#E3F2FD" CornerRadius="15" Padding="10" Width="121" Height="132" Canvas.Left="197" Canvas.Top="86" HorizontalAlignment="Left" VerticalAlignment="Center">
                         <StackPanel>
                             <TextBlock Text="I" Foreground="#2196F3" FontSize="24" FontWeight="Bold"/>
                             <TextBlock Text="30%" Foreground="#2196F3" FontSize="24" FontWeight="Bold"/>
@@ -669,7 +718,7 @@
                     </Border>
 
                     <!-- Second Card -->
-                    <Border Background="#3C3F41" CornerRadius="15" Padding="10" Width="255" Height="150" Canvas.Left="7" Canvas.Top="230" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Border Background="#3C3F41" CornerRadius="15" Padding="10" Width="255" Height="150" Canvas.Left="63" Canvas.Top="230" HorizontalAlignment="Left" VerticalAlignment="Center">
                         <!-- Add your content here -->
                     </Border>
                 </Canvas>
