@@ -364,11 +364,12 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="451,56,0,676" Width="58">
 
-                <Button Width="40" Height="40" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="0">
+                <Button x:Name="StViewbackbutton" Width="40" Height="40" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="0" Click="StViewbackbutton_Click">
                     <Button.Content>
                         <Image Source="/View/backicon.png" Stretch="Uniform"/>
                     </Button.Content>
                 </Button>
+
 
             </StackPanel>
 
@@ -793,7 +794,7 @@
                             </Button.Content>
                         </Button>
 
-                        <Button Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="0">
+                        <Button x:Name="logoutbtn" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="0" Click="logoutbtnClick">
                             <Button.Content>
                                 <Image Source="/View/exiticon.png" Stretch="Uniform"/>
                             </Button.Content>

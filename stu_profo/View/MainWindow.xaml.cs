@@ -101,7 +101,39 @@ namespace stu_profo
         {
             // Trigger binding update
         }
+        private void StViewbackbutton_Click(object sender, RoutedEventArgs e)
+        {
+            // Hide the student view and show the home view
+            studentview.Visibility = Visibility.Hidden;
+            home.Visibility = Visibility.Visible;
 
+            MainBackground = Brushes.White;
+            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
+            // Optionally, reset the background if needed
+
+        }
+        private void logoutbtnClick(object sender, RoutedEventArgs e)
+        {
+            // Hide the student view and show the home view
+          
+            home.Visibility = Visibility.Hidden;
+            signupScreen.Visibility = Visibility.Visible;
+            MainBackground = new RadialGradientBrush
+            {
+                GradientOrigin = new Point(0.5, 0.5),
+                Center = new Point(0.5, 0.5),
+                RadiusX = 0.5,
+                RadiusY = 0.5,
+                GradientStops = new GradientStopCollection
+                {
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#1a4e96"), 0.0),
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#164381"), 0.7),
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#0C3771"), 1.0)
+                }
+            };
+            MainBackgroundImage = null; 
+
+        }
         private async void cont(object sender, RoutedEventArgs e)
         {
             statusLabel.Content = "Checking....";
