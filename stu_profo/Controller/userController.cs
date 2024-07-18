@@ -12,7 +12,8 @@
             public static void validateUser()
             {
                 engine en = new engine();
-                var dataset = en.getDump("https://www.nibmworldwide.com/", "exams/mis");
+                en.dumpProgrammes();
+                //var dataset = en.getDump("https://www.nibmworldwide.com/", "exams/mis");
                 //System.Diagnostics.Debug.WriteLine(dataset.ToString());
         }
         }

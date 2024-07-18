@@ -17,6 +17,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using HtmlAgilityPack;
 using System.Net;
+using System.Diagnostics;
+using System.IO;
+using System.Text.Json.Nodes;
 
 namespace stu_profo.Model
 {
@@ -342,5 +345,74 @@ namespace stu_profo.Model
         //    return optionsArray;
         //}
 
+        public void dumpProgrammes() {
+            //executer("dumpProgramme.py");
+            //System.Diagnostics.Debug.WriteLine("executing");
+            //executer("dumpProgramme.py");
+
+            //ProcessStartInfo runner = new ProcessStartInfo();
+            //runner.FileName = @"python";
+            //runner.Arguments = @"dumpProgramme.py";
+            //runner.UseShellExecute = false;
+            //runner.CreateNoWindow = true;
+            //runner.RedirectStandardOutput = true;
+            //Process process = new Process();
+            //process.StartInfo = runner;
+            //process.Start();
+
+            RunShellCommand("dumpProgramme.py");
+        }
+
+        public static void RunShellCommand(string file)
+        {
+            // Determine the command to run based on the operating system
+            string shellCommand;
+            string shellArgs;
+            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+            {
+                
+                shellCommand = "cmd.exe";
+                shellArgs = $"/c python \"{Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "pack", file)}\"";
+                System.Diagnostics.Debug.WriteLine("d1");
+            }
+            else
+            {
+                
+                shellCommand = "/bin/bash";
+                shellArgs = $"-c \"python3 '{Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "pack", file)}'\"";
+                System.Diagnostics.Debug.WriteLine("d2");
+            }
+
+            
+            ProcessStartInfo start = new ProcessStartInfo();
+            start.FileName = shellCommand;
+            start.Arguments = shellArgs;
+            start.UseShellExecute = false;
+            start.RedirectStandardOutput = true;
+            start.RedirectStandardError = true;
+            start.CreateNoWindow = false;
+
+            
+            using (Process process = Process.Start(start))
+            {
+                // Read the standard output and error
+                using (StreamReader reader = process.StandardOutput)
+                {
+                    string result = reader.ReadToEnd();
+                    System.Diagnostics.Debug.WriteLine(result);
+                }
+
+                using (StreamReader reader = process.StandardError)
+                {
+                    string error = reader.ReadToEnd();
+                    if (!string.IsNullOrEmpty(error))
+                    {
+                        System.Diagnostics.Debug.WriteLine("ERROR: " + error);
+                    }
+                }
+            }
+        }
+
     }
 }
+
