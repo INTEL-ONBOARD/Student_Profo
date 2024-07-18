@@ -12,7 +12,7 @@ namespace stu_profo.Controller
 {
     class userController
     {
-        public static void validateUser()
+        public bool validateUser(string useremail, string pwd)
         {
             //engine en = new engine();
             //en.dumpProgrammes();
@@ -24,13 +24,13 @@ namespace stu_profo.Controller
             var userBin = JsonSerializer.Deserialize<Users>(userData);
             foreach (var user in userBin.users)
             {
-                System.Diagnostics.Debug.WriteLine(user.email);
+                if (user.email == useremail && user.password == pwd) { return true; } else { return false; }
             }
         }
         public class User
         {
             public string email { get; set; }
-            public string pwd { get; set; }
+            public string password { get; set; }
 
         }
         public class Users

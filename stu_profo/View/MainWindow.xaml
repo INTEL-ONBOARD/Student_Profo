@@ -51,7 +51,7 @@
                 </Button.RenderTransform>
                 <Border CornerRadius="25" BorderThickness="0">
                     <!-- Adjust the CornerRadius to match your image dimensions -->
-                    <Image Source="/View/Images/button.png" Stretch="Uniform" Width="72" Height="73"/>
+                    <Image Source="/View/button.png" Stretch="Uniform" Width="72" Height="73"/>
                 </Border>
             </Button>
 

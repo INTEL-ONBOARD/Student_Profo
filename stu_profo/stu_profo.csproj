@@ -9,7 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="View\button.png" />
     <None Remove="View\SignupImage.png" />
+    <None Remove="View\tenor.gif" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,7 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="View\button.png" />
     <Resource Include="View\SignupImage.png" />
+    <Resource Include="View\tenor.gif" />
   </ItemGroup>
 
 </Project>
