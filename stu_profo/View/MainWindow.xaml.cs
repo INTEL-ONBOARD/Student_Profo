@@ -97,6 +97,7 @@ namespace stu_profo
 
             loadingScreen.Visibility = Visibility.Visible;
         }
+     
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -135,10 +136,44 @@ namespace stu_profo
             // Trigger binding update
         }
 
-        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+
+        private void TogglePasswordVisibilityREG(object sender, RoutedEventArgs e)
         {
-            // Trigger binding update
+            if (passwordInputreg.Visibility == Visibility.Visible)
+            {
+                textInputreg.Text = passwordInputreg.Password;
+                passwordInputreg.Visibility = Visibility.Collapsed;
+                textInputreg.Visibility = Visibility.Visible;
+                ((Button)sender).Content = "🙈"; // Change icon to hidden eye
+            }
+            else
+            {
+                passwordInputreg.Password = textInputreg.Text;
+                textInputreg.Visibility = Visibility.Collapsed;
+                passwordInputreg.Visibility = Visibility.Visible;
+                ((Button)sender).Content = "👁"; // Change icon to visible eye
+            }
         }
+        private void TogglePasswordVisibility(object sender, RoutedEventArgs e)
+        {
+            if (passwordInput.Visibility == Visibility.Visible)
+            {
+                textInput.Text = passwordInput.Password;
+                passwordInput.Visibility = Visibility.Collapsed;
+                textInput.Visibility = Visibility.Visible;
+                ((Button)sender).Content = "🙈"; // Change icon to hidden eye
+            }
+            else
+            {
+                passwordInput.Password = textInput.Text;
+                textInput.Visibility = Visibility.Collapsed;
+                passwordInput.Visibility = Visibility.Visible;
+                ((Button)sender).Content = "👁"; // Change icon to visible eye
+            }
+        }
+
+
+
 
         private void StViewbackbutton_Click(object sender, RoutedEventArgs e)
         {
@@ -202,8 +237,8 @@ namespace stu_profo
         private void Login(object sender, RoutedEventArgs e)
         {
             userController userCtn = new userController();
-            System.Diagnostics.Debug.WriteLine(emailInput.Text + passwordInput.Text);
-            if (userCtn.validateUser(emailInput.Text, passwordInput.Text))
+            System.Diagnostics.Debug.WriteLine(emailInput.Text + passwordInput.Password);
+            if (userCtn.validateUser(emailInput.Text, passwordInput.Password))
             {
                 signinScreen.Visibility = Visibility.Hidden;
                 config1.Visibility = Visibility.Visible;
@@ -228,7 +263,7 @@ namespace stu_profo
             }
             else
             {
-                ShowWarningOverlay();
+                ShowWarningOverlay(signinScreen, warningOverlayGrid);
 
                 // Change the border colors of the text boxes to red
                 emailInput.BorderBrush = Brushes.Red;
@@ -268,6 +303,8 @@ namespace stu_profo
         {
 
             config2.Visibility = Visibility.Hidden;
+
+            ShowWarningOverlay(home, ladinoverlay);
             home.Visibility = Visibility.Visible;
 
             // Set background for desktop4
@@ -311,12 +348,17 @@ namespace stu_profo
             MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
         }
 
-        private async void ShowWarningOverlay()
+        private async void ShowWarningOverlay(UIElement targetPage, Grid warningOverlayGrid)
         {
-            // Apply blur effect to signinScreen
+            if (targetPage == null || warningOverlayGrid == null)
+            {
+                throw new ArgumentNullException("targetPage or warningOverlayGrid cannot be null");
+            }
+
+            // Apply blur effect to the target page
             BlurEffect blurEffect = new BlurEffect();
             blurEffect.Radius = 10;
-            signinScreen.Effect = blurEffect;
+            targetPage.Effect = blurEffect;
 
             // Show the warning overlay
             warningOverlayGrid.Visibility = Visibility.Visible;
@@ -339,7 +381,7 @@ namespace stu_profo
             await Task.Delay(1000);
 
             // Remove the blur effect after the animation
-            signinScreen.Effect = null;
+            targetPage.Effect = null;
 
             // Hide the warning overlay
             warningOverlayGrid.Visibility = Visibility.Hidden;
@@ -353,6 +395,9 @@ namespace stu_profo
             // Hide the warning overlay
             warningOverlayGrid.Visibility = Visibility.Hidden;
         }
+
+       
+
 
         private void LoginHyperlink_Click(object sender, RoutedEventArgs e)
         {
@@ -380,6 +425,7 @@ namespace stu_profo
         private void RegisterHyperlink_Click(object sender, RoutedEventArgs e)
         {
             // Navigate to registration screen or perform the registration action
+            
             signinScreen.Visibility = Visibility.Hidden;
             signupScreen.Visibility = Visibility.Visible;
 
