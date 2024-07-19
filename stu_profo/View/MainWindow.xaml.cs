@@ -426,14 +426,17 @@ namespace stu_profo
             if (home.Visibility == Visibility.Visible) { System.Diagnostics.Debug.WriteLine("init"); }
         }
 
-        private void loadbatch(object sender, EventArgs e)
+        private async void loadbatch(object sender, EventArgs e)
         {
+            statusText1.Text = "Please wait a moment... We are fetching batches based on your program selection!";
+            await Task.Delay(1000);
+
             System.Diagnostics.Debug.WriteLine($"{pBoxC.Text}");
             if (pBoxC.Text != "") { 
 
                 bBoxC.IsEnabled = true;
                 continueBtn.IsEnabled = true;
-
+                statusText1.Text = "Select a Batch to Continue";
                 blockModel selectedP = (blockModel)pBoxC.SelectedItem;
                 System.Diagnostics.Debug.WriteLine($"{selectedP.value}");
                 programme_id = selectedP.value;
