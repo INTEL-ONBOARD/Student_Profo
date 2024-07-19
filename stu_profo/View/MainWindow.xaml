@@ -159,7 +159,7 @@
 
 
 
-        <Grid x:Name="signupScreen" Margin="32,50,30,40" Visibility="Hidden">
+        <Grid x:Name="signinScreen" Margin="32,50,30,40" Visibility="Hidden">
 
             <Border Margin="246,54,244,50" BorderBrush="White" BorderThickness="2" CornerRadius="10" Opacity="40">
                 <Grid Margin="20,40,20,20">
@@ -201,10 +201,12 @@
 
                             <TextBlock Text="Forgot password?" HorizontalAlignment="Left" Foreground="Gray" Margin="0,0,0,10" />
 
-                            <TextBlock HorizontalAlignment="Left" Margin="0,0,0,10" FontFamily="Barlow">
+                         <TextBlock HorizontalAlignment="Left" Margin="0,0,0,10" FontFamily="Barlow">
     <Run Text="Don't have an account? " Foreground="Gray" />
-    <Run Text="Click here to register" Foreground="Black" FontWeight="Bold"/>
-                            </TextBlock>
+    <Hyperlink Click="RegisterHyperlink_Click">
+        <Run Text="Click here to register" Foreground="Black" FontWeight="Bold"/>
+    </Hyperlink>
+</TextBlock>
                             <Button x:Name="loginBtn" Content="Login" Background="#0F458D" Foreground="White" Height="40" Margin="0,20,0,10" Click="Login" RenderTransformOrigin="0.5,0.5" BorderThickness="0" Focusable="False">
                                 <Button.Style>
                                     <Style TargetType="Button">
@@ -299,7 +301,147 @@
 
         </Grid>
 
+        <Grid x:Name="signupScreen" Margin="32,50,30,40" Visibility="Hidden">
 
+            <Border Margin="246,54,244,50" BorderBrush="White" BorderThickness="2" CornerRadius="10" Opacity="40">
+                <Grid Margin="20,40,20,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="170*"/>
+                        <RowDefinition Height="99*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Left Side Image -->
+                    <Image Source="/View/Rectangle 5622.png" Stretch="UniformToFill" Grid.Column="0" Margin="10,-16,392,10" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+
+                    <!-- Right Side Form -->
+                    <Border Background="White" CornerRadius="0,10,10,0" Grid.RowSpan="2" Margin="10,-16,10,10" Grid.Column="1">
+                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="236" Margin="75,187,0,0">
+                            <StackPanel Margin="0,0,0,20" HorizontalAlignment="Left">
+
+                            </StackPanel>
+                            <TextBlock Text="SIGN UP" FontFamily="Barlow" FontSize="24" FontWeight="Bold" Width="94" HorizontalAlignment="Left" Height="33"/>
+
+                            <!-- Email -->
+                            <StackPanel Margin="0,0,0,10">
+                                <TextBlock Text="Email" Foreground="Gray" Margin="0,0,0,5" Width="231"/>
+                                <Border x:Name="g" Background="White" CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Height="30" Width="231">
+                                    <TextBox x:Name="emailInputreg" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" TextChanged="EmailTextBox_TextChanged"/>
+                                </Border>
+                            </StackPanel>
+
+                            <!-- Password -->
+                            <StackPanel Margin="0,0,0,10">
+                                <TextBlock Text="Password" Foreground="Gray" Margin="0,0,0,5" Width="229"/>
+                                <Border Background="White" CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Height="30" Width="230">
+                                    <TextBox x:Name="passwordInputreg" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" />
+                                </Border>
+                            </StackPanel>
+
+                           
+                            <TextBlock HorizontalAlignment="Left" Margin="0,0,0,10" FontFamily="Barlow">
+    <Run Text="Already registered? " Foreground="Gray" />
+    <Hyperlink Click="LoginHyperlink_Click">
+        <Run Text="Click here to login" Foreground="Black" FontWeight="Bold"/>
+    </Hyperlink>
+                            </TextBlock>
+
+                            <Button x:Name="signupBtn" Content="Signup" Background="#0F458D" Foreground="White" Height="40" Margin="0,20,0,10" Click="Signup" RenderTransformOrigin="0.5,0.5" BorderThickness="0" Focusable="False">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border Background="{TemplateBinding Background}" 
+    BorderBrush="{TemplateBinding BorderBrush}" 
+    BorderThickness="1" 
+    CornerRadius="5" 
+    Padding="10,0">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Cursor" Value="Hand"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform x:Name="SignupButtonScale" ScaleY="1" ScaleX="1"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Button.RenderTransform>
+                                <Button.Triggers>
+                                    <EventTrigger RoutedEvent="Button.Click">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="SignupButtonScale"
+         Storyboard.TargetProperty="ScaleX"
+         From="1" To="1.1"
+         Duration="0:0:0.2"
+         AutoReverse="True"/>
+                                                <DoubleAnimation Storyboard.TargetName="SignupButtonScale"
+         Storyboard.TargetProperty="ScaleY"
+         From="1" To="1.1"
+         Duration="0:0:0.2"
+         AutoReverse="True"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="Button.MouseEnter">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="SignupButtonScale"
+         Storyboard.TargetProperty="ScaleX"
+         From="1" To="0.9"
+         Duration="0:0:0.2"
+         AutoReverse="False"/>
+                                                <DoubleAnimation Storyboard.TargetName="SignupButtonScale"
+         Storyboard.TargetProperty="ScaleY"
+         From="1" To="0.9"
+         Duration="0:0:0.2"
+         AutoReverse="False"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="Button.MouseLeave">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="SignupButtonScale"
+         Storyboard.TargetProperty="ScaleX"
+         From="0.9" To="1"
+         Duration="0:0:0.2"
+         AutoReverse="False"/>
+                                                <DoubleAnimation Storyboard.TargetName="SignupButtonScale"
+         Storyboard.TargetProperty="ScaleY"
+         From="0.9" To="1"
+         Duration="0:0:0.2"
+         AutoReverse="False"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Button.Triggers>
+                            </Button>
+
+
+                        </StackPanel>
+                    </Border>
+
+                    <Image Source="/View/signuphead.png" Stretch="Fill" Margin="84,114,264,204" RenderTransformOrigin="0.315,0.373" Grid.Column="1" />
+                </Grid>
+            </Border>
+
+        </Grid>
 
 
         <Grid x:Name="studentview" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">

@@ -115,9 +115,9 @@ namespace stu_profo
         private void logoutbtnClick(object sender, RoutedEventArgs e)
         {
             // Hide the student view and show the home view
-          
+
             home.Visibility = Visibility.Hidden;
-            signupScreen.Visibility = Visibility.Visible;
+            signinScreen.Visibility = Visibility.Visible;
             MainBackground = new RadialGradientBrush
             {
                 GradientOrigin = new Point(0.5, 0.5),
@@ -131,7 +131,7 @@ namespace stu_profo
                     new GradientStop((Color)ColorConverter.ConvertFromString("#0C3771"), 1.0)
                 }
             };
-            MainBackgroundImage = null; 
+            MainBackgroundImage = null;
 
         }
         private async void cont(object sender, RoutedEventArgs e)
@@ -150,12 +150,12 @@ namespace stu_profo
                 await Task.Delay(3000);
 
                 loadingScreen.Visibility = Visibility.Hidden;
-                signupScreen.Visibility = Visibility.Visible;
+                signinScreen.Visibility = Visibility.Visible;
             }
             else
             {
                 statusLabel.Content = "Checking failed! Restart the application....";
-                signupScreen.Visibility = Visibility.Hidden;
+                signinScreen.Visibility = Visibility.Hidden;
                 loadingScreen.Visibility = Visibility.Visible;
                 System.Diagnostics.Debug.WriteLine("Connection failed!");
             }
@@ -167,7 +167,7 @@ namespace stu_profo
             System.Diagnostics.Debug.WriteLine(emailInput.Text + passwordInput.Text);
             if (userCtn.validateUser(emailInput.Text, passwordInput.Text))
             {
-                signupScreen.Visibility = Visibility.Hidden;
+                signinScreen.Visibility = Visibility.Hidden;
                 home.Visibility = Visibility.Visible;
 
                 // Set background for desktop4
@@ -179,6 +179,11 @@ namespace stu_profo
                 ShowWarningOverlay();
             }
             System.Diagnostics.Debug.WriteLine("calling");
+        }
+
+        private void Signup(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void showinfo_Click(object sender, RoutedEventArgs e)
@@ -196,7 +201,7 @@ namespace stu_profo
             // Apply blur effect to signupScreen
             BlurEffect blurEffect = new BlurEffect();
             blurEffect.Radius = 10;
-            signupScreen.Effect = blurEffect;
+            signinScreen.Effect = blurEffect;
 
             // Show the warning overlay
             warningOverlayGrid.Visibility = Visibility.Visible;
@@ -205,10 +210,57 @@ namespace stu_profo
         private void HideWarningOverlay(object sender, RoutedEventArgs e)
         {
             // Remove blur effect from signupScreen
-            signupScreen.Effect = null;
+            signinScreen.Effect = null;
 
             // Hide the warning overlay
             warningOverlayGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void LoginHyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate to login screen or perform the login action
+            signupScreen.Visibility = Visibility.Hidden;
+            signinScreen.Visibility = Visibility.Visible;
+          
+
+            // Optionally, reset the background if needed
+            MainBackground = new RadialGradientBrush
+            {
+                GradientOrigin = new Point(0.5, 0.5),
+                Center = new Point(0.5, 0.5),
+                RadiusX = 0.5,
+                RadiusY = 0.5,
+                GradientStops = new GradientStopCollection
+                {
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#1a4e96"), 0.0),
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#164381"), 0.7),
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#0C3771"), 1.0)
+                }
+            };
+            MainBackgroundImage = null; // Remove the image if applicable
+        }
+
+        private void RegisterHyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate to registration screen or perform the registration action
+            signinScreen.Visibility = Visibility.Hidden;
+            signupScreen.Visibility = Visibility.Visible;
+
+            // Optionally, reset the background if needed
+            MainBackground = new RadialGradientBrush
+            {
+                GradientOrigin = new Point(0.5, 0.5),
+                Center = new Point(0.5, 0.5),
+                RadiusX = 0.5,
+                RadiusY = 0.5,
+                GradientStops = new GradientStopCollection
+                {
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#1a4e96"), 0.0),
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#164381"), 0.7),
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#0C3771"), 1.0)
+                }
+            };
+            MainBackgroundImage = null; // Remove the image if applicable
         }
     }
 }
