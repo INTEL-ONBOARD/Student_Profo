@@ -228,7 +228,7 @@ namespace stu_profo
             }
             else
             {
-                ShowWarningOverlay();
+                ShowWarningOverlay(signinScreen, warningOverlayGrid);
 
                 // Change the border colors of the text boxes to red
                 emailInput.BorderBrush = Brushes.Red;
@@ -268,6 +268,8 @@ namespace stu_profo
         {
 
             config2.Visibility = Visibility.Hidden;
+
+            ShowWarningOverlay(home, ladinoverlay);
             home.Visibility = Visibility.Visible;
 
             // Set background for desktop4
@@ -311,12 +313,17 @@ namespace stu_profo
             MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
         }
 
-        private async void ShowWarningOverlay()
+        private async void ShowWarningOverlay(UIElement targetPage, Grid warningOverlayGrid)
         {
-            // Apply blur effect to signinScreen
+            if (targetPage == null || warningOverlayGrid == null)
+            {
+                throw new ArgumentNullException("targetPage or warningOverlayGrid cannot be null");
+            }
+
+            // Apply blur effect to the target page
             BlurEffect blurEffect = new BlurEffect();
             blurEffect.Radius = 10;
-            signinScreen.Effect = blurEffect;
+            targetPage.Effect = blurEffect;
 
             // Show the warning overlay
             warningOverlayGrid.Visibility = Visibility.Visible;
@@ -339,7 +346,7 @@ namespace stu_profo
             await Task.Delay(1000);
 
             // Remove the blur effect after the animation
-            signinScreen.Effect = null;
+            targetPage.Effect = null;
 
             // Hide the warning overlay
             warningOverlayGrid.Visibility = Visibility.Hidden;
@@ -353,6 +360,9 @@ namespace stu_profo
             // Hide the warning overlay
             warningOverlayGrid.Visibility = Visibility.Hidden;
         }
+
+       
+
 
         private void LoginHyperlink_Click(object sender, RoutedEventArgs e)
         {
