@@ -184,6 +184,8 @@ namespace stu_profo
             MainBackground = Brushes.White;
             MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
             // Optionally, reset the background if needed
+
+            //engine.dumpProgrammes();
         }
 
         private void logoutbtnClick(object sender, RoutedEventArgs e)
@@ -238,6 +240,10 @@ namespace stu_profo
         {
             userController userCtn = new userController();
             System.Diagnostics.Debug.WriteLine(emailInput.Text + passwordInput.Password);
+
+
+
+
             if (userCtn.validateUser(emailInput.Text, passwordInput.Password))
             {
                 signinScreen.Visibility = Visibility.Hidden;
