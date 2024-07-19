@@ -6,19 +6,20 @@
              xmlns:local="clr-namespace:stu_profo.View"
              mc:Ignorable="d" 
              Width="Auto" Height="Auto">
-    <StackPanel Orientation="Horizontal">
-        <Button Content="{Binding Grade}" Width="32" Height="30" Background="#0F458D" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0">
+    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+        <!-- Added margin here -->
+        <Button Content="{Binding Grade}" Width="40" Height="40" Background="#0F458D" Foreground="White" FontSize="16" FontWeight="Light" Margin="0,0,10,0" BorderThickness="0" FocusVisualStyle="{x:Null}">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="5" Padding="5,0">
+                            BorderThickness="0"
+                            CornerRadius="5" Padding="0">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <TextBlock Text="{Binding SubjectDetails}" VerticalAlignment="Center"/>
+        <TextBlock Text="{Binding SubjectDetails}" VerticalAlignment="Center" FontSize="10" FontWeight="DemiBold" FontFamily="DM Sans"/>
     </StackPanel>
 </UserControl>

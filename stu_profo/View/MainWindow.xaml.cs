@@ -49,16 +49,6 @@ namespace stu_profo
             // Dummy data for Courses
             Courses = new ObservableCollection<Course>
             {
-                new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055" ,GPA = 3.4},
-                new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001",GPA = 3.4 },
-                new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055" ,GPA = 3.4},
-                new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001",GPA = 3.4  },
-                new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055",GPA = 3.4 },
-                new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001",GPA = 3.4  },
-                new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055",GPA = 3.4 },
-                new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001" , GPA = 3.4},
-                new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055",GPA = 3.4 },
-                new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001" ,GPA = 3.4  },
                 new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055",GPA = 3.4 },
                 new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001",GPA = 3.4 }
             };
@@ -66,16 +56,9 @@ namespace stu_profo
             // Dummy data for Grades
             Grades = new ObservableCollection<GradeItem>
             {
+              
                 new GradeItem { Grade = "A+", SubjectDetails = "DSE231F/CO/Introduction to Computer Science" },
-                new GradeItem { Grade = "B", SubjectDetails = "DSE231F/CO/Mathematics" },
-                 new GradeItem { Grade = "A+", SubjectDetails = "DSE231F/CO/Introduction to Computer Science" },
-                new GradeItem { Grade = "B", SubjectDetails = "DSE231F/CO/Mathematics" },
-                 new GradeItem { Grade = "A+", SubjectDetails = "DSE231F/CO/Introduction to Computer Science" },
-                new GradeItem { Grade = "B", SubjectDetails = "DSE231F/CO/Mathematics" },
-                 new GradeItem { Grade = "A+", SubjectDetails = "DSE231F/CO/Introduction to Computer Science" },
-                new GradeItem { Grade = "B", SubjectDetails = "DSE231F/CO/Mathematics" },
-                 new GradeItem { Grade = "A+", SubjectDetails = "DSE231F/CO/Introduction to Computer Science" },
-                new GradeItem { Grade = "B", SubjectDetails = "DSE231F/CO/Mathematics" }
+                new GradeItem { Grade = "A+", SubjectDetails = "DSE231F/CO/Introduction to Computer Science" }
             };
 
             DataContext = this;
@@ -234,7 +217,7 @@ namespace stu_profo
         }
 
 
-        private void Login(object sender, RoutedEventArgs e)
+        private async void Login(object sender, RoutedEventArgs e)
         {
             userController userCtn = new userController();
             System.Diagnostics.Debug.WriteLine(emailInput.Text + passwordInput.Password);
@@ -263,8 +246,9 @@ namespace stu_profo
             }
             else
             {
-                ShowWarningOverlay(signinScreen, warningOverlayGrid);
-
+                ShowWarningOverlay(signinScreen, warningOverlayGrid, true);
+                await Task.Delay(3000);
+                ShowWarningOverlay(signinScreen, warningOverlayGrid, false);
                 // Change the border colors of the text boxes to red
                 emailInput.BorderBrush = Brushes.Red;
                 passwordInput.BorderBrush = Brushes.Red;
@@ -299,39 +283,20 @@ namespace stu_profo
             MainBackgroundImage = null; // Remove the image if applicable
         }
 
-        private void Donebtn_Click(object sender, RoutedEventArgs e)
+        private async void Donebtn_Click(object sender, RoutedEventArgs e)
         {
 
             config2.Visibility = Visibility.Hidden;
 
-            ShowWarningOverlay(home, ladinoverlay);
+            ShowWarningOverlay(home, ladinoverlay,true);
+            await Task.Delay(3000);
+            ShowWarningOverlay(home, ladinoverlay, false);
             home.Visibility = Visibility.Visible;
 
             // Set background for desktop4
             MainBackground = Brushes.White;
             MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
         }
-
-
-        /* private void Login(object sender, RoutedEventArgs e)
-         {
-             userController userCtn = new userController();
-             System.Diagnostics.Debug.WriteLine(emailInput.Text + passwordInput.Text);
-             if (userCtn.validateUser(emailInput.Text, passwordInput.Text))
-             {
-                 signinScreen.Visibility = Visibility.Hidden;
-                 home.Visibility = Visibility.Visible;
-
-                 // Set background for desktop4
-                 MainBackground = Brushes.White;
-                 MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
-             }
-             else
-             {
-                 ShowWarningOverlay();
-             }
-             System.Diagnostics.Debug.WriteLine("calling");
-         }*/
 
         private void Signup(object sender, RoutedEventArgs e)
         {
@@ -348,44 +313,33 @@ namespace stu_profo
             MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
         }
 
-        private async void ShowWarningOverlay(UIElement targetPage, Grid warningOverlayGrid)
+        private async void ShowWarningOverlay(UIElement targetPage, Grid warningOverlayGrid, bool applyBlur)
         {
             if (targetPage == null || warningOverlayGrid == null)
             {
                 throw new ArgumentNullException("targetPage or warningOverlayGrid cannot be null");
             }
 
-            // Apply blur effect to the target page
-            BlurEffect blurEffect = new BlurEffect();
-            blurEffect.Radius = 10;
-            targetPage.Effect = blurEffect;
-
-            // Show the warning overlay
-            warningOverlayGrid.Visibility = Visibility.Visible;
-
-            // Wait for 3 seconds (3000 milliseconds)
-            await Task.Delay(3000);
-
-            // Create a fade-out animation for the blur effect
-            DoubleAnimation fadeOutAnimation = new DoubleAnimation
+            if (applyBlur)
             {
-                From = 10,
-                To = 0,
-                Duration = new Duration(TimeSpan.FromSeconds(1)) // 1 second fade-out
-            };
+                // Apply blur effect to the target page
+                BlurEffect blurEffect = new BlurEffect();
+                blurEffect.Radius = 10;
+                targetPage.Effect = blurEffect;
 
-            // Apply the fade-out animation to the blur effect
-            blurEffect.BeginAnimation(BlurEffect.RadiusProperty, fadeOutAnimation);
+                // Show the warning overlay
+                warningOverlayGrid.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                // Remove blur effect from the target page
+                targetPage.Effect = null;
 
-            // Wait for the fade-out animation to complete
-            await Task.Delay(1000);
-
-            // Remove the blur effect after the animation
-            targetPage.Effect = null;
-
-            // Hide the warning overlay
-            warningOverlayGrid.Visibility = Visibility.Hidden;
+                // Hide the warning overlay
+                warningOverlayGrid.Visibility = Visibility.Hidden;
+            }
         }
+
 
         private void HideWarningOverlay(object sender, RoutedEventArgs e)
         {
