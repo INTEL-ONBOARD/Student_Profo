@@ -345,23 +345,10 @@ namespace stu_profo.Model
         //    return optionsArray;
         //}
 
-        public void dumpProgrammes() {
-            //executer("dumpProgramme.py");
-            //System.Diagnostics.Debug.WriteLine("executing");
-            //executer("dumpProgramme.py");
-
-            //ProcessStartInfo runner = new ProcessStartInfo();
-            //runner.FileName = @"python";
-            //runner.Arguments = @"dumpProgramme.py";
-            //runner.UseShellExecute = false;
-            //runner.CreateNoWindow = true;
-            //runner.RedirectStandardOutput = true;
-            //Process process = new Process();
-            //process.StartInfo = runner;
-            //process.Start();
-
-            RunShellCommand("dumpProgramme.py");
-        }
+        public static bool dumpProgrammes() {try { RunShellCommand("dumpProgramme.py"); return true; } catch (Exception e) { System.Diagnostics.Debug.WriteLine(e.Message); return false; }}
+        public static bool dumpBatch(){try { RunShellCommand("dumpBatch.py"); return true; } catch (Exception e) { System.Diagnostics.Debug.WriteLine(e.Message); return false; }}
+        public static bool dumpStudents(){try { RunShellCommand("dumpStudents.py"); return true; } catch(Exception e) { System.Diagnostics.Debug.WriteLine(e.Message); return false; }}
+        public static bool dumpStudentGrade() { try { RunShellCommand("dumpStudentGrade.py"); return true; } catch (Exception e) { System.Diagnostics.Debug.WriteLine(e.Message); return false; } }
 
         public static void RunShellCommand(string file)
         {
