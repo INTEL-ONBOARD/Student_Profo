@@ -136,26 +136,10 @@ namespace stu_profo
             // Trigger binding update
         }
 
-        private void ShowPasswordButton_Checked(object sender, RoutedEventArgs e)
-        {
-            passwordTextBox.Text = passwordBox.Password;
-            passwordTextBox.Visibility = Visibility.Visible;
-            passwordBox.Visibility = Visibility.Collapsed;
-        }
-
-        private void ShowPasswordButton_Unchecked(object sender, RoutedEventArgs e)
-        {
-            passwordBox.Password = passwordTextBox.Text;
-            passwordBox.Visibility = Visibility.Visible;
-            passwordTextBox.Visibility = Visibility.Collapsed;
-        }
-
+       
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            if (passwordBox.Visibility == Visibility.Visible)
-            {
-                passwordTextBox.Text = passwordBox.Password;
-            }
+           
         }
 
         private void StViewbackbutton_Click(object sender, RoutedEventArgs e)
