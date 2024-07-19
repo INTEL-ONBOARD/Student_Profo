@@ -445,5 +445,12 @@ namespace stu_profo
             };
             MainBackgroundImage = null; // Remove the image if applicable
         }
+
+
+
+        private void initHome(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (home.Visibility == Visibility.Visible) { System.Diagnostics.Debug.WriteLine("init"); }
+        }
     }
 }
