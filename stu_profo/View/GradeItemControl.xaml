@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="stu_profo.View.GradeItemControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:stu_profo.View"
+             mc:Ignorable="d" 
+             Width="Auto" Height="Auto">
+    <StackPanel Orientation="Horizontal">
+        <Button Content="{Binding Grade}" Width="32" Height="30" Background="#0F458D" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5" Padding="5,0">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <TextBlock Text="{Binding SubjectDetails}" VerticalAlignment="Center"/>
+    </StackPanel>
+</UserControl>

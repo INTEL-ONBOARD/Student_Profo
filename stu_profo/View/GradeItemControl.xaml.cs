@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace stu_profo.View
 {
     /// <summary>
-    /// Interaction logic for ContentControl.xaml
+    /// Interaction logic for GradeItemControl.xaml
     /// </summary>
-    public partial class ContentControl : Window
+    public partial class GradeItemControl : UserControl
     {
-        public ContentControl()
+        public GradeItemControl()
         {
             InitializeComponent();
         }

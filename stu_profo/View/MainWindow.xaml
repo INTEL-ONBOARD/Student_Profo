@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:stu_profo"
-        mc:Ignorable="d"
+        xmlns:local="clr-namespace:stu_profo.View" 
+    mc:Ignorable="d"
         Title="MainWindow" Height="850" Width="1400"
         WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{x:Null}">
     <Window.Resources>
@@ -469,36 +469,22 @@
                     <StackPanel Orientation="Horizontal" Margin="10,30,10,10" Width="310" >
                         <!-- Adjusted Margin -->
                         <Ellipse Width="50" Height="50" Fill="LightGray"/>
-                        <StackPanel Margin="10,0,0,0" VerticalAlignment="Center" >
+                        <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
                             <TextBlock Text="DSE231F/CO" FontSize="12" FontWeight="Light" FontFamily="Open Sans"/>
                             <TextBlock Text="CODSE231F-055" FontSize="24" FontWeight="DemiBold" FontFamily="Open Sans"/>
                         </StackPanel>
                     </StackPanel>
 
                     <!-- Course List Section -->
-                    <ListBox Margin="10" BorderThickness="0" Background="#F5F5F5">
-                        <ListBoxItem>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Content="A+" Width="32" Height="30" Background="#0F458D" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0">
-                                    <Button.Template>
-                                        <ControlTemplate TargetType="Button">
-                                            <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="5" Padding="5,0">
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Button.Template>
-                                </Button>
-                                <TextBlock Text="DSE231F/CO/Introduction to Computer Science"/>
-                            </StackPanel>
-                        </ListBoxItem>
-
-
-
-                        <!-- Add more ListBoxItems as needed -->
-                    </ListBox>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <ItemsControl ItemsSource="{Binding Grades}" Width="461">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <local:GradeItemControl/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
                 </StackPanel>
             </Border>
 
@@ -652,41 +638,17 @@
 
 
             <Border Grid.Column="1" Margin="10,122,113,68" Background="#FFFFFF" CornerRadius="20">
-                <StackPanel>
-                    
-                    <Border Background="#F0F4F8" CornerRadius="10" Margin="10" Width="660">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                                <Ellipse Width="48" Height="48" Fill="LightGray" Margin="20,0,0,0"/>
-                                <StackPanel Margin="20,0,0,0" VerticalAlignment="Center">
-                                    <TextBlock Text="Diploma in Software Engineering" FontSize="20" FontWeight="DemiBold"/>
-                                    <TextBlock Text="DSE231F/CO " FontSize="14" FontWeight="Light"/>
-                                    <TextBlock Text="CODSE231F-055" FontSize="16" FontWeight="Bold"/>
-                                </StackPanel>
-                            </StackPanel>
-
-                            <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,0">
-                                <Button Content="Select" Width="73" Height="23" Margin="0,0,0,10" Background="White" Foreground="#1a4e96" BorderBrush="LightBlue" BorderThickness="1">
-                                    <Button.Template>
-                                        <ControlTemplate TargetType="Button">
-                                            <Border Background="{TemplateBinding Background}"
-                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                        BorderThickness="{TemplateBinding BorderThickness}"
-                                        CornerRadius="5" Padding="5,0">
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Button.Template>
-                                </Button>
-                            </StackPanel>
-                        </Grid>
-                    </Border>
-                </StackPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <ItemsControl ItemsSource="{Binding Courses}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <local:CourseItem/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </ScrollViewer>
             </Border>
 
 
