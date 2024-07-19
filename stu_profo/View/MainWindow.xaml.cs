@@ -293,11 +293,11 @@ namespace stu_profo
         {
 
             config2.Visibility = Visibility.Hidden;
-
+            home.Visibility = Visibility.Visible;
             ShowWarningOverlay(home, ladinoverlay,true);
             await Task.Delay(3000);
             ShowWarningOverlay(home, ladinoverlay, false);
-            home.Visibility = Visibility.Visible;
+          
 
             // Set background for desktop4
             MainBackground = Brushes.White;
