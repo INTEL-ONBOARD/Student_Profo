@@ -49,18 +49,18 @@ namespace stu_profo
             // Dummy data for Courses
             Courses = new ObservableCollection<Course>
             {
-                new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055" },
-                new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001" },
-                new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055" },
-                new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001" },
-                new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055" },
-                new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001" },
-                new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055" },
-                new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001" },
-                new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055" },
-                new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001" },
-                new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055" },
-                new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001" }
+                new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055" ,GPA = 3.4},
+                new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001",GPA = 3.4 },
+                new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055" ,GPA = 3.4},
+                new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001",GPA = 3.4  },
+                new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055",GPA = 3.4 },
+                new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001",GPA = 3.4  },
+                new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055",GPA = 3.4 },
+                new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001" , GPA = 3.4},
+                new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055",GPA = 3.4 },
+                new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001" ,GPA = 3.4  },
+                new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055",GPA = 3.4 },
+                new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001",GPA = 3.4 }
             };
 
             // Dummy data for Grades
