@@ -136,11 +136,44 @@ namespace stu_profo
             // Trigger binding update
         }
 
-       
-        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+
+        private void TogglePasswordVisibilityREG(object sender, RoutedEventArgs e)
         {
-           
+            if (passwordInputreg.Visibility == Visibility.Visible)
+            {
+                textInputreg.Text = passwordInputreg.Password;
+                passwordInputreg.Visibility = Visibility.Collapsed;
+                textInputreg.Visibility = Visibility.Visible;
+                ((Button)sender).Content = "🙈"; // Change icon to hidden eye
+            }
+            else
+            {
+                passwordInputreg.Password = textInputreg.Text;
+                textInputreg.Visibility = Visibility.Collapsed;
+                passwordInputreg.Visibility = Visibility.Visible;
+                ((Button)sender).Content = "👁"; // Change icon to visible eye
+            }
         }
+        private void TogglePasswordVisibility(object sender, RoutedEventArgs e)
+        {
+            if (passwordInput.Visibility == Visibility.Visible)
+            {
+                textInput.Text = passwordInput.Password;
+                passwordInput.Visibility = Visibility.Collapsed;
+                textInput.Visibility = Visibility.Visible;
+                ((Button)sender).Content = "🙈"; // Change icon to hidden eye
+            }
+            else
+            {
+                passwordInput.Password = textInput.Text;
+                textInput.Visibility = Visibility.Collapsed;
+                passwordInput.Visibility = Visibility.Visible;
+                ((Button)sender).Content = "👁"; // Change icon to visible eye
+            }
+        }
+
+
+
 
         private void StViewbackbutton_Click(object sender, RoutedEventArgs e)
         {
@@ -204,8 +237,8 @@ namespace stu_profo
         private void Login(object sender, RoutedEventArgs e)
         {
             userController userCtn = new userController();
-            System.Diagnostics.Debug.WriteLine(emailInput.Text + passwordInput.Text);
-            if (userCtn.validateUser(emailInput.Text, passwordInput.Text))
+            System.Diagnostics.Debug.WriteLine(emailInput.Text + passwordInput.Password);
+            if (userCtn.validateUser(emailInput.Text, passwordInput.Password))
             {
                 signinScreen.Visibility = Visibility.Hidden;
                 config1.Visibility = Visibility.Visible;

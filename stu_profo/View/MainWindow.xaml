@@ -370,7 +370,11 @@
                             <StackPanel Margin="0,0,0,10">
                                 <TextBlock Text="Password" Foreground="Gray" Margin="0,0,0,5" Width="229"/>
                                 <Border Background="White" CornerRadius="5" BorderBrush="{Binding BorderBrush, ElementName=passwordInput, Mode=OneWay}" BorderThickness="1" Height="30" Width="230">
-                                    <TextBox x:Name="passwordInput" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" />
+                                    <Grid>
+                                        <PasswordBox x:Name="passwordInput" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" />
+                                        <TextBox x:Name="textInput" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" Visibility="Collapsed"/>
+                                        <Button Content="👁" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Click="TogglePasswordVisibility"/>
+                                    </Grid>
                                 </Border>
                             </StackPanel>
 
@@ -505,14 +509,19 @@
                                     <TextBox x:Name="emailInputreg" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" TextChanged="EmailTextBox_TextChanged"/>
                                 </Border>
                             </StackPanel>
-
+                           
                             <!-- Password -->
                             <StackPanel Margin="0,0,0,10">
                                 <TextBlock Text="Password" Foreground="Gray" Margin="0,0,0,5" Width="229"/>
                                 <Border Background="White" CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Height="30" Width="230">
-                                    <TextBox x:Name="passwordInputreg" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" />
+                                    <Grid>
+                                        <PasswordBox x:Name="passwordInputreg" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" />
+                                        <TextBox x:Name="textInputreg" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" Visibility="Collapsed"/>
+                                        <Button Content="👁" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Click="TogglePasswordVisibilityREG"/>
+                                    </Grid>
                                 </Border>
                             </StackPanel>
+
 
 
                             <TextBlock HorizontalAlignment="Left" Margin="0,0,0,10" FontFamily="Barlow">
@@ -676,120 +685,20 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="715" Margin="510,67,0,681" Grid.ColumnSpan="2">
                 <!-- Programme ComboBox -->
-                <ComboBox Width="288" Height="34" Margin="0,0,10,0" Tag="Programme">
-                    <ComboBox.Style>
-                        <Style TargetType="ComboBox">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="ComboBox">
-                                        <Grid>
-                                            <Border x:Name="Border" Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="7">
-                                                <Grid>
-                                                    <TextBlock x:Name="Placeholder" Text="Programme" Foreground="Gray" Margin="5,0,25,0" VerticalAlignment="Center"/>
-                                                    <ToggleButton x:Name="ToggleButton" Focusable="False" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center" Width="20" Height="20">
-                                                        <Path x:Name="Arrow" Data="M 0 0 L 4 4 L 8 0 Z" Fill="Gray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                                    </ToggleButton>
-                                                    <ContentPresenter x:Name="ContentSite" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" Content="{TemplateBinding SelectionBoxItem}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,25,0" />
-                                                </Grid>
-                                            </Border>
-                                            <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" Focusable="False" PopupAnimation="Slide">
-                                                <Grid x:Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
-                                                    <Border x:Name="DropDownBorder" Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="7">
-                                                        <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
-                                                            <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained"/>
-                                                        </ScrollViewer>
-                                                    </Border>
-                                                </Grid>
-                                            </Popup>
-                                        </Grid>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="HasItems" Value="false">
-                                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
-                                            </Trigger>
-                                            <Trigger Property="IsGrouping" Value="true">
-                                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
-                                            </Trigger>
-                                            <Trigger SourceName="ToggleButton" Property="ToggleButton.IsChecked" Value="true">
-                                                <Setter TargetName="ContentSite" Property="Visibility" Value="Collapsed"/>
-                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Collapsed"/>
-                                            </Trigger>
-                                            <Trigger Property="IsEnabled" Value="false">
-                                                <Setter Property="Foreground" Value="Gray"/>
-                                            </Trigger>
-                                            <DataTrigger Binding="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" Value="{x:Null}">
-                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
-                                            </DataTrigger>
-                                            <DataTrigger Binding="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" Value="">
-                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
-                                            </DataTrigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </ComboBox.Style>
-                    <ComboBoxItem Content="Programme 1"/>
+                <!-- Programme ComboBox -->
+                <ComboBox Width="288" Height="34" Margin="0,0,10,0" Tag="Programme" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
+                    <ComboBoxItem Content="Programme "/>
                     <ComboBoxItem Content="Programme 2"/>
                     <ComboBoxItem Content="Programme 3"/>
                 </ComboBox>
 
                 <!-- Batch ComboBox -->
-                <ComboBox Width="346" Height="34" Margin="0,0,10,0" Tag="Batch">
-                    <ComboBox.Style>
-                        <Style TargetType="ComboBox">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="ComboBox">
-                                        <Grid>
-                                            <Border x:Name="Border" Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="7">
-                                                <Grid>
-                                                    <TextBlock x:Name="Placeholder" Text="Batch" Foreground="Gray" Margin="5,0,25,0" VerticalAlignment="Center"/>
-                                                    <ToggleButton x:Name="ToggleButton" Focusable="False" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center" Width="20" Height="20">
-                                                        <Path x:Name="Arrow" Data="M 0 0 L 4 4 L 8 0 Z" Fill="Gray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                                    </ToggleButton>
-                                                    <ContentPresenter x:Name="ContentSite" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" Content="{TemplateBinding SelectionBoxItem}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,25,0" />
-                                                </Grid>
-                                            </Border>
-                                            <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" Focusable="False" PopupAnimation="Slide">
-                                                <Grid x:Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
-                                                    <Border x:Name="DropDownBorder" Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="7">
-                                                        <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
-                                                            <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained"/>
-                                                        </ScrollViewer>
-                                                    </Border>
-                                                </Grid>
-                                            </Popup>
-                                        </Grid>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="HasItems" Value="false">
-                                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
-                                            </Trigger>
-                                            <Trigger Property="IsGrouping" Value="true">
-                                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
-                                            </Trigger>
-                                            <Trigger SourceName="ToggleButton" Property="ToggleButton.IsChecked" Value="true">
-                                                <Setter TargetName="ContentSite" Property="Visibility" Value="Collapsed"/>
-                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Collapsed"/>
-                                            </Trigger>
-                                            <Trigger Property="IsEnabled" Value="false">
-                                                <Setter Property="Foreground" Value="Gray"/>
-                                            </Trigger>
-                                            <DataTrigger Binding="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" Value="{x:Null}">
-                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
-                                            </DataTrigger>
-                                            <DataTrigger Binding="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" Value="">
-                                                <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
-                                            </DataTrigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </ComboBox.Style>
-                    <ComboBoxItem Content="Batch 1"/>
+                <ComboBox Width="346" Height="34" Margin="0,0,10,0" Tag="Batch" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
+                    <ComboBoxItem Content="Batch "/>
                     <ComboBoxItem Content="Batch 2"/>
                     <ComboBoxItem Content="Batch 3"/>
                 </ComboBox>
+
 
                 <!-- Search Button -->
                 <Button Width="40" Height="40" Margin="10,0,0,0" Grid.Row="0" Grid.Column="0">
@@ -1103,13 +1012,13 @@
         <Grid x:Name="config1" Margin="37,36,25,24" Visibility="Hidden">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Text="Please provide your information to configure your profile" 
-                   Foreground="White" FontSize="36" FontWeight="DemiBold" 
+                   Foreground="White" FontSize="36" FontWeight="Light" 
                    TextWrapping="Wrap" HorizontalAlignment="Center" 
                    Margin="0,0,0,40" Width="583" TextAlignment="Center"/>
 
                 <!-- Programme ComboBox -->
-                <ComboBox Width="288" Height="34" Margin="0,0,0,20" Tag="Programme" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}">
-                    <ComboBoxItem Content="Programme 1" />
+                <ComboBox Width="288" Height="34" Margin="0,0,0,20" Tag="Programme" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
+                    <ComboBoxItem Content="Programme" />
                     <ComboBoxItem Content="Programme 2" />
                     <ComboBoxItem Content="Programme 3" />
                 </ComboBox>
@@ -1117,11 +1026,11 @@
               
 
                 <!-- Batch ComboBox -->
-                <ComboBox Width="288" Height="34" Margin="0,0,0,20" Tag="Batch" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}">
+                <ComboBox Width="288" Height="34" Margin="0,0,0,20" Tag="Batch" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
                     
                                    
                         
-                    <ComboBoxItem Content="Batch 1"/>
+                    <ComboBoxItem Content="Batch"/>
                     <ComboBoxItem Content="Batch 2"/>
                     <ComboBoxItem Content="Batch 3"/>
                 </ComboBox>
@@ -1237,17 +1146,17 @@
         <Grid x:Name="config2" Margin="37,36,25,24" Visibility="Hidden">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Text="Please provide your information to configure your profile" 
-               Foreground="White" FontSize="36" FontWeight="DemiBold" 
+               Foreground="White" FontSize="36" FontWeight="Light" 
                TextWrapping="Wrap" HorizontalAlignment="Center" 
                Margin="0,0,0,40" Width="583" TextAlignment="Center"/>
 
                 <!-- Programme ComboBox -->
-                <ComboBox Width="288" Height="34" Margin="0,0,0,20" Tag="StudentId" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}">
-                   
-                                  
-                    <ComboBoxItem Content="Programme 1"/>
-                    <ComboBoxItem Content="Programme 2"/>
-                    <ComboBoxItem Content="Programme 3"/>
+                <ComboBox Width="288" Height="34" Margin="0,0,0,20" Tag="StudentId" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
+
+
+                    <ComboBoxItem Content="StudentId"/>
+                    <ComboBoxItem Content="CODSE213F-04"/>
+                    <ComboBoxItem Content="CODSE213F-05"/>
                 </ComboBox>
 
 
