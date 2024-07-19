@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using stu_profo.Controller;
@@ -170,7 +171,6 @@ namespace stu_profo
             };
             MainBackgroundImage = null;
         }
-
         private async void cont(object sender, RoutedEventArgs e)
         {
             statusLabel.Content = "Checking....";
@@ -198,6 +198,7 @@ namespace stu_profo
             }
         }
 
+
         private void Login(object sender, RoutedEventArgs e)
         {
             userController userCtn = new userController();
@@ -205,18 +206,95 @@ namespace stu_profo
             if (userCtn.validateUser(emailInput.Text, passwordInput.Text))
             {
                 signinScreen.Visibility = Visibility.Hidden;
-                home.Visibility = Visibility.Visible;
+                config1.Visibility = Visibility.Visible;
 
-                // Set background for desktop4
-                MainBackground = Brushes.White;
-                MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
+                MainBackground = new RadialGradientBrush
+                {
+                    GradientOrigin = new Point(0.5, 0.5),
+                    Center = new Point(0.5, 0.5),
+                    RadiusX = 0.5,
+                    RadiusY = 0.5,
+                    GradientStops = new GradientStopCollection
+            {
+                new GradientStop((Color)ColorConverter.ConvertFromString("#1a4e96"), 0.0),
+                new GradientStop((Color)ColorConverter.ConvertFromString("#164381"), 0.7),
+                new GradientStop((Color)ColorConverter.ConvertFromString("#0C3771"), 1.0)
+            }
+                };
+                MainBackgroundImage = null; // Remove the image if applicable
+
+                // Reset text boxes to default style
+                ResetTextBoxes();
             }
             else
             {
                 ShowWarningOverlay();
+
+                // Change the border colors of the text boxes to red
+                emailInput.BorderBrush = Brushes.Red;
+                passwordInput.BorderBrush = Brushes.Red;
             }
             System.Diagnostics.Debug.WriteLine("calling");
         }
+        private void ResetTextBoxes()
+        {
+            emailInput.BorderBrush = Brushes.Gray;
+            passwordInput.BorderBrush = Brushes.Gray;
+        }
+
+
+        private void Continuebtn_Click(object sender, RoutedEventArgs e)
+        {
+            config1.Visibility = Visibility.Hidden;
+            config2.Visibility = Visibility.Visible;
+
+            MainBackground = new RadialGradientBrush
+            {
+                GradientOrigin = new Point(0.5, 0.5),
+                Center = new Point(0.5, 0.5),
+                RadiusX = 0.5,
+                RadiusY = 0.5,
+                GradientStops = new GradientStopCollection
+                {
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#1a4e96"), 0.0),
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#164381"), 0.7),
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#0C3771"), 1.0)
+                }
+            };
+            MainBackgroundImage = null; // Remove the image if applicable
+        }
+
+        private void Donebtn_Click(object sender, RoutedEventArgs e)
+        {
+
+            config2.Visibility = Visibility.Hidden;
+            home.Visibility = Visibility.Visible;
+
+            // Set background for desktop4
+            MainBackground = Brushes.White;
+            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
+        }
+
+
+        /* private void Login(object sender, RoutedEventArgs e)
+         {
+             userController userCtn = new userController();
+             System.Diagnostics.Debug.WriteLine(emailInput.Text + passwordInput.Text);
+             if (userCtn.validateUser(emailInput.Text, passwordInput.Text))
+             {
+                 signinScreen.Visibility = Visibility.Hidden;
+                 home.Visibility = Visibility.Visible;
+
+                 // Set background for desktop4
+                 MainBackground = Brushes.White;
+                 MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
+             }
+             else
+             {
+                 ShowWarningOverlay();
+             }
+             System.Diagnostics.Debug.WriteLine("calling");
+         }*/
 
         private void Signup(object sender, RoutedEventArgs e)
         {
@@ -233,15 +311,38 @@ namespace stu_profo
             MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
         }
 
-        private void ShowWarningOverlay()
+        private async void ShowWarningOverlay()
         {
-            // Apply blur effect to signupScreen
+            // Apply blur effect to signinScreen
             BlurEffect blurEffect = new BlurEffect();
             blurEffect.Radius = 10;
             signinScreen.Effect = blurEffect;
 
             // Show the warning overlay
             warningOverlayGrid.Visibility = Visibility.Visible;
+
+            // Wait for 3 seconds (3000 milliseconds)
+            await Task.Delay(3000);
+
+            // Create a fade-out animation for the blur effect
+            DoubleAnimation fadeOutAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = new Duration(TimeSpan.FromSeconds(1)) // 1 second fade-out
+            };
+
+            // Apply the fade-out animation to the blur effect
+            blurEffect.BeginAnimation(BlurEffect.RadiusProperty, fadeOutAnimation);
+
+            // Wait for the fade-out animation to complete
+            await Task.Delay(1000);
+
+            // Remove the blur effect after the animation
+            signinScreen.Effect = null;
+
+            // Hide the warning overlay
+            warningOverlayGrid.Visibility = Visibility.Hidden;
         }
 
         private void HideWarningOverlay(object sender, RoutedEventArgs e)
