@@ -377,7 +377,7 @@ namespace stu_profo.Model
             start.UseShellExecute = false;
             start.RedirectStandardOutput = true;
             start.RedirectStandardError = true;
-            start.CreateNoWindow = false;
+            start.CreateNoWindow = true;
 
             
             using (Process process = Process.Start(start))

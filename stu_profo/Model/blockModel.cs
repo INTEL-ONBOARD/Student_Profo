@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace stu_profo.Model
 {
-    class programeModel
+    class blockModel
     {
         public string value { get; set; } = string.Empty;
         public string text { get; set; } = string.Empty;

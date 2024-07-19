@@ -17,6 +17,9 @@ namespace stu_profo
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         private bool status = false;
+        private string batch_id = "";
+        private string programme_id = "";
+        private string student_id = "";
         public ObservableCollection<GradeItem> Grades { get; set; }
         public ObservableCollection<Course> Courses { get; set; }
 
@@ -135,6 +138,7 @@ namespace stu_profo
                 textInputreg.Visibility = Visibility.Collapsed;
                 passwordInputreg.Visibility = Visibility.Visible;
                 ((Button)sender).Content = "👁"; // Change icon to visible eye
+                
             }
         }
         private void TogglePasswordVisibility(object sender, RoutedEventArgs e)
@@ -224,13 +228,29 @@ namespace stu_profo
             userController userCtn = new userController();
             System.Diagnostics.Debug.WriteLine(emailInput.Text + passwordInput.Password);
 
-
-
-
             if (userCtn.validateUser(emailInput.Text, passwordInput.Password))
             {
                 signinScreen.Visibility = Visibility.Hidden;
+
+
+                List<blockModel> pm = dataController.getProgramms();
+                pBox.ItemsSource = pm;
+                pBoxC.ItemsSource = pm;
+                pBox.DisplayMemberPath = "text";
+                pBoxC.DisplayMemberPath = "text";
+                pBox.SelectedValuePath = "Value";
+                pBoxC.SelectedValuePath = "Value";
+
+
+
+                //foreach (blockModel pmModel in pm)
+                //{
+                //    pBox.Items.Add(pmModel.text);
+                //    System.Diagnostics.Debug.WriteLine(pmModel.text + " " + pmModel.value);
+                //}
+                signinScreen.Visibility = Visibility.Hidden;
                 config1.Visibility = Visibility.Visible;
+
 
                 MainBackground = new RadialGradientBrush
                 {
@@ -261,6 +281,15 @@ namespace stu_profo
             }
             System.Diagnostics.Debug.WriteLine("calling");
         }
+
+        private void getbatch(object sender, RoutedEventArgs e)
+        {
+            bBoxC.IsEnabled = true;
+            System.Diagnostics.Debug.WriteLine($"{pBoxC.Text}");
+
+        }
+
+
         private void ResetTextBoxes()
         {
             emailInput.BorderBrush = Brushes.Gray;
@@ -268,29 +297,12 @@ namespace stu_profo
         }
 
 
-        private void Continuebtn_Click(object sender, RoutedEventArgs e)
-        {
-            config1.Visibility = Visibility.Hidden;
-            config2.Visibility = Visibility.Visible;
-
-            MainBackground = new RadialGradientBrush
-            {
-                GradientOrigin = new Point(0.5, 0.5),
-                Center = new Point(0.5, 0.5),
-                RadiusX = 0.5,
-                RadiusY = 0.5,
-                GradientStops = new GradientStopCollection
-                {
-                    new GradientStop((Color)ColorConverter.ConvertFromString("#1a4e96"), 0.0),
-                    new GradientStop((Color)ColorConverter.ConvertFromString("#164381"), 0.7),
-                    new GradientStop((Color)ColorConverter.ConvertFromString("#0C3771"), 1.0)
-                }
-            };
-            MainBackgroundImage = null; // Remove the image if applicable
-        }
-
         private async void Donebtn_Click(object sender, RoutedEventArgs e)
         {
+            blockModel selectedS = (blockModel)sBoxC.SelectedItem;
+            System.Diagnostics.Debug.WriteLine($"{selectedS.value}");
+            batch_id = selectedS.value;
+            dataController.setProgramm("configStudent.txt", selectedS.value);
 
             config2.Visibility = Visibility.Hidden;
             home.Visibility = Visibility.Visible;
@@ -411,6 +423,70 @@ namespace stu_profo
         private void initHome(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (home.Visibility == Visibility.Visible) { System.Diagnostics.Debug.WriteLine("init"); }
+        }
+
+        private void loadbatch(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine($"{pBoxC.Text}");
+            if (pBoxC.Text != "") { 
+
+                bBoxC.IsEnabled = true;
+                continueBtn.IsEnabled = true;
+
+                blockModel selectedP = (blockModel)pBoxC.SelectedItem;
+                System.Diagnostics.Debug.WriteLine($"{selectedP.value}");
+                programme_id = selectedP.value;
+                dataController.setProgramm("config.txt", selectedP.value);
+
+                List<blockModel> bm = dataController.getBatches();
+                bBoxC.ItemsSource = bm;
+                bBoxC.DisplayMemberPath = "text";
+                bBoxC.SelectedValuePath = "Value";
+            }
+        }
+
+        private void Continuebtn_Click(object sender, RoutedEventArgs e)
+        {
+            config1.Visibility = Visibility.Hidden;
+            config2.Visibility = Visibility.Visible;
+
+            System.Diagnostics.Debug.WriteLine($"{bBoxC.Text}");
+            if (bBoxC.Text != "")
+            {
+                continueBtn.IsEnabled = true;
+
+                blockModel selectedB = (blockModel)bBoxC.SelectedItem;
+                System.Diagnostics.Debug.WriteLine($"{selectedB.value}");
+                batch_id = selectedB.value;
+                dataController.setProgramm("configBatch.txt", selectedB.value);
+
+                List<blockModel> sm = dataController.getStudents();
+                sBoxC.ItemsSource = sm;
+                sBoxC.DisplayMemberPath = "text";
+                sBoxC.SelectedValuePath = "Value";
+            }
+
+
+            MainBackground = new RadialGradientBrush
+            {
+                GradientOrigin = new Point(0.5, 0.5),
+                Center = new Point(0.5, 0.5),
+                RadiusX = 0.5,
+                RadiusY = 0.5,
+                GradientStops = new GradientStopCollection
+                {
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#1a4e96"), 0.0),
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#164381"), 0.7),
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#0C3771"), 1.0)
+                }
+            };
+            MainBackgroundImage = null; // Remove the image if applicable
+        }
+
+        private void Deactivated(object sender, EventArgs e)
+        {
+            Window window = (Window)sender;
+            window.Topmost = true;
         }
     }
 }

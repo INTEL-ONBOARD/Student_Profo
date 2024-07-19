@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:stu_profo.View" 
-    mc:Ignorable="d"
+        mc:Ignorable="d"
+        Topmost="True"
         Title="MainWindow" Height="850" Width="1400"
         WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{x:Null}">
     <Window.Resources>
@@ -689,17 +690,11 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="715" Margin="510,67,0,681" Grid.ColumnSpan="2">
                 <!-- Programme ComboBox -->
                 <!-- Programme ComboBox -->
-                <ComboBox Width="288" Height="34" Margin="0,0,10,0" Tag="Programme" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
-                    <ComboBoxItem Content="Programme "/>
-                    <ComboBoxItem Content="Programme 2"/>
-                    <ComboBoxItem Content="Programme 3"/>
+                <ComboBox x:Name="pBox" Width="288" Height="34" Margin="0,0,10,0" Tag="Programme" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
                 </ComboBox>
 
                 <!-- Batch ComboBox -->
-                <ComboBox Width="346" Height="34" Margin="0,0,10,0" Tag="Batch" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
-                    <ComboBoxItem Content="Batch "/>
-                    <ComboBoxItem Content="Batch 2"/>
-                    <ComboBoxItem Content="Batch 3"/>
+                <ComboBox x:Name="bBox" Width="346" Height="34" Margin="0,0,10,0" Tag="Batch" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
                 </ComboBox>
 
 
@@ -1021,28 +1016,15 @@
                    Margin="0,0,0,40" Width="583" TextAlignment="Center"/>
 
                 <!-- Programme ComboBox -->
-                <ComboBox Width="288" Height="34" Margin="0,0,0,20" Tag="Programme" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
-                    <ComboBoxItem Content="Programme" />
-                    <ComboBoxItem Content="Programme 2" />
-                    <ComboBoxItem Content="Programme 3" />
-                </ComboBox>
-
-
+                <ComboBox x:Name="pBoxC" Width="288" Height="34" Margin="0,0,0,20" Tag="Programme" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0" DropDownClosed="loadbatch"/>
 
                 <!-- Batch ComboBox -->
-                <ComboBox Width="288" Height="34" Margin="0,0,0,20" Tag="Batch" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
-
-
-
-                    <ComboBoxItem Content="Batch"/>
-                    <ComboBoxItem Content="Batch 2"/>
-                    <ComboBoxItem Content="Batch 3"/>
-                </ComboBox>
+                <ComboBox x:Name="bBoxC" Width="288" Height="34" Margin="0,0,0,20" Tag="Batch" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0" IsEnabled="False"/>
 
                 <!-- Continue Button -->
-                <Button Content="Continue" Width="98" Height="25" Margin="0,0,0,20" 
+                <Button x:Name="continueBtn" Content="Continue" Width="98" Height="25" Margin="0,0,0,20" 
         Background="White" Foreground="#0F458D" BorderBrush="LightGray" 
-        BorderThickness="1" Click="Continuebtn_Click">
+        BorderThickness="1" Click="Continuebtn_Click" IsEnabled="False">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
@@ -1145,8 +1127,6 @@
     Margin="0,692,0,66"/>
         </Grid>
 
-
-
         <Grid x:Name="config2" Margin="37,36,25,24" Visibility="Hidden">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Text="Please provide your information to configure your profile" 
@@ -1155,18 +1135,13 @@
                Margin="0,0,0,40" Width="583" TextAlignment="Center"/>
 
                 <!-- Programme ComboBox -->
-                <ComboBox Width="288" Height="34" Margin="0,0,0,20" Tag="StudentId" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
-
-
-                    <ComboBoxItem Content="StudentId"/>
-                    <ComboBoxItem Content="CODSE213F-04"/>
-                    <ComboBoxItem Content="CODSE213F-05"/>
-                </ComboBox>
+                <ComboBox x:Name="sBoxC" Width="288" Height="34" Margin="0,0,0,20" Tag="StudentId" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
+                 </ComboBox>
 
 
 
                 <!-- Continue Button -->
-                <Button Content="Done" Width="84" Height="25" Margin="0,0,0,20" 
+                <Button x:Name="finishBtn" Content="Done" Width="84" Height="25" Margin="0,0,0,20" 
         Background="White" Foreground="#0F458D" BorderBrush="LightGray" 
         BorderThickness="1" Click="Donebtn_Click">
                     <Button.Template>
