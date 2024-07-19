@@ -5,30 +5,31 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              Width="660" Height="Auto">
-    <Border Background="#F0F4F8" CornerRadius="10" Margin="10">
+    <Border Background="White" CornerRadius="10" Margin="10" BorderBrush="#1a4e96" BorderThickness="1">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
 
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                <Ellipse Width="48" Height="48" Fill="LightGray" Margin="20,0,0,0"/>
-                <StackPanel Margin="20,0,0,0" VerticalAlignment="Center">
-                    <TextBlock Text="{Binding CourseName}" FontSize="20" FontWeight="DemiBold"/>
-                    <TextBlock Text="{Binding CourseCode}" FontSize="14" FontWeight="Light"/>
-                    <TextBlock Text="{Binding CourseID}" FontSize="16" FontWeight="Bold"/>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0">
+                <Ellipse Width="48" Height="48" Fill="LightGray" Margin="0,0,10,0"/>
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="{Binding CourseName}" FontSize="14" FontWeight="Light"/>
+                    <TextBlock Text="{Binding CourseCode}" FontSize="7" FontWeight="ExtraLight"/>
+                    <TextBlock Text="{Binding CourseID}" FontSize="11" FontWeight="Bold"/>
                 </StackPanel>
             </StackPanel>
 
-            <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,0"/>
-            <Button Content="Select" Background="White" Foreground="#1a4e96" BorderBrush="LightBlue" BorderThickness="1" Margin="550,32,7,12">
+            <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10,0,20,8">
+                <TextBlock Text="GPA" FontSize="11" FontWeight="Bold" Foreground="Gray" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding GPA, StringFormat='{}{0:N1}'}" FontSize="11" FontWeight="Bold" Foreground="Gray" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <Button Content="Select" Background="White" Foreground="#1a4e96" BorderBrush="LightBlue" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="66" Margin="0,45,15,7">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="5" Padding="5,0">
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5" Padding="5,0">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>

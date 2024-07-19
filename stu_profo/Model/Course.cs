@@ -11,6 +11,7 @@ namespace stu_profo.Model
         public string CourseName { get; set; }
         public string CourseCode { get; set; }
         public string CourseID { get; set; }
+        public double GPA { get; set; }  // Updated to a property
     }
 
 }
