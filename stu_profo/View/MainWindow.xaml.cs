@@ -306,14 +306,15 @@ namespace stu_profo
 
             config2.Visibility = Visibility.Hidden;
             home.Visibility = Visibility.Visible;
+            MainBackground = Brushes.White;
+            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
             ShowWarningOverlay(home, ladinoverlay,true);
             await Task.Delay(3000);
             ShowWarningOverlay(home, ladinoverlay, false);
           
 
             // Set background for desktop4
-            MainBackground = Brushes.White;
-            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
+          
         }
 
         private void Signup(object sender, RoutedEventArgs e)

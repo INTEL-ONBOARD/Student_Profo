@@ -646,7 +646,7 @@
                 </Image.RenderTransform>
             </Image>
 
-            <Border Grid.Column="0" Margin="44,122,55,68" Background="#F5F5F5" CornerRadius="10">
+            <Border Grid.Column="0" Margin="44,122,55,38" Background="#F5F5F5" CornerRadius="10">
                 <StackPanel>
                     <!-- User Info Section -->
                     <StackPanel Orientation="Horizontal" Margin="10,30,10,10" Width="310">
@@ -676,7 +676,7 @@
 
 
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="451,56,0,676" Width="58">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="403,56,0,676" Width="58">
 
                 <Button x:Name="StViewbackbutton" Width="40" Height="40" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="0" Click="StViewbackbutton_Click">
                     <Button.Content>
@@ -687,14 +687,14 @@
 
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="715" Margin="510,67,0,681" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="770" Margin="454,67,0,681" Grid.ColumnSpan="2">
                 <!-- Programme ComboBox -->
                 <!-- Programme ComboBox -->
-                <ComboBox x:Name="pBox" Width="288" Height="34" Margin="0,0,10,0" Tag="Programme" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
+                <ComboBox x:Name="pBox" Width="408" Height="34" Margin="0,0,10,0" Tag="Programme" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
                 </ComboBox>
 
                 <!-- Batch ComboBox -->
-                <ComboBox x:Name="bBox" Width="346" Height="34" Margin="0,0,10,0" Tag="Batch" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
+                <ComboBox x:Name="bBox" Width="282" Height="34" Margin="0,0,10,0" Tag="Batch" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
                 </ComboBox>
 
 
@@ -717,9 +717,9 @@
             </StackPanel>
 
 
-            <Border Margin="518,122,113,68" Background="#FFFFFF" CornerRadius="20" Grid.ColumnSpan="2">
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="-28,0,0,0">
-                    <StackPanel Height="566">
+            <Border Margin="518,122,113,38" Background="#FFFFFF" CornerRadius="20" Grid.ColumnSpan="2">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="-28,0,0,-34">
+                    <StackPanel Height="600">
                         <ItemsControl ItemsSource="{Binding Courses}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
@@ -736,116 +736,7 @@
         </Grid>
 
 
-        <Grid x:Name="mainpage" Background="#0C3771" Margin="32,50,30,10" Visibility="Hidden">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="3*"/>
-            </Grid.ColumnDefinitions>
-
-            <Border Grid.Column="0" Margin="10,10,10,10" Background="#F5F5F5" CornerRadius="10">
-                <StackPanel>
-                    <!-- User Info Section -->
-                    <StackPanel Orientation="Horizontal" Margin="10">
-                        <Ellipse Width="50" Height="50" Fill="LightGray"/>
-                        <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
-                            <TextBlock Text="DSE231F/CO" FontSize="12" FontWeight="Bold"/>
-                            <TextBlock Text="CODSE231F-055" FontSize="16" FontWeight="Bold"/>
-                        </StackPanel>
-                    </StackPanel>
-                    <ListBox BorderThickness="0">
-                        <ListBoxItem>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Content="A+" Width="30" Height="30" Background="#3A7FD5" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0"/>
-                                <TextBlock Text="DSE231F/CO/Introduction to Computer Science"/>
-                            </StackPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Content="A+" Width="30" Height="30" Background="#3A7FD5" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0"/>
-                                <TextBlock Text="DSE231F/CO/Introduction to Computer Science"/>
-                            </StackPanel>
-                        </ListBoxItem>
-                        <!-- Add more ListBoxItems as needed -->
-                        <!-- Repeat ListBoxItem for other courses -->
-                        <ListBoxItem>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Content="A+" Width="30" Height="30" Background="#3A7FD5" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0"/>
-                                <TextBlock Text="DSE231F/CO/Introduction to Computer Science"/>
-                            </StackPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Content="A+" Width="30" Height="30" Background="#3A7FD5" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0"/>
-                                <TextBlock Text="DSE231F/CO/Introduction to Computer Science"/>
-                            </StackPanel>
-                        </ListBoxItem>
-                    </ListBox>
-
-                    <!-- Course List Section -->
-                </StackPanel>
-            </Border>
-
-            <Border Grid.Column="1" Margin="10,10,420,10" Background="#F5F5F5" CornerRadius="10">
-                <StackPanel Margin="10">
-                    <!-- Academic Progress -->
-                    <Border Background="#3A7FD5" CornerRadius="10" Margin="0,0,0,10">
-                        <StackPanel Orientation="Vertical" Margin="10">
-                            <TextBlock Text="Academic" Foreground="White" FontWeight="Bold" FontSize="14" Margin="0,0,0,5"/>
-                            <Grid>
-                                <Ellipse Width="40" Height="40" Stroke="White" StrokeThickness="5"/>
-                                <TextBlock Text="75%" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Grid>
-                        </StackPanel>
-                    </Border>
-
-                    <!-- Skill Progress -->
-                    <Border Background="#6FBF4D" CornerRadius="10" Margin="0,0,0,10">
-                        <StackPanel Orientation="Vertical" Margin="10">
-                            <TextBlock Text="Skill" Foreground="White" FontWeight="Bold" FontSize="14" Margin="0,0,0,5"/>
-                            <Grid>
-                                <Ellipse Width="40" Height="40" Stroke="White" StrokeThickness="5"/>
-                                <TextBlock Text="25%" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Grid>
-                        </StackPanel>
-                    </Border>
-
-                    <!-- Upcoming Update Text -->
-                    <TextBlock Text="UPCOMING UPDATE" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="20,10,20,0"/>
-                </StackPanel>
-            </Border>
-
-            <!-- New Border Section -->
-            <Border Grid.Column="1" VerticalAlignment="Center" Margin="402,0,28,0" Background="#F5F5F5" CornerRadius="10" Height="770">
-                <StackPanel Margin="10" VerticalAlignment="Bottom">
-                    <!-- NIBM Logo -->
-
-
-                    <!-- Top Buttons -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
-                        <Button Content="🔔" Width="30" Height="30" Margin="5"/>
-                        <Button Content="⚙" Width="30" Height="30" Margin="5"/>
-                    </StackPanel>
-
-                    <!-- Progress Indicators -->
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="10">
-                        <Border Background="#A0C4FF" CornerRadius="10" Width="100" Height="100" Margin="5">
-                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <TextBlock Text="1" Foreground="White" FontWeight="Bold" FontSize="24"/>
-                                <TextBlock Text="30%" Foreground="White" FontWeight="Bold" FontSize="24"/>
-                            </StackPanel>
-                        </Border>
-                        <Border Background="#3A7FD5" CornerRadius="10" Width="100" Height="100" Margin="5">
-                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <TextBlock Text=" " Foreground="White" FontWeight="Bold" FontSize="24"/>
-                                <TextBlock Text="30%" Foreground="White" FontWeight="Bold" FontSize="24"/>
-                            </StackPanel>
-                        </Border>
-                    </StackPanel>
-                </StackPanel>
-            </Border>
-
-        </Grid>
 
         <Grid x:Name="home" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden" IsVisibleChanged="initHome" >
 
@@ -855,37 +746,38 @@
             </Grid.ColumnDefinitions>
             <Image Source="/View/image 42.png" Stretch="Fill" Margin="449,357,113,390" Grid.Column="1"/>
             <!-- Left side content -->
-            <Border Grid.Column="0" Margin="44,42,10,50" CornerRadius="10">
-                <Grid>
-                    <!-- Background Image -->
+            <Border Grid.Column="0" Margin="44,56,0,68" Background="#F5F5F5" CornerRadius="10">
+                <StackPanel>
+                    <!-- User Info Section -->
+                    <StackPanel Orientation="Horizontal" Margin="10,30,10,10" Width="310">
+                        <!-- Adjusted Margin -->
+                        <Ellipse Width="50" Height="50" Fill="LightGray"/>
+                        <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Text="DSE231F/CO" FontSize="12" FontWeight="Light" FontFamily="Open Sans"/>
+                            <TextBlock Text="CODSE231F-055" FontSize="24" FontWeight="DemiBold" FontFamily="Open Sans"/>
+                        </StackPanel>
+                    </StackPanel>
 
-                    <!-- Replace with your actual background image path -->
-
-                    <Border Background="White" CornerRadius="15" Margin="10,10,-14,10">
-                        <Canvas>
-                            <!-- Container for the adjustable StackPanel -->
-                            <StackPanel Orientation="Horizontal" Canvas.Left="54" Canvas.Top="61" HorizontalAlignment="Left" VerticalAlignment="Center" Width="376" Height="70">
-                                <Ellipse Width="50" Height="50">
-                                    <Ellipse.Fill>
-                                        <ImageBrush ImageSource="/View/button.png"/>
-                                        <!-- Replace with your actual image path -->
-                                    </Ellipse.Fill>
-                                </Ellipse>
-                                <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
-                                    <TextBlock Text="DSE231F/CO" FontSize="12" FontWeight="Light" Foreground="Black" FontFamily="Open Sans"/>
-                                    <TextBlock Text="CODSE231F-055" FontSize="20" FontWeight="DemiBold" Foreground="Black" FontFamily="Open Sans" Width="167"/>
-                                </StackPanel>
-                            </StackPanel>
-                        </Canvas>
-                    </Border>
-                </Grid>
+                    <!-- Course List Section -->
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" Height="400">
+                        <!-- Set a height here -->
+                        <ItemsControl ItemsSource="{Binding Grades}" Width="341" Height="540">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <local:GradeItemControl Margin="0,0,0,2"/>
+                                    <!-- Added margin here -->
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </StackPanel>
             </Border>
 
             <!-- Right side empty border -->
-            <Border Grid.Column="1" Margin="44,56,402,66" CornerRadius="10" Background="#F3F3F3">
+            <Border Grid.Column="1" Margin="26,56,387,66" CornerRadius="10" Background="#F3F3F3">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,46,0,0" Height="583">
                     <!-- Academic Card -->
-                    <Border Background="#2196F3" CornerRadius="10" Margin="0,10" Padding="10" Height="120">
+                    <Border Background="#2196F3" CornerRadius="10" Margin="0,10" Padding="10" Height="134">
                         <Grid>
                             <!-- Content Overlay -->
                             <StackPanel>
@@ -904,7 +796,7 @@
                     </Border>
 
                     <!-- Skill Card -->
-                    <Border Background="#8AC53E" CornerRadius="10" Margin="0,10" Padding="10" Height="120">
+                    <Border Background="#8AC53E" CornerRadius="10" Margin="0,10" Padding="10" Height="135" Width="260">
 
                         <Grid>
                             <!-- Content Overlay -->
@@ -925,11 +817,11 @@
 
 
                     <!-- Stats Card -->
-                    <Border Background="White" CornerRadius="10" Margin="0,10" Padding="10" Width="200" Height="242">
+                    <Border Background="White" CornerRadius="10" Margin="0,10" Padding="10" Width="252" Height="270">
                         <StackPanel HorizontalAlignment="Center" Width="180">
-                            <TextBlock Text="Your stats" Foreground="Black" FontSize="20" FontWeight="Light" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Servies Time" Foreground="Black" FontSize="10" FontWeight="DemiBold" HorizontalAlignment="Center"/>
-                            <TextBlock Text="From 1-6 Dec, 2021" Foreground="Gray" FontSize="10" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Your stats" Foreground="Black" FontSize="27" FontWeight="Light" HorizontalAlignment="Center" Width="110"/>
+                            <TextBlock Text="Servies Time" Foreground="Black" FontSize="14" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+                            <TextBlock Text="From 1-6 Dec, 2021" Foreground="Gray" FontSize="12" HorizontalAlignment="Center"/>
                             <Grid Margin="10">
                                 <!-- Placeholder for circular chart -->
                                 <Ellipse Width="100" Height="100" Fill="#E1E1E1"/>
@@ -990,7 +882,7 @@
                     </Grid>
 
                     <!-- First Card -->
-                    <Border Background="#E3F2FD" CornerRadius="15" Padding="10" Width="121" Height="132" Canvas.Left="197" Canvas.Top="86" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Border Background="#E3F2FD" CornerRadius="15" Padding="10" Width="128" Height="132" Canvas.Left="190" Canvas.Top="86" HorizontalAlignment="Left" VerticalAlignment="Center">
                         <StackPanel VerticalAlignment="Bottom">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                                 <TextBlock Text="I" Foreground="#2196F3" FontSize="24" FontWeight="Bold" />
@@ -1124,7 +1016,7 @@
             <!-- Bottom Text -->
             <TextBlock Text="It will take a few minutes to configure your profile... please wait..." 
     Foreground="White" FontSize="12" HorizontalAlignment="Center" 
-    Margin="0,692,0,66"/>
+   Margin="0,754,0,0"/>
         </Grid>
 
         <Grid x:Name="config2" Margin="37,36,25,24" Visibility="Hidden">
@@ -1243,7 +1135,7 @@
             <!-- Bottom Text -->
             <TextBlock Text="You almost there....please wait...." 
 Foreground="White" FontSize="12" HorizontalAlignment="Center" 
-Margin="0,692,0,66"/>
+Margin="0,754,0,0"/>
         </Grid>
 
         <!-- Warning Overlay Grid -->
