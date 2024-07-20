@@ -9,17 +9,78 @@
         Title="MainWindow" Height="850" Width="1400"
         WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{x:Null}">
     <Window.Resources>
+        <Style x:Key="RoundedTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="1" 
+                            CornerRadius="5" 
+                            SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="0"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="BackButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            CornerRadius="25">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black"/>
+                                <Setter TargetName="border" Property="BorderThickness" Value="2"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#D3D3D3"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SaveButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="1" 
+                            CornerRadius="7" 
+                            Padding="10,0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
             <Setter Property="FontSize" Value="24"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="10"
-                                Width="{TemplateBinding Width}"
-                                Height="{TemplateBinding Height}">
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="10"
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
@@ -29,9 +90,6 @@
             <Setter Property="BorderBrush" Value="DarkGray"/>
             <Setter Property="BorderThickness" Value="1"/>
         </Style>
-
-
-
 
         <Style x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
             <Setter Property="Template">
@@ -203,6 +261,24 @@
         </Style>
 
 
+        <Style x:Key="ToggleSwitchStyle" TargetType="CheckBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <Grid Width="40" Height="20">
+                            <Border x:Name="SwitchBorder" Width="40" Height="20" Background="LightGray" CornerRadius="10"/>
+                            <Ellipse x:Name="SwitchThumb" Width="18" Height="18" Fill="White" HorizontalAlignment="Left" Margin="1,1,0,1"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="SwitchBorder" Property="Background" Value="#4CAF50"/>
+                                <Setter TargetName="SwitchThumb" Property="HorizontalAlignment" Value="Right"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
 
     <Grid Background="{Binding MainBackground}">
@@ -737,11 +813,12 @@
         <Grid x:Name="Search" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">
             <Canvas>
                 <!-- Back Button -->
-                <Border Canvas.Left="103" Canvas.Top="108" Background="White" BorderBrush="Black" BorderThickness="1" CornerRadius="25" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Button Canvas.Left="103" Canvas.Top="105" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center" 
+   BorderThickness="1" BorderBrush="Black" Background="White" Style="{StaticResource BackButtonStyle}">
                     <Grid>
-                        <TextBlock Text="&#xE72B;" FontFamily="Segoe MDL2 Assets" FontSize="24" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Image Source="/View/Backbutton.png" Stretch="Uniform" Margin="1,12,7,12"/>
                     </Grid>
-                </Border>
+                </Button>
 
                 <!-- Search Label -->
                 <TextBlock Text="Search" FontSize="32" FontWeight="Bold" Canvas.Left="166" Canvas.Top="109" VerticalAlignment="Center" HorizontalAlignment="Left"/>
@@ -906,32 +983,144 @@
         <Grid x:Name="Settings" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">
             <Canvas>
                 <!-- Back Button -->
-                <Border Canvas.Left="103" Canvas.Top="108" Background="White" BorderBrush="Black" BorderThickness="1" CornerRadius="25" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Button Canvas.Left="103" Canvas.Top="105" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                BorderThickness="1" BorderBrush="Black" Background="White" Style="{StaticResource BackButtonStyle}">
                     <Grid>
-                        <TextBlock Text="&#xE72B;" FontFamily="Segoe MDL2 Assets" FontSize="24" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Image Source="/View/Backbutton.png" Stretch="Uniform" Margin="1,12,7,12"/>
                     </Grid>
-                </Border>
+                </Button>
 
-                <!-- Search Label -->
-                <TextBlock Text="Settings" FontSize="32" FontWeight="Bold" Canvas.Left="166" Canvas.Top="109" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <!-- Settings Label -->
+                <TextBlock Text="Settings" FontSize="32" FontWeight="Bold" Canvas.Left="171" Canvas.Top="110" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
                 <!-- Divider -->
-                <Rectangle Canvas.Left="296" Canvas.Top="105" Width="1" Height="50" Fill="Gray" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Rectangle Canvas.Left="312" Canvas.Top="107" Width="1" Height="50" Fill="Gray" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
                 <!-- Description Text -->
                 <TextBlock Text="Use this section to manage and update your preferences, making your application experience easier and more personalized."
-            FontSize="16" 
-            Canvas.Left="315" 
-            Canvas.Top="108" 
-            Width="600"
-            TextWrapping="Wrap"
-            VerticalAlignment="Center" 
-            HorizontalAlignment="Left"/>
+                   FontSize="16" 
+                   Canvas.Left="347" 
+                   Canvas.Top="112" 
+                   Width="600"
+                   TextWrapping="Wrap"
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Left"/>
 
+                <!-- Cookie Token Label -->
+                <TextBlock Text="Cookie Token" FontSize="16" Canvas.Left="268" Canvas.Top="226" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
+                <!-- Cookie Token TextBox -->
+                <TextBox Canvas.Left="268" Canvas.Top="268" Width="500" Height="30" Background="#F3F3F3" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource RoundedTextBoxStyle}"/>
 
+                <!-- CK Token Label -->
+                <TextBlock Text="CK Token" FontSize="16" Canvas.Left="268" Canvas.Top="318" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                <!-- CK Token TextBox -->
+                <TextBox Canvas.Left="268" Canvas.Top="360" Width="500" Height="30" Background="#F3F3F3" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource RoundedTextBoxStyle}"/>
+
+                <!-- Run on Startup Label -->
+                <TextBlock Text="Run on Startup" FontSize="16" Canvas.Left="264" Canvas.Top="428" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                <!-- Run on Startup ToggleSwitch -->
+                <CheckBox Canvas.Left="710" Canvas.Top="428" Width="60" Style="{StaticResource ToggleSwitchStyle}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                <!-- Windows Notifications Label -->
+                <TextBlock Text="Windows Notifications" FontSize="16" Canvas.Left="264" Canvas.Top="478" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                <!-- Windows Notifications ToggleSwitch -->
+                <CheckBox Canvas.Left="712" Canvas.Top="478" Width="60" Style="{StaticResource ToggleSwitchStyle}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                <!-- Verify My Connection Label -->
+                <TextBlock Text="Verify My Connection" FontSize="16" Canvas.Left="268" Canvas.Top="527" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                <!-- Verify My Connection ToggleSwitch -->
+                <CheckBox Canvas.Left="712" Canvas.Top="527" Width="60" Style="{StaticResource ToggleSwitchStyle}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                <!-- Save Button -->
+                <Button x:Name="saveBtn" Content="Save" Width="100" Height="30" Canvas.Left="666" Canvas.Top="601" Background="#DDE4F0" Foreground="#5A6ACF" FontWeight="DemiBold"
+                Style="{StaticResource SaveButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0" Focusable="False">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform x:Name="saveButtonScale" ScaleY="1" ScaleX="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="saveButtonScale"
+                                             Storyboard.TargetProperty="ScaleX"
+                                             From="1" To="1.1"
+                                             Duration="0:0:0.2"
+                                             AutoReverse="True"/>
+                                    <DoubleAnimation Storyboard.TargetName="saveButtonScale"
+                                             Storyboard.TargetProperty="ScaleY"
+                                             From="1" To="1.1"
+                                             Duration="0:0:0.2"
+                                             AutoReverse="True"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="saveButtonScale"
+                                             Storyboard.TargetProperty="ScaleX"
+                                             From="1" To="0.9"
+                                             Duration="0:0:0.2"
+                                             AutoReverse="False"/>
+                                    <DoubleAnimation Storyboard.TargetName="saveButtonScale"
+                                             Storyboard.TargetProperty="ScaleY"
+                                             From="1" To="0.9"
+                                             Duration="0:0:0.2"
+                                             AutoReverse="False"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="saveButtonScale"
+                                             Storyboard.TargetProperty="ScaleX"
+                                             From="0.9" To="1"
+                                             Duration="0:0:0.2"
+                                             AutoReverse="False"/>
+                                    <DoubleAnimation Storyboard.TargetName="saveButtonScale"
+                                             Storyboard.TargetProperty="ScaleY"
+                                             From="0.9" To="1"
+                                             Duration="0:0:0.2"
+                                             AutoReverse="False"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+
+                <!-- Informational Card -->
+                <Border Canvas.Left="856" Canvas.Top="226" Width="264" Height="423" Background="#F3F3F3" CornerRadius="15" BorderBrush="LightGray" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
+                        <Grid HorizontalAlignment="Center">
+                            <Ellipse Width="50" Height="50" Fill="Transparent" Stroke="Gray" StrokeThickness="2"/>
+                            <TextBlock Text="i" FontSize="24" Foreground="Gray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Foreground="Gray" Margin="0,20,0,0" Width="185">
+                    Our application streamlines your academic experience by providing a comprehensive view of your career and study progress. It offers real-time updates on new courses and programs, ensuring you never miss out on the latest opportunities. Simplify your educational management and stay informed effortlessly with our all-in-one solution.
+                        </TextBlock>
+                        <TextBlock Text="Version 1.0.0112" FontSize="12" Foreground="Gray" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                            <Image Source="/View/image 42.png" Width="145" Margin="5" Height="31"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
             </Canvas>
         </Grid>
+
+
+
+
 
 
 
@@ -1051,10 +1240,6 @@ CornerRadius="5" Padding="10,2">
 
                     </Grid>
 
-                    <!-- First Card -->
-
-
-                    <!-- Second Card -->
                     <Border Background="#363E51" CornerRadius="15" Padding="10" Width="307" Height="178" Canvas.Left="449" Canvas.Top="190" HorizontalAlignment="Left" VerticalAlignment="Center">
                         <Grid>
                             <Button Width="50" Height="50" Margin="11,15,226,93" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0" Background="White" BorderThickness="0">
