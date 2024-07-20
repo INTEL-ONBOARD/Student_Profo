@@ -227,7 +227,7 @@
             </Button.Template>
         </Button>
 
-        <Grid x:Name="loadingScreen" Margin="37,36,25,24" Visibility="Hidden">
+        <Grid x:Name="loadingScreen" Margin="37,36,25,24" Visibility="Visible">
 
 
             <Button x:Name="contBtn" Margin="607,451,619,236" Click="cont" RenderTransformOrigin="0.5,0.5" Background="Transparent" BorderThickness="0" Panel.ZIndex="3" Focusable="False">
@@ -734,7 +734,7 @@
 
         </Grid>
 
-        <Grid x:Name="Search_select_View" Background="Transparent" Margin="32,50,30,10" Visibility="Visible" IsVisibleChanged="initHome">
+        <Grid x:Name="Search_select_View" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden" IsVisibleChanged="initHome">
             <Canvas>
                 <StackPanel Orientation="Horizontal" Width="310" Canvas.Left="259" Canvas.Top="156" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <!-- Adjusted Margin -->
