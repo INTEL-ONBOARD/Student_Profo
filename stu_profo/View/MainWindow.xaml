@@ -814,7 +814,7 @@
             <Canvas>
                 <!-- Back Button -->
                 <Button Canvas.Left="103" Canvas.Top="105" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center" 
-   BorderThickness="1" BorderBrush="Black" Background="White" Style="{StaticResource BackButtonStyle}">
+                BorderThickness="1" BorderBrush="Black" Background="White" Style="{StaticResource BackButtonStyle}">
                     <Grid>
                         <Image Source="/View/Backbutton.png" Stretch="Uniform" Margin="1,12,7,12"/>
                     </Grid>
@@ -836,8 +836,7 @@
                    VerticalAlignment="Center" 
                    HorizontalAlignment="Left"/>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="726" Grid.ColumnSpan="2" Canvas.Left="264" Canvas.Top="181" VerticalAlignment="Center" >
-                    <!-- Programme ComboBox -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="726" Grid.ColumnSpan="2" Canvas.Left="264" Canvas.Top="181" VerticalAlignment="Center">
                     <!-- Programme ComboBox -->
                     <ComboBox x:Name="programBox" Width="441" Height="34" Margin="0,0,10,0" Tag="Programme" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
                     </ComboBox>
@@ -846,23 +845,22 @@
                     <ComboBox x:Name="batchBox" Width="212" Height="34" Margin="0,0,10,0" Tag="Batch" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
                     </ComboBox>
 
-
                     <!-- Search Button -->
                     <Button Width="40" Height="40" Margin="10,0,0,0" Grid.Row="0" Grid.Column="0">
-
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Background="{TemplateBinding Background}" 
-              BorderBrush="{TemplateBinding BorderBrush}" 
-              BorderThickness="{TemplateBinding BorderThickness}" 
-              CornerRadius="7">
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="7">
                                     <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
                 </StackPanel>
-                <Border Background="#FFFFFF" CornerRadius="20" Grid.ColumnSpan="2" Canvas.Left="311" Canvas.Top="254" Width="671" HorizontalAlignment="Left" VerticalAlignment="Center" Height="448">
+
+                <Border Background="#FFFFFF" CornerRadius="20" Grid.ColumnSpan="2" Canvas.Left="311" Canvas.Top="254" Width="671" HorizontalAlignment="Left" VerticalAlignment="Center" Height="448" Visibility="Visible">
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="10,0,0,0">
                         <StackPanel Height="600">
                             <ItemsControl ItemsSource="{Binding Courses}">
@@ -877,8 +875,21 @@
                     </ScrollViewer>
                 </Border>
 
+                <TextBlock x:Name="ErrorMessageTextBlock"
+                   Text="The selected program and batch could not be found. Please try again by choosing a different option."
+                   Foreground="Gray"
+                   FontSize="14"
+                   Canvas.Left="314"
+                   Canvas.Top="482"
+                   Visibility="Visible"
+                   TextWrapping="Wrap"
+                   Width="653"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"/>
             </Canvas>
         </Grid>
+
+
 
 
         <Grid x:Name="Search_select_View" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">
@@ -979,6 +990,8 @@
                 <Line X1="100" Y1="0" X2="100" Y2="600" Stroke="Black" StrokeThickness="2" Canvas.Left="540" Canvas.Top="104" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             </Canvas>
         </Grid>
+
+
 
         <Grid x:Name="Settings" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">
             <Canvas>
