@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:stu_profo"
              StartupUri="/View/MainWindow.xaml">
     <Application.Resources>
-         
+       
     </Application.Resources>
 </Application>

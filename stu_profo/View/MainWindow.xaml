@@ -227,7 +227,7 @@
             </Button.Template>
         </Button>
 
-        <Grid x:Name="loadingScreen" Margin="37,36,25,24" Visibility="Visible">
+        <Grid x:Name="loadingScreen" Margin="37,36,25,24" Visibility="Hidden">
 
 
             <Button x:Name="contBtn" Margin="607,451,619,236" Click="cont" RenderTransformOrigin="0.5,0.5" Background="Transparent" BorderThickness="0" Panel.ZIndex="3" Focusable="False">
@@ -734,30 +734,23 @@
 
         </Grid>
 
-        <Grid x:Name="home" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden" IsVisibleChanged="initHome" >
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="3*"/>
-            </Grid.ColumnDefinitions>
-            <Image Source="/View/image 42.png" Stretch="Fill" Margin="449,357,113,390" Grid.Column="1"/>
-            <!-- Left side content -->
-            <Border Grid.Column="0" Margin="44,56,0,68" Background="#F5F5F5" CornerRadius="10">
-                <StackPanel>
-                    <!-- User Info Section -->
-                    <StackPanel Orientation="Horizontal" Margin="10,30,10,10" Width="310">
-                        <!-- Adjusted Margin -->
-                        <Ellipse Width="50" Height="50" Fill="LightGray"/>
-                        <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
-                            <TextBlock Text="DSE231F/CO" FontSize="12" FontWeight="Light" FontFamily="Open Sans"/>
-                            <TextBlock Text="CODSE231F-055" FontSize="24" FontWeight="DemiBold" FontFamily="Open Sans"/>
-                        </StackPanel>
+        <Grid x:Name="Search_select_View" Background="Transparent" Margin="32,50,30,10" Visibility="Visible" IsVisibleChanged="initHome">
+            <Canvas>
+                <StackPanel Orientation="Horizontal" Width="310" Canvas.Left="259" Canvas.Top="156" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <!-- Adjusted Margin -->
+                    <Ellipse Width="50" Height="50" Fill="LightGray"/>
+                    <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                        <TextBlock Text="DSE231F/CO" FontSize="12" FontWeight="Light" FontFamily="Open Sans"/>
+                        <TextBlock Text="CODSE231F-055" FontSize="24" FontWeight="DemiBold" FontFamily="Open Sans"/>
                     </StackPanel>
+                </StackPanel>
 
+                <StackPanel Canvas.Left="754" Canvas.Top="174" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <!-- User Info Section -->
                     <!-- Course List Section -->
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" Height="400">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" Height="446">
                         <!-- Set a height here -->
-                        <ItemsControl ItemsSource="{Binding Grades}" Width="341" Height="540">
+                        <ItemsControl ItemsSource="{Binding Grades}" Width="341" Height="482">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <local:GradeItemControl Margin="0,0,0,2"/>
@@ -767,11 +760,8 @@
                         </ItemsControl>
                     </ScrollViewer>
                 </StackPanel>
-            </Border>
 
-            <!-- Right side empty border -->
-            <Border Grid.Column="1" Margin="26,56,387,66" CornerRadius="10" Background="#F3F3F3">
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,46,0,0" Height="583">
+                <StackPanel Canvas.Left="260" Canvas.Top="238" Height="349" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <!-- Academic Card -->
                     <Border Background="#2196F3" CornerRadius="10" Margin="0,10" Padding="10" Height="134">
                         <Grid>
@@ -793,7 +783,6 @@
 
                     <!-- Skill Card -->
                     <Border Background="#8AC53E" CornerRadius="10" Margin="0,10" Padding="10" Height="135" Width="260">
-
                         <Grid>
                             <!-- Content Overlay -->
                             <StackPanel>
@@ -810,88 +799,169 @@
                             </Canvas>
                         </Grid>
                     </Border>
-
-
                     <!-- Stats Card -->
-                    <Border Background="White" CornerRadius="10" Margin="0,10" Padding="10" Width="252" Height="270">
-                        <StackPanel HorizontalAlignment="Center" Width="180">
-                            <TextBlock Text="Your stats" Foreground="Black" FontSize="27" FontWeight="Light" HorizontalAlignment="Center" Width="110"/>
-                            <TextBlock Text="Servies Time" Foreground="Black" FontSize="14" FontWeight="DemiBold" HorizontalAlignment="Center"/>
-                            <TextBlock Text="From 1-6 Dec, 2021" Foreground="Gray" FontSize="12" HorizontalAlignment="Center"/>
-                            <Grid Margin="10">
-                                <!-- Placeholder for circular chart -->
-                                <Ellipse Width="100" Height="100" Fill="#E1E1E1"/>
+                </StackPanel>
+
+                <!-- Done Button -->
+                <StackPanel Canvas.Left="341" Canvas.Top="582" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Border CornerRadius="25" Padding="10" Background="White" Width="120" Height="36">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,-12,0">
+                            <Grid Width="24" Height="24" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Ellipse Width="24" Height="24" Fill="Transparent" Stroke="#0F458D" StrokeThickness="2" />
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE001;" Foreground="#0F458D" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Grid>
-                            <Button Content="View Report" Background="#E1E1E1" Foreground="BlueViolet" BorderThickness="0" Width="100" Margin="10">
-                                <Button.Template>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}" 
-                                BorderBrush="{TemplateBinding BorderBrush}" 
-                                BorderThickness="0" 
-                                CornerRadius="5" Padding="10,2">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
+                            <TextBlock Text="DONE" Foreground="#0F458D" FontSize="16" FontWeight="Light" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Border>
                 </StackPanel>
-            </Border>
+
+                <!-- Vertical Line -->
+                <Line X1="100" Y1="0" X2="100" Y2="600" Stroke="Black" StrokeThickness="2" Canvas.Left="540" Canvas.Top="104" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            </Canvas>
+        </Grid>
+
+
+
+
+        <Grid x:Name="home" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden" IsVisibleChanged="initHome" >
+            <TextBlock Text="Home" Foreground="Black" FontSize="36" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="216,100,0,637" Width="106"/>
+            <TextBlock 
+    Text="Welcome! Enjoy the freedom to explore your academic journey, identify your strengths and weaknesses, and enhance your educational experience with ease." 
+    Foreground="Gray" 
+    FontSize="13" 
+    FontWeight="DemiBold" 
+    HorizontalAlignment="Left" 
+    Margin="349,100,0,637" 
+    Width="433" 
+    TextWrapping="Wrap"
+/>
+
+            <Image 
+    Source="/View/Subtract.png" 
+    Stretch="Fill" 
+    Grid.Column="0" 
+    Margin="225,459,513,99" 
+    RenderTransformOrigin="0.363,0.301" 
+    Width="600"/>
+
+            <Image 
+    Source="/View/homecard1.png" 
+    Stretch="Fill" 
+    Grid.Column="0" 
+    Margin="225,182,513,384" 
+    RenderTransformOrigin="0.363,0.301" 
+    Width="600"/>
+
+            <TextBlock 
+    Text="FIND YOUR IDEAL COURSE AND BOOST YOUR ACADEMIC SUCCESS!" 
+    Foreground="White" 
+    FontSize="30" 
+    FontWeight="Bold" 
+    HorizontalAlignment="Left" 
+    Margin="257,480,0,178" 
+    Width="398" 
+    TextWrapping="Wrap"
+/>
+            <TextBlock 
+    Text="Discover the perfect course to match your goals effortlessly. Start shaping your academic future today and unlock new opportunities for success!" 
+    Foreground="White" 
+    FontSize="16" 
+    FontWeight="Light" 
+    HorizontalAlignment="Left" 
+    Margin="253,605,0,99" 
+    Width="347" 
+    TextWrapping="Wrap"
+/>
+
+            <TextBlock 
+    Text="              INSTANT ACCESS TO YOUR RESULTS AND GPA!" 
+    Foreground="White" 
+    FontSize="30" 
+   
+    FontWeight="Bold" 
+    HorizontalAlignment="Left" 
+    TextAlignment="Right"
+    Margin="405,218,0,497" 
+    Width="408" 
+    TextWrapping="Wrap"
+/>
+
+            <TextBlock 
+    Text="Experience the ease of accessing your results and GPA with just one click! Now it's simpler than ever to view all your academic details in one place." 
+    Foreground="White" 
+    FontSize="16" 
+    FontWeight="Light" 
+    HorizontalAlignment="Left" 
+    TextAlignment="Right"
+    Margin="465,311,0,410" 
+    Width="348" 
+    TextWrapping="Wrap"
+/>
+
+            <StackPanel HorizontalAlignment="Left" Width="180" Margin="935,214,0,294">
+                <TextBlock Text="Your stats" Foreground="Black" FontSize="30" FontWeight="Light" HorizontalAlignment="Center" Width="110"/>
+                <TextBlock Text="Servies Time" Foreground="Black" FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+                <TextBlock Text="From 1-6 Dec, 2021" Foreground="Gray" FontSize="14" HorizontalAlignment="Center"/>
+                <Grid Margin="10">
+                    <!-- Placeholder for circular chart -->
+                    <Ellipse Width="110" Height="110" Fill="#E1E1E1" Margin="25,8,25,-8"/>
+                </Grid>
+                <Button Content="View Report" Background="#E1E1E1" Foreground="BlueViolet" BorderThickness="0" Width="100" Margin="10">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+BorderBrush="{TemplateBinding BorderBrush}" 
+BorderThickness="0" 
+CornerRadius="5" Padding="10,2">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="870,120,158,604" Width="310">
+                <!-- Adjusted Margin -->
+                <Ellipse Width="50" Height="50" Fill="LightGray"/>
+                <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Text="DSE231F/CO" FontSize="14" FontWeight="Light" FontFamily="Open Sans"/>
+                    <TextBlock Text="CODSE231F-055" FontSize="26" FontWeight="DemiBold" FontFamily="Open Sans"/>
+                </StackPanel>
+            </StackPanel>
+            <!-- Left side content -->
+
 
             <!-- Last StackPanel with adjustable content -->
-            <StackPanel HorizontalAlignment="Left" Margin="380,324,0,38" Grid.Column="1" Width="389">
+            <StackPanel HorizontalAlignment="Left" Margin="450,324,0,56" Width="878">
                 <Canvas>
-                    <Grid Canvas.Left="60" Canvas.Top="94" HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
+                    <Grid Canvas.Left="600" Canvas.Top="108" HorizontalAlignment="Left" VerticalAlignment="Center">
 
-                        <Button Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0">
-                            <Button.Content>
-                                <Image Source="/View/bellicon.png" Stretch="Uniform"/>
-                            </Button.Content>
-                        </Button>
 
-                        <Button Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="1">
-                            <Button.Content>
-                                <Image Source="/View/gearicon.png" Stretch="Uniform"/>
-                            </Button.Content>
-                        </Button>
 
-                        <Button x:Name="logoutbtn" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="0" Click="logoutbtnClick">
-                            <Button.Content>
-                                <Image Source="/View/exiticon.png" Stretch="Uniform"/>
-                            </Button.Content>
-                        </Button>
-
-                        <Button x:Name="showinfo" Width="50" Height="50" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="1" Click="showinfo_Click">
-                            <Button.Content>
-                                <Image Source="/View/boxicon.png" Stretch="Uniform"/>
-                            </Button.Content>
-                        </Button>
                     </Grid>
 
                     <!-- First Card -->
-                    <Border Background="#E3F2FD" CornerRadius="15" Padding="10" Width="128" Height="132" Canvas.Left="190" Canvas.Top="86" HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <StackPanel VerticalAlignment="Bottom">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                <TextBlock Text="I" Foreground="#2196F3" FontSize="24" FontWeight="Bold" />
-                                <TextBlock Text="30%" Foreground="#2196F3" FontSize="24" FontWeight="Bold" Margin="5,0,0,0"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </Border>
 
 
                     <!-- Second Card -->
-                    <Border Background="#3C3F41" CornerRadius="15" Padding="10" Width="255" Height="150" Canvas.Left="63" Canvas.Top="230" HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <!-- Add your content here -->
+                    <Border Background="#363E51" CornerRadius="15" Padding="10" Width="307" Height="178" Canvas.Left="449" Canvas.Top="190" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Grid>
+                            <Button Width="50" Height="50" Margin="11,15,226,93" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0"/>
+                            <Button Width="50" Height="50" Margin="77,15,160,93" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0"/>
+                            <Button x:Name="logoutbtn" Width="50" Height="50" Margin="13,89,224,19" Style="{StaticResource RoundedButtonStyle}" Grid.Column="0" Click="logoutbtnClick"/>
+                            <Button x:Name="showinfo" Width="50" Height="50" Margin="79,89,158,19" Style="{StaticResource RoundedButtonStyle}" Click="showinfo_Click"/>
+
+                            <!-- Nested Border with StackPanel -->
+                            <Border Background="#5A6789" CornerRadius="15" Padding="10" Width="128" Height="132" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="144,0,0,0">
+                                <StackPanel VerticalAlignment="Bottom">
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                        <TextBlock Text="I" Foreground="#2196F3" FontSize="24" FontWeight="Bold" />
+                                        <TextBlock Text="30%" Foreground="White" FontSize="24" FontWeight="DemiBold"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
                     </Border>
+
                 </Canvas>
             </StackPanel>
         </Grid>
@@ -1027,7 +1097,7 @@
 
                 <!-- Programme ComboBox -->
                 <ComboBox x:Name="sBoxC" Width="288" Height="34" Margin="0,0,0,20" Tag="StudentId" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
-                 </ComboBox>
+                </ComboBox>
 
 
 
