@@ -485,6 +485,7 @@ namespace stu_profo
                 }
             };
             MainBackgroundImage = null; // Remove the image if applicable
+
         }
 
         private void Deactivated(object sender, EventArgs e)
@@ -492,5 +493,6 @@ namespace stu_profo
             Window window = (Window)sender;
             window.Topmost = true;
         }
+
     }
 }

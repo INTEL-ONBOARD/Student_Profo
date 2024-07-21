@@ -411,8 +411,6 @@
 
         </Grid>
 
-
-
         <Grid x:Name="signinScreen" Margin="32,50,30,40" Visibility="Hidden">
             <Border Margin="246,54,244,50" BorderBrush="White" BorderThickness="2" CornerRadius="10" Opacity="40">
                 <Grid Margin="20,40,20,20">
@@ -889,9 +887,6 @@
             </Canvas>
         </Grid>
 
-
-
-
         <Grid x:Name="Search_select_View" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">
             <Canvas>
                 <StackPanel Orientation="Horizontal" Width="310" Canvas.Left="259" Canvas.Top="156" HorizontalAlignment="Left" VerticalAlignment="Center">
@@ -990,8 +985,6 @@
                 <Line X1="100" Y1="0" X2="100" Y2="600" Stroke="Black" StrokeThickness="2" Canvas.Left="540" Canvas.Top="104" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             </Canvas>
         </Grid>
-
-
 
         <Grid x:Name="Settings" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">
             <Canvas>
@@ -1130,12 +1123,6 @@
                 </Border>
             </Canvas>
         </Grid>
-
-
-
-
-
-
 
         <Grid x:Name="home" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden" IsVisibleChanged="initHome" >
             <TextBlock Text="Home" Foreground="Black" FontSize="36" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="216,100,0,637" Width="106"/>
@@ -1306,7 +1293,7 @@ CornerRadius="5" Padding="10,2">
                 <!-- Continue Button -->
                 <Button x:Name="continueBtn" Content="Continue" Width="98" Height="25" Margin="0,0,0,20" 
                 Background="Transparent" Foreground="White" BorderBrush="#BFFFFFFF" 
-                BorderThickness="1">
+                BorderThickness="1" Click="Continuebtn_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
@@ -1428,7 +1415,7 @@ CornerRadius="5" Padding="10,2">
                 <!-- Continue Button -->
                 <Button x:Name="doneBtn" Content="Done" Width="84" Height="25" Margin="0,0,0,20" 
         Background="Transparent" Foreground="White" BorderBrush="#BFFFFFFF" 
-        BorderThickness="1">
+        BorderThickness="1" Click="Donebtn_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
