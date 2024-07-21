@@ -28,11 +28,22 @@ namespace stu_profo.Controller
         public static List<blockModel> getProgramms() 
         {
             List<blockModel> pm = new List<blockModel>();
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "programmes.json");
-            using StreamReader reader = new StreamReader(path);
-            var json = reader.ReadToEnd();
-            pm = JsonConvert.DeserializeObject<List<blockModel>>(json);
-            if (pm != null) { return pm; } else { return pm; };
+
+            if (engine.dumpProgrammes())
+            {
+                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "programmes.json");
+                using StreamReader reader = new StreamReader(path);
+                var json = reader.ReadToEnd();
+                pm = JsonConvert.DeserializeObject<List<blockModel>>(json);
+                if (pm != null) { return pm; } else { return pm; };
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("Data cannot be loaded! issue(engine)");
+                return pm;
+            }
+
+
         }
         public static List<blockModel> getBatches()
         {
