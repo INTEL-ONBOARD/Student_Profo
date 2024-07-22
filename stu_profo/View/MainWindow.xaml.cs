@@ -169,7 +169,7 @@ namespace stu_profo
             home.Visibility = Visibility.Visible;
 
             MainBackground = Brushes.White;
-            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
+            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Home.png")));
             // Optionally, reset the background if needed
 
             //engine.dumpProgrammes();
@@ -307,7 +307,7 @@ namespace stu_profo
             config2.Visibility = Visibility.Hidden;
             home.Visibility = Visibility.Visible;
             MainBackground = Brushes.White;
-            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
+            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Home.png")));
             ShowWarningOverlay(home, ladinoverlay,true);
             await Task.Delay(3000);
             ShowWarningOverlay(home, ladinoverlay, false);
@@ -329,7 +329,7 @@ namespace stu_profo
 
             // Set background for desktop3
             MainBackground = Brushes.White;
-            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
+            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Home.png")));
         }
 
         private async void ShowWarningOverlay(UIElement targetPage, Grid warningOverlayGrid, bool applyBlur)
