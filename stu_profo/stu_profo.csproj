@@ -28,6 +28,7 @@
     <None Remove="View\loghead.png" />
     <None Remove="View\NIBM.png" />
     <None Remove="View\Rectangle 5622.png" />
+    <None Remove="View\serchcon.png" />
     <None Remove="View\serchicon.png" />
     <None Remove="View\settingicon.png" />
     <None Remove="View\signuphead.png" />
@@ -69,6 +70,7 @@
     <Resource Include="View\loghead.png" />
     <Resource Include="View\NIBM.png" />
     <Resource Include="View\Rectangle 5622.png" />
+    <Resource Include="View\serchcon.png" />
     <Resource Include="View\serchicon.png" />
     <Resource Include="View\settingicon.png" />
     <Resource Include="View\signuphead.png" />

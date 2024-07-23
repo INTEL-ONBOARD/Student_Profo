@@ -507,5 +507,9 @@ namespace stu_profo
             window.Topmost = true;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
