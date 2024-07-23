@@ -165,7 +165,7 @@ namespace stu_profo
         private void StViewbackbutton_Click(object sender, RoutedEventArgs e)
         {
             // Hide the student view and show the home view
-            studentview.Visibility = Visibility.Hidden;
+            Search.Visibility = Visibility.Hidden;
             home.Visibility = Visibility.Visible;
 
             MainBackground = Brushes.White;
@@ -325,11 +325,24 @@ namespace stu_profo
         private void showinfo_Click(object sender, RoutedEventArgs e)
         {
             home.Visibility = Visibility.Hidden;
-            studentview.Visibility = Visibility.Visible;
+            Search.Visibility = Visibility.Visible;
 
             // Set background for desktop3
             MainBackground = Brushes.White;
             MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Home.png")));
+        }
+
+        private void search_back(object sender, RoutedEventArgs e)
+        {
+            // Hide the student view and show the home view
+            Search.Visibility = Visibility.Hidden;
+            home.Visibility = Visibility.Visible;
+
+            MainBackground = Brushes.White;
+            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Home.png")));
+            // Optionally, reset the background if needed
+
+            //engine.dumpProgrammes();
         }
 
         private async void ShowWarningOverlay(UIElement targetPage, Grid warningOverlayGrid, bool applyBlur)

@@ -36,6 +36,7 @@
     <None Remove="View\Subtract.png" />
     <None Remove="View\tenor.gif" />
     <None Remove="View\window.png" />
+    <None Remove="View\x.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -76,6 +77,7 @@
     <Resource Include="View\Subtract.png" />
     <Resource Include="View\tenor.gif" />
     <Resource Include="View\window.png" />
+    <Resource Include="View\x.png" />
   </ItemGroup>
 
 </Project>
