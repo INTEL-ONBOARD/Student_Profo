@@ -313,8 +313,8 @@ namespace stu_profo
             await Task.Delay(3000);
             ShowWarningOverlay(home, ladinoverlay, false);
 
-
-            // Set background for desktop4
+            batchLabel.Content = batch.text;
+            studentLabel.Content = student.text;
 
         }
 
