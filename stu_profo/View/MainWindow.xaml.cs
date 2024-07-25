@@ -300,10 +300,10 @@ namespace stu_profo
 
         private async void Donebtn_Click(object sender, RoutedEventArgs e)
         {
-            blockModel selectedS = (blockModel)sBoxC.SelectedItem;
-            System.Diagnostics.Debug.WriteLine($"{selectedS.value}");
-            batch_id = selectedS.value;
-            dataController.setProgramm("configStudent.txt", selectedS.value);
+            student = (blockModel)sBoxC.SelectedItem;
+            System.Diagnostics.Debug.WriteLine($"{student.value}");
+            batch_id = student.value;
+            dataController.setProgramm("configStudent.txt", student.value);
 
             config2.Visibility = Visibility.Hidden;
             home.Visibility = Visibility.Visible;
@@ -326,6 +326,8 @@ namespace stu_profo
 
         private void showinfo_Click(object sender, RoutedEventArgs e)
         {
+
+
             home.Visibility = Visibility.Hidden;
             Search.Visibility = Visibility.Visible;
 
