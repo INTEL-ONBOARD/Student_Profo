@@ -20,6 +20,7 @@
     <None Remove="View\gearicon.png" />
     <None Remove="View\Green.png" />
     <None Remove="View\Group 1000001063.png" />
+    <None Remove="View\Home.png" />
     <None Remove="View\homecard1.png" />
     <None Remove="View\homeicon.png" />
     <None Remove="View\image 42.png" />
@@ -27,6 +28,7 @@
     <None Remove="View\loghead.png" />
     <None Remove="View\NIBM.png" />
     <None Remove="View\Rectangle 5622.png" />
+    <None Remove="View\serchcon.png" />
     <None Remove="View\serchicon.png" />
     <None Remove="View\settingicon.png" />
     <None Remove="View\signuphead.png" />
@@ -35,6 +37,7 @@
     <None Remove="View\Subtract.png" />
     <None Remove="View\tenor.gif" />
     <None Remove="View\window.png" />
+    <None Remove="View\x.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -59,6 +62,7 @@
     <Resource Include="View\gearicon.png" />
     <Resource Include="View\Green.png" />
     <Resource Include="View\Group 1000001063.png" />
+    <Resource Include="View\Home.png" />
     <Resource Include="View\homecard1.png" />
     <Resource Include="View\homeicon.png" />
     <Resource Include="View\image 42.png" />
@@ -66,6 +70,7 @@
     <Resource Include="View\loghead.png" />
     <Resource Include="View\NIBM.png" />
     <Resource Include="View\Rectangle 5622.png" />
+    <Resource Include="View\serchcon.png" />
     <Resource Include="View\serchicon.png" />
     <Resource Include="View\settingicon.png" />
     <Resource Include="View\signuphead.png" />
@@ -74,6 +79,7 @@
     <Resource Include="View\Subtract.png" />
     <Resource Include="View\tenor.gif" />
     <Resource Include="View\window.png" />
+    <Resource Include="View\x.png" />
   </ItemGroup>
 
 </Project>

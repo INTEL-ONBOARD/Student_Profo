@@ -169,11 +169,11 @@ namespace stu_profo
         private void StViewbackbutton_Click(object sender, RoutedEventArgs e)
         {
             // Hide the student view and show the home view
-            studentview.Visibility = Visibility.Hidden;
+            Search.Visibility = Visibility.Hidden;
             home.Visibility = Visibility.Visible;
 
             MainBackground = Brushes.White;
-            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
+            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Home.png")));
             // Optionally, reset the background if needed
 
             //engine.dumpProgrammes();
@@ -300,11 +300,10 @@ namespace stu_profo
 
         private async void Donebtn_Click(object sender, RoutedEventArgs e)
         {
-            student = (blockModel)sBoxC.SelectedItem;
-
-            System.Diagnostics.Debug.WriteLine($"{student.value}");
-            batch_id = student.value;
-            dataController.setProgramm("configStudent.txt", student.value);
+            blockModel selectedS = (blockModel)sBoxC.SelectedItem;
+            System.Diagnostics.Debug.WriteLine($"{selectedS.value}");
+            batch_id = selectedS.value;
+            dataController.setProgramm("configStudent.txt", selectedS.value);
 
             config2.Visibility = Visibility.Hidden;
             home.Visibility = Visibility.Visible;
@@ -313,11 +312,6 @@ namespace stu_profo
             ShowWarningOverlay(home, ladinoverlay,true);
             await Task.Delay(3000);
             ShowWarningOverlay(home, ladinoverlay, false);
-
-
-
-            batchLabel.Content = batch.text;
-            studentLabel.Content = student.text;
 
 
             // Set background for desktop4
@@ -333,13 +327,24 @@ namespace stu_profo
         private void showinfo_Click(object sender, RoutedEventArgs e)
         {
             home.Visibility = Visibility.Hidden;
-            studentview.Visibility = Visibility.Visible;
+            Search.Visibility = Visibility.Visible;
 
             // Set background for desktop3
             MainBackground = Brushes.White;
-            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
+            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Home.png")));
+        }
 
-            
+        private void search_back(object sender, RoutedEventArgs e)
+        {
+            // Hide the student view and show the home view
+            Search.Visibility = Visibility.Hidden;
+            home.Visibility = Visibility.Visible;
+
+            MainBackground = Brushes.White;
+            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Home.png")));
+            // Optionally, reset the background if needed
+
+            //engine.dumpProgrammes();
         }
 
         private async void ShowWarningOverlay(UIElement targetPage, Grid warningOverlayGrid, bool applyBlur)
@@ -501,5 +506,9 @@ namespace stu_profo
             window.Topmost = true;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
