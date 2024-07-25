@@ -340,18 +340,16 @@
     </Window.Resources>
 
     <Grid Background="{Binding MainBackground}">
-        <Grid.ColumnDefinitions>    
+        <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-
         <Grid>
             <Grid.Background>
                 <Binding Path="MainBackgroundImage" />
             </Grid.Background>
         </Grid>
-
-        <Button Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" Click="CloseButton_Click" BorderBrush="#FF707070" Background="White">
+        <Button Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,18,0" Click="CloseButton_Click" BorderBrush="#FF707070" Background="White">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border Width="30" Height="30" Background="white" CornerRadius="15">
@@ -363,6 +361,10 @@
         </Button>
 
 
+
+
+
+        <!-- Screens -->
         <Grid x:Name="loadingScreen" Margin="37,36,25,24" Visibility="Hidden">
 
 
@@ -1706,5 +1708,8 @@ HorizontalAlignment="Center"/>
             </Canvas>
         </Grid>
 
+        
+        
+        
     </Grid>
 </Window>

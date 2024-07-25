@@ -198,6 +198,8 @@ namespace stu_profo
                 }
             };
             MainBackgroundImage = null;
+            bBoxC.Text = "";
+
         }
         private async void cont(object sender, RoutedEventArgs e)
         {
