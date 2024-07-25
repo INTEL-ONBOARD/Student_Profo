@@ -11,6 +11,8 @@ using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using stu_profo.Controller;
 using stu_profo.Model;
+using stu_profo.View;
+
 
 namespace stu_profo
 {
@@ -20,6 +22,12 @@ namespace stu_profo
         private string batch_id = "";
         private string programme_id = "";
         private string student_id = "";
+        
+        private blockModel batch;
+        private blockModel programme;
+        private blockModel student;
+
+
         public ObservableCollection<GradeItem> Grades { get; set; }
         public ObservableCollection<Course> Courses { get; set; }
 
@@ -122,7 +130,6 @@ namespace stu_profo
             // Trigger binding update
         }
 
-
         private void TogglePasswordVisibilityREG(object sender, RoutedEventArgs e)
         {
             if (passwordInputreg.Visibility == Visibility.Visible)
@@ -158,9 +165,6 @@ namespace stu_profo
                 ((Button)sender).Content = "👁"; // Change icon to visible eye
             }
         }
-
-
-
 
         private void StViewbackbutton_Click(object sender, RoutedEventArgs e)
         {
@@ -221,7 +225,6 @@ namespace stu_profo
                 System.Diagnostics.Debug.WriteLine("Connection failed!");
             }
         }
-
 
         private async void Login(object sender, RoutedEventArgs e)
         {
@@ -289,20 +292,19 @@ namespace stu_profo
 
         }
 
-
         private void ResetTextBoxes()
         {
             emailInput.BorderBrush = Brushes.Gray;
             passwordInput.BorderBrush = Brushes.Gray;
         }
 
-
         private async void Donebtn_Click(object sender, RoutedEventArgs e)
         {
-            blockModel selectedS = (blockModel)sBoxC.SelectedItem;
-            System.Diagnostics.Debug.WriteLine($"{selectedS.value}");
-            batch_id = selectedS.value;
-            dataController.setProgramm("configStudent.txt", selectedS.value);
+            student = (blockModel)sBoxC.SelectedItem;
+
+            System.Diagnostics.Debug.WriteLine($"{student.value}");
+            batch_id = student.value;
+            dataController.setProgramm("configStudent.txt", student.value);
 
             config2.Visibility = Visibility.Hidden;
             home.Visibility = Visibility.Visible;
@@ -311,15 +313,21 @@ namespace stu_profo
             ShowWarningOverlay(home, ladinoverlay,true);
             await Task.Delay(3000);
             ShowWarningOverlay(home, ladinoverlay, false);
-          
+
+
+
+            batchLabel.Content = batch.text;
+            studentLabel.Content = student.text;
+
 
             // Set background for desktop4
-          
+
         }
 
         private void Signup(object sender, RoutedEventArgs e)
         {
             // Signup code here
+            
         }
 
         private void showinfo_Click(object sender, RoutedEventArgs e)
@@ -330,6 +338,8 @@ namespace stu_profo
             // Set background for desktop3
             MainBackground = Brushes.White;
             MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
+
+            
         }
 
         private async void ShowWarningOverlay(UIElement targetPage, Grid warningOverlayGrid, bool applyBlur)
@@ -359,7 +369,6 @@ namespace stu_profo
             }
         }
 
-
         private void HideWarningOverlay(object sender, RoutedEventArgs e)
         {
             // Remove blur effect from signupScreen
@@ -368,9 +377,6 @@ namespace stu_profo
             // Hide the warning overlay
             warningOverlayGrid.Visibility = Visibility.Hidden;
         }
-
-       
-
 
         private void LoginHyperlink_Click(object sender, RoutedEventArgs e)
         {
@@ -419,8 +425,6 @@ namespace stu_profo
             MainBackgroundImage = null; // Remove the image if applicable
         }
 
-
-
         private void initHome(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (home.Visibility == Visibility.Visible) { System.Diagnostics.Debug.WriteLine("init"); }
@@ -449,8 +453,11 @@ namespace stu_profo
             }
         }
 
-        private void Continuebtn_Click(object sender, RoutedEventArgs e)
+        private async void Continuebtn_Click(object sender, RoutedEventArgs e)
         {
+            statusText1.Text = "Please wait....";
+            await Task.Delay(1000);
+
             config1.Visibility = Visibility.Hidden;
             config2.Visibility = Visibility.Visible;
 
@@ -459,10 +466,10 @@ namespace stu_profo
             {
                 continueBtn.IsEnabled = true;
 
-                blockModel selectedB = (blockModel)bBoxC.SelectedItem;
-                System.Diagnostics.Debug.WriteLine($"{selectedB.value}");
-                batch_id = selectedB.value;
-                dataController.setProgramm("configBatch.txt", selectedB.value);
+                batch = (blockModel)bBoxC.SelectedItem;
+                System.Diagnostics.Debug.WriteLine($"{batch.value}");
+                batch_id = batch.value;
+                dataController.setProgramm("configBatch.txt", batch.value);
 
                 List<blockModel> sm = dataController.getStudents();
                 sBoxC.ItemsSource = sm;

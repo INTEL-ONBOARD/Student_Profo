@@ -282,7 +282,7 @@
     </Window.Resources>
 
     <Grid Background="{Binding MainBackground}">
-        <Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>    
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
@@ -1226,8 +1226,8 @@ CornerRadius="5" Padding="10,2">
                 <!-- Adjusted Margin -->
                 <Ellipse Width="50" Height="50" Fill="LightGray"/>
                 <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
-                    <TextBlock Text="DSE231F/CO" FontSize="14" FontWeight="Light" FontFamily="Open Sans"/>
-                    <TextBlock Text="CODSE231F-055" FontSize="26" FontWeight="DemiBold" FontFamily="Open Sans"/>
+                    <Label x:Name="batchLabel" Content="dafault"></Label>
+                    <Label x:Name="studentLabel" Content="dafault" FontSize="20"></Label>
                 </StackPanel>
             </StackPanel>
             <!-- Left side content -->
@@ -1518,7 +1518,7 @@ CornerRadius="5" Padding="10,2">
 
             </StackPanel>
             <!-- Bottom Text -->
-            <TextBlock Text="You almost there....please wait...." 
+            <TextBlock Text="You almost there..." 
 Foreground="White" FontSize="12" HorizontalAlignment="Center" 
 Margin="0,754,0,0"/>
         </Grid>
@@ -1552,8 +1552,8 @@ Margin="0,754,0,0"/>
             <Border Background="Transparent" CornerRadius="10" Width="501" Height="410" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                    <TextBlock Text="PLease Wait ..." FontSize="50" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="0,10,0,0" />
-                    <TextBlock Text="Looking for your Account" Foreground="White" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="25"/>
+                    <TextBlock Text="PLease Wait ..." FontSize="25" FontWeight="Medium" Foreground="White" HorizontalAlignment="Center" Margin="0,10,0,0" />
+                    <TextBlock Text="Looking for your Account" Foreground="White" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="20"/>
 
                 </StackPanel>
             </Border>
