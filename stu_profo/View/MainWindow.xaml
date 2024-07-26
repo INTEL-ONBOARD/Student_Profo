@@ -99,12 +99,12 @@
                                             <DoubleAnimation Storyboard.TargetName="buttonBorder"
                                                      Storyboard.TargetProperty="RenderTransform.ScaleX"
                                                      To="0.9"
-                                                     Duration="0:0:0.2"/>
+                                                     Duration="0:0:0.1"/>
                                             <!-- Adjust duration here -->
                                             <DoubleAnimation Storyboard.TargetName="buttonBorder"
                                                      Storyboard.TargetProperty="RenderTransform.ScaleY"
                                                      To="0.9"
-                                                     Duration="0:0:0.2"/>
+                                                     Duration="0:0:0.1"/>
                                             <!-- Adjust duration here -->
                                         </Storyboard>
                                     </BeginStoryboard>
@@ -1638,11 +1638,11 @@ Margin="0,754,0,0"/>
         <Grid x:Name="warningOverlayGrid" Visibility="Hidden" Background="#80000000" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <Border Background="Transparent" CornerRadius="10" Width="501" Height="410" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Border Background="Transparent" CornerRadius="50" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="White" BorderThickness="2">
+                    <Border Background="Transparent" CornerRadius="50" Width="81" Height="76" HorizontalAlignment="Center" BorderBrush="White" BorderThickness="2">
                         <TextBlock Text="!" FontSize="64" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
-                    <TextBlock Text="Try again!" FontSize="50" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="0,10,0,0" />
-                    <TextBlock Text="Username and Password are incorrect" Foreground="White" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="25"/>
+                    <TextBlock Text="Try again!" FontSize="41" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="0,10,0,0" />
+                    <TextBlock Text="Username and Password are incorrect" Foreground="White" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="20"/>
                     <Button Content="Back" Width="100" Height="30" Margin="0,20,0,0" Click="HideWarningOverlay" Background="Transparent" BorderBrush="White" BorderThickness="2" Foreground="White">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
@@ -1708,8 +1708,8 @@ HorizontalAlignment="Center"/>
             </Canvas>
         </Grid>
 
-        
-        
-        
+
+
+
     </Grid>
 </Window>
