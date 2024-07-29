@@ -1554,33 +1554,33 @@ CornerRadius="5" Padding="10,2">
 
                     </Grid>
 
-                    <Border Background="#363E51" CornerRadius="15" Padding="10" Width="307" Height="178" Canvas.Left="449" Canvas.Top="190" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Border Background="#363E51" CornerRadius="15" Padding="10" Width="293" Height="178" Canvas.Left="449" Canvas.Top="190" HorizontalAlignment="Left" VerticalAlignment="Center">
                         <Grid>
-                            <Button Width="50" Height="50" Margin="11,15,226,93" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0" Background="White" BorderThickness="0">
+                            <Button Width="50" Height="50" Margin="10,15,213,93" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="0" Background="White" BorderThickness="0">
                                 <Image Source="/View/solar_bell-outline.png" Stretch="Uniform" Height="35" Width="30"/>
                             </Button>
 
                             <!-- Settings Button -->
-                            <Button Width="50" Height="50" Margin="77,15,160,93" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Grid.Column="1" Background="Black" BorderThickness="0">
+                            <Button Width="50" Height="50" Margin="70,15,153,93" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Background="Black" BorderThickness="0">
                                 <Image Source="/View/settingicon.png" Stretch="Uniform" Height="35" Width="30"/>
                             </Button>
 
                             <!-- Logout Button -->
-                            <Button x:Name="logoutbtn" Width="50" Height="50" Margin="13,89,224,19" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="0" Background="LightGray" BorderThickness="0" Click="logoutbtnClick">
+                            <Button x:Name="logoutbtn" Width="50" Height="50" Margin="11,89,212,19" Style="{StaticResource RoundedButtonStyle}" Grid.Column="0" Background="LightGray" BorderThickness="0" Click="logoutbtnClick">
                                 <Image Source="/View/exiticon.png" Stretch="Uniform" Height="35" Width="30"/>
                             </Button>
 
                             <!-- Info Button -->
-                            <Button x:Name="showinfo" Width="50" Height="50" Margin="79,89,158,19" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="1" Background="Black" BorderThickness="0" Click="showinfo_Click">
+                            <Button x:Name="showinfo" Width="50" Height="50" Margin="71,89,152,19" Style="{StaticResource RoundedButtonStyle}" Background="Black" BorderThickness="0" Click="showinfo_Click">
                                 <Image Source="/View/window.png" Stretch="Uniform" Height="35" Width="30"/>
                             </Button>
 
                             <!-- Nested Border with StackPanel -->
-                            <Border Background="#5A6789" CornerRadius="15" Padding="10" Width="128" Height="132" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="144,0,0,0">
+                            <Border Background="#5A6789" CornerRadius="15" Padding="10" Width="128" Height="132" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="136,0,0,0">
                                 <StackPanel VerticalAlignment="Bottom">
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                                         <TextBlock Text="I" Foreground="#2196F3" FontSize="24" FontWeight="Bold" />
-                                        <TextBlock Text="  30%" Foreground="White" FontSize="24" FontWeight="DemiBold" RenderTransformOrigin="0.777,0.561" Width="74"/>
+                                        <TextBlock Text="  30%" Foreground="White" FontSize="30" FontWeight="DemiBold" RenderTransformOrigin="0.777,0.561" Width="79"/>
                                     </StackPanel>
                                 </StackPanel>
                             </Border>
