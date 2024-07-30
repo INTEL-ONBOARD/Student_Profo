@@ -328,6 +328,19 @@ namespace stu_profo
             MainBackground = Brushes.White;
             MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Home.png")));
         }
+        
+             private void setting_back(object sender, RoutedEventArgs e)
+        {
+            // Hide the student view and show the home view
+            Settings.Visibility = Visibility.Hidden;
+            home.Visibility = Visibility.Visible;
+
+            MainBackground = Brushes.White;
+            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Home.png")));
+            // Optionally, reset the background if needed
+
+            //engine.dumpProgrammes();
+        }
 
         private void search_back(object sender, RoutedEventArgs e)
         {
