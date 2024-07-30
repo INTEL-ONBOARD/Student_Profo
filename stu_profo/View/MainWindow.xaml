@@ -1039,7 +1039,7 @@
                 <!-- Search Button -->
                 <Button Width="40" Height="40" Margin="10,0,0,0" Grid.Row="0" Grid.Column="0">
                     <Button.Content>
-                        <Image Source="/View/searchicon.png" Stretch="Uniform"/>
+                        <Image Source="/View/serchicon.png" Stretch="Uniform"/>
                     </Button.Content>
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
@@ -1101,11 +1101,11 @@
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="726" Grid.ColumnSpan="2" Canvas.Left="296" Canvas.Top="181" VerticalAlignment="Center">
                     <!-- Programme ComboBox -->
-                    <ComboBox x:Name="programBox" Width="441" Height="34" Margin="0,0,10,0" Tag="Programme" Style="{StaticResource darkerComboBox}" ItemContainerStyle="{StaticResource darkerComboBoxItem}" SelectedIndex="0">
+                    <ComboBox x:Name="pBoxSearch" Width="441" Height="34" Margin="0,0,10,0" Tag="Programme" Style="{StaticResource darkerComboBox}" ItemContainerStyle="{StaticResource darkerComboBoxItem}" SelectedIndex="0">
                     </ComboBox>
 
                     <!-- Batch ComboBox -->
-                    <ComboBox x:Name="batchBox" Width="212" Height="34" Margin="0,0,10,0" Tag="Batch" Style="{StaticResource darkerComboBox}" ItemContainerStyle="{StaticResource darkerComboBoxItem}" SelectedIndex="0">
+                    <ComboBox x:Name="bBoxSearch" Width="212" Height="34" Margin="0,0,10,0" Tag="Batch" Style="{StaticResource darkerComboBox}" ItemContainerStyle="{StaticResource darkerComboBoxItem}" SelectedIndex="0">
                     </ComboBox>
                     <!-- Search Button -->
                     <Button Width="40" Height="40" Margin="10,0,0,0" Grid.Row="0" Grid.Column="0" Background="White">
@@ -1120,7 +1120,7 @@
                                     <Border.RenderTransform>
                                         <ScaleTransform />
                                     </Border.RenderTransform>
-                                    <Image Source="/View/serchcon.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <Image Source="/View/serchicon.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">

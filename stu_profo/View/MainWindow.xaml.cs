@@ -148,6 +148,7 @@ namespace stu_profo
                 
             }
         }
+
         private void TogglePasswordVisibility(object sender, RoutedEventArgs e)
         {
             if (passwordInput.Visibility == Visibility.Visible)
@@ -201,6 +202,7 @@ namespace stu_profo
             bBoxC.Text = "";
 
         }
+
         private async void cont(object sender, RoutedEventArgs e)
         {
             statusLabel.Content = "Checking....";
@@ -209,6 +211,7 @@ namespace stu_profo
             await Task.Delay(1000);
 
             statusLabel.Content = "Checking dependencies";
+
             if (ValidateLoad())
             {
                 statusLabel.Content = "Checking done";
@@ -238,6 +241,7 @@ namespace stu_profo
                 signinScreen.Visibility = Visibility.Hidden;
 
                 List<blockModel> pm = dataController.getProgramms();
+                pBoxSearch.ItemsSource = pm;
                 pBox.ItemsSource = pm;
                 pBoxC.ItemsSource = pm;
                 pBox.DisplayMemberPath = "text";
@@ -326,6 +330,11 @@ namespace stu_profo
         private void showinfo_Click(object sender, RoutedEventArgs e)
         {
 
+            pBoxSearch.DisplayMemberPath = "text";
+            pBoxSearch.SelectedValuePath = "Value";
+
+            bBoxSearch.DisplayMemberPath = "text";
+            bBoxSearch.SelectedValuePath = "Value";
 
             home.Visibility = Visibility.Hidden;
             Search.Visibility = Visibility.Visible;
@@ -333,6 +342,8 @@ namespace stu_profo
             // Set background for desktop3
             MainBackground = Brushes.White;
             MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Home.png")));
+
+
         }
         
              private void setting_back(object sender, RoutedEventArgs e)
@@ -466,6 +477,7 @@ namespace stu_profo
                 dataController.setProgramm("config.txt", selectedP.value);
 
                 List<blockModel> bm = dataController.getBatches();
+                bBoxSearch.ItemsSource = bm;
                 bBoxC.ItemsSource = bm;
                 bBoxC.DisplayMemberPath = "text";
                 bBoxC.SelectedValuePath = "Value";

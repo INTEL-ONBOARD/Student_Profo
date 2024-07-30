@@ -72,8 +72,6 @@ namespace stu_profo.Controller
 
         }
 
-
-
         public class User
         {
             public string email { get; set; }
