@@ -1108,7 +1108,7 @@
                     <ComboBox x:Name="bBoxSearch" Width="212" Height="34" Margin="0,0,10,0" Tag="Batch" Style="{StaticResource darkerComboBox}" ItemContainerStyle="{StaticResource darkerComboBoxItem}" SelectedIndex="0">
                     </ComboBox>
                     <!-- Search Button -->
-                    <Button Width="40" Height="40" Margin="10,0,0,0" Grid.Row="0" Grid.Column="0" Background="White">
+                    <Button x:Name="searchBtn" Width="40" Height="40" Margin="10,0,0,0" Grid.Row="0" Grid.Column="0" Background="White" Click="clickSearch">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border x:Name="buttonBorder" 

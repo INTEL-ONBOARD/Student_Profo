@@ -339,14 +339,22 @@ namespace stu_profo
             home.Visibility = Visibility.Hidden;
             Search.Visibility = Visibility.Visible;
 
+
+
             // Set background for desktop3
             MainBackground = Brushes.White;
             MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Home.png")));
 
 
         }
-        
-             private void setting_back(object sender, RoutedEventArgs e)
+
+        private void clickSearch(object sender, RoutedEventArgs e)
+        {
+            viewBoxFrame.Visibility = Visibility.Visible;
+            ErrorMessageTextBlock.Visibility = Visibility.Hidden;
+        }
+
+        private void setting_back(object sender, RoutedEventArgs e)
         {
             // Hide the student view and show the home view
             Settings.Visibility = Visibility.Hidden;
@@ -546,5 +554,7 @@ namespace stu_profo
         {
 
         }
+
+
     }
 }
