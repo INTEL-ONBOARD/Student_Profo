@@ -81,6 +81,10 @@ namespace stu_profo.Controller
             }
 
         }
+        public void run()
+        {
+            if (engine.dumpStudentGrade()) { System.Diagnostics.Debug.WriteLine("yes"); } else { System.Diagnostics.Debug.WriteLine("no"); }
+        }
         public static void setProgramm(string fileName , string data)
         {
             using (StreamWriter writer = new StreamWriter(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName))) { writer.Write(data);writer.Dispose(); }

@@ -1101,7 +1101,7 @@
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="726" Grid.ColumnSpan="2" Canvas.Left="296" Canvas.Top="181" VerticalAlignment="Center">
                     <!-- Programme ComboBox -->
-                    <ComboBox x:Name="pBoxSearch" Width="441" Height="34" Margin="0,0,10,0" Tag="Programme" Style="{StaticResource darkerComboBox}" ItemContainerStyle="{StaticResource darkerComboBoxItem}" SelectedIndex="0">
+                    <ComboBox x:Name="pBoxSearch" Width="441" Height="34" Margin="0,0,10,0" Tag="Programme" Style="{StaticResource darkerComboBox}" ItemContainerStyle="{StaticResource darkerComboBoxItem}" SelectedIndex="0" DropDownClosed="getBatches">
                     </ComboBox>
 
                     <!-- Batch ComboBox -->

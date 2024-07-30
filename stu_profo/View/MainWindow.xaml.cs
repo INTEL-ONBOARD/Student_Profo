@@ -348,10 +348,36 @@ namespace stu_profo
 
         }
 
+        private void getBatches(object sender, EventArgs e)
+        {
+            blockModel programmeSelected = (blockModel)pBoxSearch.SelectedItem;
+            dataController.setProgramm("config.txt", programmeSelected.value);
+            List<blockModel> bm = dataController.getBatches();
+            bBoxSearch.ItemsSource = bm;
+            bBoxSearch.SelectedValuePath = "Value";
+            bBoxSearch.DisplayMemberPath = "text";
+
+        }
+
         private void clickSearch(object sender, RoutedEventArgs e)
         {
             viewBoxFrame.Visibility = Visibility.Visible;
             ErrorMessageTextBlock.Visibility = Visibility.Hidden;
+
+            dataController dn = new dataController();
+            dn.run();
+
+            //blockModel programmeSelected  =  (blockModel)pBoxSearch.SelectedItem;
+            //dataController.setProgramm("config.txt", programmeSelected.value);
+            //List<blockModel> bm = dataController.getBatches();
+
+            //dataController.setProgramm("config.txt", programmeSelected.value);
+
+            //blockModel batchSelected = (blockModel)bBoxSearch.SelectedItem;
+            //List<blockModel> bm = dataController.getBatches();
+
+
+
         }
 
         private void setting_back(object sender, RoutedEventArgs e)
