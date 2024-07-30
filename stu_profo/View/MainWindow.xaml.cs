@@ -313,8 +313,14 @@ namespace stu_profo
 
         private void Signup(object sender, RoutedEventArgs e)
         {
-            // Signup code here
-            
+            System.Diagnostics.Debug.WriteLine(emailInputreg.Text);
+            System.Diagnostics.Debug.WriteLine(passwordInputreg.Password.ToString());
+            userController userCtn = new userController();
+            if (userCtn.addUser(emailInputreg.Text, passwordInputreg.Password.ToString()))
+            {
+                System.Diagnostics.Debug.WriteLine("Done");
+            }
+
         }
 
         private void showinfo_Click(object sender, RoutedEventArgs e)

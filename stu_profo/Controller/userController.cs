@@ -8,6 +8,8 @@
     using System.Text.Json;
 using System.Data;
 using System.Configuration;
+using System.Windows.Shapes;
+using Newtonsoft.Json.Linq;
 
 
 namespace stu_profo.Controller
@@ -16,13 +18,14 @@ namespace stu_profo.Controller
     {
         public bool validateUser(string useremail, string pwd)
         {
+
             //engine en = new engine();
             //en.dumpProgrammes();
             ////var dataset = en.getDump("https://www.nibmworldwide.com/", "exams/mis");
             ////System.Diagnostics.Debug.WriteLine(dataset.ToString());
             ///
 
-            string userData = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "users.json"));
+            string userData = File.ReadAllText(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "users.json"));
             var userBin = JsonSerializer.Deserialize<Users>(userData);
             int sizeOfUsers = userBin.users.Count();
             customArray userArray = new customArray(sizeOfUsers);
@@ -40,6 +43,37 @@ namespace stu_profo.Controller
             }
             
         }
+        public bool addUser(string username, string password)
+        {
+
+            try
+            {
+                string userData = File.ReadAllText(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "users.json"));
+                JObject jsonObj = JObject.Parse(userData);
+                JArray userArray = (JArray)jsonObj["users"];
+                JObject newuser = new JObject();
+                
+                newuser["email"] = username;
+                newuser["password"] = password;
+                userArray.Add(newuser);
+
+                string updatedJson = jsonObj.ToString();
+                File.WriteAllText(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "users.json"), updatedJson);
+
+                System.Diagnostics.Debug.WriteLine("file Updated!");
+                return true;
+            }
+            catch(Exception e){
+                System.Diagnostics.Debug.WriteLine(e.Message);
+
+                System.Diagnostics.Debug.WriteLine("Issue occured while udpating the file!");
+                return false;
+            }
+
+        }
+
+
+
         public class User
         {
             public string email { get; set; }
