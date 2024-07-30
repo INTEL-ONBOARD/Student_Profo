@@ -237,7 +237,6 @@ namespace stu_profo
             {
                 signinScreen.Visibility = Visibility.Hidden;
 
-
                 List<blockModel> pm = dataController.getProgramms();
                 pBox.ItemsSource = pm;
                 pBoxC.ItemsSource = pm;
@@ -246,16 +245,8 @@ namespace stu_profo
                 pBox.SelectedValuePath = "Value";
                 pBoxC.SelectedValuePath = "Value";
 
-
-
-                //foreach (blockModel pmModel in pm)
-                //{
-                //    pBox.Items.Add(pmModel.text);
-                //    System.Diagnostics.Debug.WriteLine(pmModel.text + " " + pmModel.value);
-                //}
                 signinScreen.Visibility = Visibility.Hidden;
                 config1.Visibility = Visibility.Visible;
-
 
                 MainBackground = new RadialGradientBrush
                 {
@@ -310,7 +301,7 @@ namespace stu_profo
             config2.Visibility = Visibility.Hidden;
             home.Visibility = Visibility.Visible;
             MainBackground = Brushes.White;
-            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Group 1000001063.png")));
+            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Home.png")));
             ShowWarningOverlay(home, ladinoverlay,true);
             await Task.Delay(3000);
             ShowWarningOverlay(home, ladinoverlay, false);
@@ -460,6 +451,16 @@ namespace stu_profo
                 bBoxC.DisplayMemberPath = "text";
                 bBoxC.SelectedValuePath = "Value";
             }
+        }
+
+        private void settingsload(object sender, EventArgs e)
+        {
+            home.Visibility = Visibility.Hidden;
+            Settings.Visibility = Visibility.Visible;
+
+            // Set background for desktop3
+            MainBackground = Brushes.White;
+            MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Home.png")));
         }
 
         private async void Continuebtn_Click(object sender, RoutedEventArgs e)

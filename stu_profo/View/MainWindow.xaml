@@ -16,7 +16,7 @@
                         <Border Background="{TemplateBinding Background}" 
                             BorderBrush="{TemplateBinding BorderBrush}" 
                             BorderThickness="1" 
-                            CornerRadius="5" 
+                            CornerRadius="8" 
                             SnapsToDevicePixels="True">
                             <ScrollViewer x:Name="PART_ContentHost" Margin="0"/>
                         </Border>
@@ -710,12 +710,13 @@
                                 <TextBlock Text="Password" Foreground="Gray" Margin="0,0,0,5" Width="229"/>
                                 <Border Background="White" CornerRadius="5" BorderBrush="{Binding BorderBrush, ElementName=passwordInput, Mode=OneWay}" BorderThickness="1" Height="30" Width="230">
                                     <Grid>
-                                        <PasswordBox x:Name="passwordInput" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" />
+                                        <PasswordBox x:Name="passwordInput" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0"/>
                                         <TextBox x:Name="textInput" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" Visibility="Collapsed"/>
                                         <Button Content="👁" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Click="TogglePasswordVisibility"/>
                                     </Grid>
                                 </Border>
                             </StackPanel>
+
 
                             <TextBlock Text="Forgot password?" HorizontalAlignment="Left" Foreground="Gray" Margin="0,0,0,10" />
 
@@ -1301,7 +1302,7 @@
         <Grid x:Name="Settings" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">
             <Canvas>
                 <!-- Back Button -->
-                <Button Canvas.Left="103" Canvas.Top="105" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                <Button Canvas.Left="103" Canvas.Top="105" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Click="search_back"
                 BorderThickness="1" BorderBrush="Black" Background="White" Style="{StaticResource BackButtonStyle}">
                     <Grid>
                         <Image Source="/View/Backbutton.png" Stretch="Uniform" Margin="1,12,7,12"/>
@@ -1328,16 +1329,17 @@
                 <TextBlock Text="Cookie Token" FontSize="16" Canvas.Left="268" Canvas.Top="226" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
                 <!-- Cookie Token TextBox -->
-                <TextBox Canvas.Left="268" Canvas.Top="268" Width="500" Height="30" Background="#F3F3F3" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource RoundedTextBoxStyle}"/>
+                <TextBox Canvas.Left="268" FontSize="16" Canvas.Top="257" Width="500" Height="41" Background="#F3F3F3" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource RoundedTextBoxStyle}" VerticalContentAlignment="Center"/>
 
                 <!-- CK Token Label -->
                 <TextBlock Text="CK Token" FontSize="16" Canvas.Left="268" Canvas.Top="318" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
                 <!-- CK Token TextBox -->
-                <TextBox Canvas.Left="268" Canvas.Top="360" Width="500" Height="30" Background="#F3F3F3" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource RoundedTextBoxStyle}"/>
+                <TextBox Canvas.Left="268" FontSize="16" Canvas.Top="349" Width="500" Height="41" Background="#F3F3F3" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource RoundedTextBoxStyle}" VerticalContentAlignment="Center"/>
 
                 <!-- Run on Startup Label -->
                 <TextBlock Text="Run on Startup" FontSize="16" Canvas.Left="264" Canvas.Top="428" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
 
                 <!-- Run on Startup ToggleSwitch -->
                 <CheckBox Canvas.Left="710" Canvas.Top="428" Width="60" Style="{StaticResource ToggleSwitchStyle}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
@@ -1561,7 +1563,7 @@ CornerRadius="5" Padding="10,2">
                             </Button>
 
                             <!-- Settings Button -->
-                            <Button Width="50" Height="50" Margin="70,15,153,93" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Background="Black" BorderThickness="0">
+                            <Button Width="50" Height="50" Margin="70,15,153,93" Style="{StaticResource RoundedButtonStyle}" Grid.Row="0" Background="Black" BorderThickness="0" Click="settingsload">
                                 <Image Source="/View/settingicon.png" Stretch="Uniform" Height="35" Width="30"/>
                             </Button>
 
