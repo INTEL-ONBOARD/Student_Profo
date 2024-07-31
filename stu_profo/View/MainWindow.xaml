@@ -1071,7 +1071,7 @@
 
         </Grid>
 
-        <Grid x:Name="Search" Background="Transparent" Margin="32,50,30,10" Visibility="Visible">
+        <Grid x:Name="Search" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">
             <Canvas>
                 <!-- Back Button -->
                 <Button Canvas.Left="103" Canvas.Top="105" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center" Click="search_back" 
@@ -1300,6 +1300,7 @@
                 </Line>
 
             </Canvas>
+            <Button x:Name="filterBtn" Content="Filter" Visibility="Hidden" HorizontalAlignment="Left" Margin="1172,718,0,0" VerticalAlignment="Top" Height="24" Width="62" Click="filter"/>
 
             <!--<Canvas>
                 -->

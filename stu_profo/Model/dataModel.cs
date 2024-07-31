@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace stu_profo.Model
 {
-    class dataModel
+    public class dataModel
     {
         [JsonProperty("#")]
         public string Id { get; set; }

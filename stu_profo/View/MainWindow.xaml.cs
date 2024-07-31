@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
 using System.Net.NetworkInformation;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -67,10 +68,7 @@ namespace stu_profo
                 OnPropertyyChanged();
             }
         }
-        protected void OnPropertyyChanged([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
+
 
         public MainWindow()
         {
@@ -104,7 +102,11 @@ namespace stu_profo
 
             loadingScreen.Visibility = Visibility.Visible;
         }
-     
+
+        protected void OnPropertyyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -409,12 +411,13 @@ namespace stu_profo
             }
         }
 
+        //Search feature :)
         private void clickSearch(object sender, RoutedEventArgs e)
         {
             line.Visibility = Visibility.Visible;
             leftSector.Visibility = Visibility.Visible;
             viewBoxFrame.Visibility = Visibility.Visible;
-
+            filterBtn.Visibility = Visibility.Visible;  
             ErrorMessageTextBlock.Visibility = Visibility.Hidden;
 
             System.Diagnostics.Debug.WriteLine($"{sBoxSearch.Text}");
@@ -441,26 +444,6 @@ namespace stu_profo
                     }
                 }
             }
-
-
-
-            //{
-            //    new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055",GPA = 3.4 },
-            //    new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001",GPA = 3.4 }
-            //};
-
-
-            //blockModel programmeSelected  =  (blockModel)pBoxSearch.SelectedItem;
-            //dataController.setProgramm("config.txt", programmeSelected.value);
-            //List<blockModel> bm = dataController.getBatches();
-
-            //dataController.setProgramm("config.txt", programmeSelected.value);
-
-            //blockModel batchSelected = (blockModel)bBoxSearch.SelectedItem;
-            //List<blockModel> bm = dataController.getBatches();
-
-
-
         }
 
         private void setting_back(object sender, RoutedEventArgs e)
@@ -484,6 +467,7 @@ namespace stu_profo
             line.Visibility = Visibility.Hidden;
             leftSector.Visibility = Visibility.Hidden;
             viewBoxFrame.Visibility = Visibility.Hidden;
+            filterBtn.Visibility = Visibility.Hidden;
             ErrorMessageTextBlock.Visibility = Visibility.Visible;
 
             home.Visibility = Visibility.Visible;
@@ -671,5 +655,30 @@ namespace stu_profo
         }
 
 
+        //filter feature :)
+        private void filter(object sender, RoutedEventArgs e)
+        {
+            customLinkedList dataset = dataController.getStudentsResults();
+            Courses.Clear();
+            if (dataset != null)
+            {
+                List<dataModel> dataSet = dataset.DisplayForward();
+                
+                dataSet = engineSort.BubbleSortAscending(dataSet, "Points");
+                if (dataSet != null)
+                {
+                    foreach (dataModel data in dataSet)
+                    {
+                        System.Diagnostics.Debug.WriteLine(">>>" + data.FinalGrade + data.Exam + data.CourseWork + data.Subject);
+                        Course course = new Course();
+                        course.CourseName = data.Subject;
+                        course.CourseCode = data.Subject;
+                        course.CourseID = data.Subject;
+
+                        Courses.Add(course);
+                    }
+                }
+            }
+        }
     }
 }
