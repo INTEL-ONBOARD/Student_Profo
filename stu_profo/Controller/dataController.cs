@@ -82,16 +82,30 @@ namespace stu_profo.Controller
             }
 
         }
-        public static List<dataModel> getStudentsResults()
+        public static customLinkedList getStudentsResults()
         {
-            List<dataModel> dm = new List<dataModel>();   
+            List<dataModel> studentData = new List<dataModel>();   
             if (engine.dumpStudentGrade()) {
                 string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "stuData.json");
                 using StreamReader reader = new StreamReader(path);
                 var json = reader.ReadToEnd();
-                dm = JsonConvert.DeserializeObject<List<dataModel>>(json);
-                if (dm != null) { return dm; } else { return dm; };
-            } else { return null; }
+                studentData = JsonConvert.DeserializeObject<List<dataModel>>(json);
+                if (studentData != null) {
+                    customLinkedList cll = new customLinkedList();
+                    foreach (dataModel d in studentData)
+                    {
+                        cll.Insert(d);
+                        
+                    }
+                    System.Diagnostics.Debug.WriteLine("data inserting done...");
+
+                    return cll;
+                } else { 
+                    return null; 
+                };
+            } else
+            {
+                System.Diagnostics.Debug.WriteLine("data inserting done..."); return null; }
         }
 
         public static void setProgramm(string fileName , string data)

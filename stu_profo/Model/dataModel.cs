@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +9,29 @@ namespace stu_profo.Model
 {
     class dataModel
     {
-        public string id { get; set; }
+        [JsonProperty("#")]
+        public string Id { get; set; }
+
         public string Subject { get; set; }
+
         public string Special { get; set; }
-        public string Exam_Date { get; set; }
-        public string Course_Work { get; set; }
+
+        [JsonProperty("Exam Date")]
+        public string ExamDate { get; set; }
+
+        [JsonProperty("Course Work")]
+        public string CourseWork { get; set; }
+
         public string Exam { get; set; }
-        public string Final_Grade { get; set; }
+
+        [JsonProperty("Final Grade")]
+        public string FinalGrade { get; set; }
+
         public string Points { get; set; }
+
+    }
+}
+
 
 
 //"#": "1",
@@ -26,7 +42,3 @@ namespace stu_profo.Model
 //    "Exam": "A",
 //    "Final Grade": "A",
 //    "Points": "4"
-
-
-     }
-}

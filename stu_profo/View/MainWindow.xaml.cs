@@ -395,12 +395,12 @@ namespace stu_profo
         {
             viewBoxFrame.Visibility = Visibility.Visible;
             ErrorMessageTextBlock.Visibility = Visibility.Hidden;
-            List<dataModel> dataset = dataController.getStudentsResults();
-            foreach (dataModel model in dataset) {
-                System.Diagnostics.Debug.WriteLine( ">>>" +model.Subject + model.Exam_Date + model.Exam);
-            }
-        
+            customLinkedList dataset = dataController.getStudentsResults();
+            foreach( dataModel data in dataset.DisplayForward())
+            {
+                System.Diagnostics.Debug.WriteLine(">>>"+ data.FinalGrade + data.Exam + data.CourseWork + data.Subject);
 
+            }
             //blockModel programmeSelected  =  (blockModel)pBoxSearch.SelectedItem;
             //dataController.setProgramm("config.txt", programmeSelected.value);
             //List<blockModel> bm = dataController.getBatches();

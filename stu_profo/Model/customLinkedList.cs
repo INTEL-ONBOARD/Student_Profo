@@ -52,22 +52,23 @@ namespace stu_profo.Model
         }
 
         // Method to display the doubly linked list in forward direction
-        public void DisplayForward()
+        public List<dataModel> DisplayForward()
         {
+            List<dataModel> list = new List<dataModel>();
             if (head == null)
             {
-                Console.WriteLine("List is empty.");
-                return;
+                System.Diagnostics.Debug.WriteLine("DataModel is empty"); return null;
             }
 
             Node temp = head;
             while (temp != null)
             {
-                Console.Write(temp.Data + " ");
+                System.Diagnostics.Debug.WriteLine(temp.Data + " ");
+                if(temp.Next != null) {list.Add(temp.Next.Data);}
                 temp = temp.Next;
             }
+            return list;
 
-            Console.WriteLine();
         }
 
         // Method to display the doubly linked list in backward direction
@@ -75,7 +76,7 @@ namespace stu_profo.Model
         {
             if (tail == null)
             {
-                Console.WriteLine("List is empty.");
+                Console.WriteLine("dataModel lsit is empty.");
                 return;
             }
 
@@ -117,7 +118,7 @@ namespace stu_profo.Model
             // If the key was not found
             if (temp == null)
             {
-                Console.WriteLine("Node with data {0} not found.", data);
+                Console.WriteLine("Node with dataModel {0} not found.", data);
                 return;
             }
 
