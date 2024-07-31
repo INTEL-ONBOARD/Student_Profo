@@ -7,38 +7,34 @@ using System.Xml.Linq;
 
 namespace stu_profo.Model
 {
-    class customLinkedList
+    class Node
     {
-
-    }
-
-    public class Node
-    {
-        public dataB block { get; set; }
+        public dataModel Data { get; set; }
         public Node Next { get; set; }
         public Node Prev { get; set; }
 
-        public Node(int data)
+        public Node(dataModel data)
         {
             Data = data;
             Next = null;
-            Prev = null;
+            Prev = null;    
         }
     }
 
-    public class DoublyLinkedList
+    class customLinkedList
     {
+
         private Node head;
         private Node tail;
 
-        public DoublyLinkedList()
+        public customLinkedList()
         {
             head = null;
             tail = null;
         }
 
         // Method to insert a new node at the end
-        public void Insert(int data)
+        public void Insert(dataModel data)
         {
             Node newNode = new Node(data);
 
@@ -94,7 +90,7 @@ namespace stu_profo.Model
         }
 
         // Method to delete a node with a specific value
-        public void Delete(int data)
+        public void Delete(dataModel data)
         {
             if (head == null)
                 return;
@@ -137,5 +133,5 @@ namespace stu_profo.Model
                 temp.Next.Prev = temp.Prev;
             }
         }
-    }
+    } 
 }
