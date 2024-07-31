@@ -1167,14 +1167,11 @@
                         </Button.Template>
                     </Button>
 
-
-
-
                 </StackPanel>
 
-                <Border x:Name="viewBoxFrame" Background="#FFFFFF" Visibility="Hidden" CornerRadius="20" Grid.ColumnSpan="2" Canvas.Left="311" Canvas.Top="254" Width="671" HorizontalAlignment="Left" VerticalAlignment="Center" Height="448">
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="10,0,0,0">
-                        <StackPanel x:Name="viewBox" Height="448">
+                <Border x:Name="viewBoxFrame" Background="#FFFFFF" Visibility="Hidden" CornerRadius="20" Grid.ColumnSpan="2" Canvas.Left="562" Canvas.Top="284" Width="677" HorizontalAlignment="Left" VerticalAlignment="Top" Height="400">
+                    <ScrollViewer VerticalScrollBarVisibility="Hidden" Margin="10,0,0,0">
+                        <StackPanel x:Name="viewBox" Height="390" Width="657">
                             <ItemsControl ItemsSource="{Binding Courses}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
@@ -1198,7 +1195,118 @@
                    Width="653"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"/>
+
+                <StackPanel x:Name="leftSector" Canvas.Left="166" Canvas.Top="291" Visibility="Hidden" HorizontalAlignment="Left" VerticalAlignment="Top" Height="436" Width="275">
+
+                    <StackPanel Orientation="Horizontal" Width="310" Canvas.Left="174" Canvas.Top="277" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <!-- Adjusted Margin -->
+                        <Ellipse Width="50" Height="50" Fill="LightGray"/>
+                        <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Text="DSE231F/CO" FontSize="12" FontWeight="Light" FontFamily="Open Sans"/>
+                            <TextBlock Text="CODSE231F-055" FontSize="24" FontWeight="DemiBold" FontFamily="Open Sans"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Height="319" Width="230" Margin="0,30,0,0">
+                        <!-- Stats Card -->
+
+                        <!-- Academic Card -->
+                        <Border CornerRadius="10" Margin="0,10" Height="134" ClipToBounds="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Background Image -->
+                                <Image Source="/View/blue.png" Grid.RowSpan="2" Grid.ColumnSpan="2" Stretch="Fill" Panel.ZIndex="0" Opacity="0.3"/>
+
+                                <!-- Content Overlay -->
+                                <TextBlock Text="Academic" Foreground="White" FontSize="15" FontWeight="SemiBold" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Panel.ZIndex="1" Margin="16,9,-16,0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                                <TextBlock Text="GPA" Foreground="White" FontSize="25" FontWeight="DemiBold" Grid.Row="0" Margin="150,5,13,0" VerticalAlignment="Top" Panel.ZIndex="1" Grid.RowSpan="2"/>
+
+                                <!-- Ellipse in Lower Left Corner -->
+                                <Canvas Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" Panel.ZIndex="1">
+                                    <Ellipse Width="50" Height="50" Fill="Transparent" Stroke="White" StrokeThickness="3" HorizontalAlignment="Left" Canvas.Top="-61" VerticalAlignment="Center" Canvas.Left="5"/>
+                                    <TextBlock Text="75%" Foreground="White" FontSize="10" FontWeight="Bold" Canvas.Left="20" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="-42"/>
+                                </Canvas>
+                            </Grid>
+                        </Border>
+
+                        <!-- Skill Card -->
+                        <Border CornerRadius="10" Margin="0,10" Height="135" Width="227" ClipToBounds="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Background Image -->
+                                <Image Source="/View/Green.png" Grid.RowSpan="2" Grid.ColumnSpan="2" Stretch="Fill" Panel.ZIndex="0" Opacity="0.3"/>
+
+                                <!-- Content Overlay -->
+                                <TextBlock Text="Skill" Foreground="White" FontSize="15" FontWeight="SemiBold" Grid.Column="0" VerticalAlignment="Top" Panel.ZIndex="1" Margin="13,9,-13,0" Grid.ColumnSpan="2"/>
+                                <TextBlock Text="Module" Foreground="White" FontSize="25" FontWeight="DemiBold" Margin="110,0,4,0" VerticalAlignment="Center" Panel.ZIndex="1"/>
+
+                                <!-- Ellipse in Lower Left Corner -->
+                                <Canvas Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" Panel.ZIndex="1">
+                                    <Ellipse Width="50" Height="50" Fill="Transparent" Stroke="White" StrokeThickness="3" HorizontalAlignment="Center" Canvas.Top="-59" VerticalAlignment="Top" Canvas.Left="2"/>
+                                    <TextBlock Text="25%" Foreground="White" FontSize="10" FontWeight="Bold" Canvas.Left="17" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="-40"/>
+                                </Canvas>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+
+                </StackPanel>
+
+
+                <!-- Done Button -->
+                <!--
+                <StackPanel Canvas.Left="341" Canvas.Top="582" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Border CornerRadius="15" Padding="10" Background="White" Width="120" Height="36">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,-12,0">
+                            <Grid Width="24" Height="26" Margin="0,0,10,0" VerticalAlignment="Center">
+                                <Ellipse Fill="Transparent" Stroke="#0F458D" StrokeThickness="2" Margin="3,5,3,5" />
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE001;" Foreground="#0F458D" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" Height="19" Width="12" Margin="0,5,0,0" />
+                            </Grid>
+                            <TextBlock Text="DONE" Foreground="#0F458D" FontSize="16" FontWeight="Light" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>-->
+
+
+                <Line x:Name="line" X1="100" Y1="0" X2="100" Y2="400"  Visibility="Hidden" StrokeThickness="2" Canvas.Left="368" Canvas.Top="284" HorizontalAlignment="Left" VerticalAlignment="Top" Height="406">
+                    <Line.Stroke>
+                        <SolidColorBrush Color="Black" Opacity="0.4"/>
+                    </Line.Stroke>
+                </Line>
+
             </Canvas>
+
+            <!--<Canvas>
+                --><!-- ScrollViewer for Grade Items --><!--
+                <ScrollViewer Canvas.Left="750" Canvas.Top="166" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" Height="500" Width="341" VerticalAlignment="Top">
+                    --><!-- Set a height here --><!--
+                    <ItemsControl ItemsSource="{Binding Grades}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <local:GradeItemControl Margin="0,0,0,2"/>
+                                --><!-- Added margin here --><!--
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+
+                --><!-- Vertical Line --><!--
+            </Canvas>-->
+
         </Grid>
 
         <Grid x:Name="Search_select_View" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">
@@ -1542,8 +1650,8 @@ CornerRadius="5" Padding="10,2">
                 <Ellipse Width="50" Height="50" Fill="LightGray"/>
                 <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
                     <Canvas>
-                    <Label x:Name="batchLabel" Content="dafault" Canvas.Left="9" Canvas.Top="2"></Label>
-                    <Label x:Name="studentLabel" Content="dafault" FontSize="20" Canvas.Left="3" Canvas.Top="-27"/>
+                        <Label x:Name="batchLabel" Content="dafault" Canvas.Left="9" Canvas.Top="2"></Label>
+                        <Label x:Name="studentLabel" Content="dafault" FontSize="20" Canvas.Left="3" Canvas.Top="-27"/>
                     </Canvas>
                 </StackPanel>
             </StackPanel>

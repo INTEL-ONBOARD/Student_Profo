@@ -411,7 +411,10 @@ namespace stu_profo
 
         private void clickSearch(object sender, RoutedEventArgs e)
         {
+            line.Visibility = Visibility.Visible;
+            leftSector.Visibility = Visibility.Visible;
             viewBoxFrame.Visibility = Visibility.Visible;
+
             ErrorMessageTextBlock.Visibility = Visibility.Hidden;
 
             System.Diagnostics.Debug.WriteLine($"{sBoxSearch.Text}");
