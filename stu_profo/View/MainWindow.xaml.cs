@@ -480,6 +480,12 @@ namespace stu_profo
         {
             // Hide the student view and show the home view
             Search.Visibility = Visibility.Hidden;
+
+            line.Visibility = Visibility.Hidden;
+            leftSector.Visibility = Visibility.Hidden;
+            viewBoxFrame.Visibility = Visibility.Hidden;
+            ErrorMessageTextBlock.Visibility = Visibility.Visible;
+
             home.Visibility = Visibility.Visible;
 
             MainBackground = Brushes.White;

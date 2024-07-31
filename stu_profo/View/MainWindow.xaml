@@ -1071,7 +1071,7 @@
 
         </Grid>
 
-        <Grid x:Name="Search" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">
+        <Grid x:Name="Search" Background="Transparent" Margin="32,50,30,10" Visibility="Visible">
             <Canvas>
                 <!-- Back Button -->
                 <Button Canvas.Left="103" Canvas.Top="105" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center" Click="search_back" 
@@ -1097,7 +1097,7 @@
                    VerticalAlignment="Center" 
                    HorizontalAlignment="Left"/>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="726" Grid.ColumnSpan="2" Canvas.Left="296" Canvas.Top="181" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="726" Grid.ColumnSpan="2" Canvas.Left="304" Canvas.Top="199" VerticalAlignment="Top">
                     <!-- Programme ComboBox -->
                     <ComboBox x:Name="pBoxSearch" Width="276" Height="34" Margin="0,0,10,0" Tag="Programme" Style="{StaticResource darkerComboBox}" ItemContainerStyle="{StaticResource darkerComboBoxItem}" SelectedIndex="0" DropDownClosed="getBatches">
                     </ComboBox>
@@ -1169,7 +1169,7 @@
 
                 </StackPanel>
 
-                <Border x:Name="viewBoxFrame" Background="#FFFFFF" Visibility="Hidden" CornerRadius="20" Grid.ColumnSpan="2" Canvas.Left="562" Canvas.Top="284" Width="677" HorizontalAlignment="Left" VerticalAlignment="Top" Height="400">
+                <Border x:Name="viewBoxFrame" Background="#FFFFFF" Visibility="Visible" CornerRadius="20" Grid.ColumnSpan="2" Canvas.Left="562" Canvas.Top="284" Width="677" HorizontalAlignment="Left" VerticalAlignment="Top" Height="400">
                     <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="10,10,10,10">
                         <StackPanel x:Name="viewBox" Height="390" Width="657">
                             <ItemsControl ItemsSource="{Binding Courses}">
@@ -1196,7 +1196,7 @@
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"/>
 
-                <StackPanel x:Name="leftSector" Canvas.Left="166" Canvas.Top="291" Visibility="Hidden" HorizontalAlignment="Left" VerticalAlignment="Top" Height="436" Width="275">
+                <StackPanel x:Name="leftSector" Canvas.Left="166" Canvas.Top="291" Visibility="Visible" HorizontalAlignment="Center" VerticalAlignment="Top" Height="399" Width="275">
 
                     <StackPanel Orientation="Horizontal" Width="310" Canvas.Left="174" Canvas.Top="277" HorizontalAlignment="Left" VerticalAlignment="Top">
                         <!-- Adjusted Margin -->
@@ -1225,13 +1225,18 @@
                                 <Image Source="/View/blue.png" Grid.RowSpan="2" Grid.ColumnSpan="2" Stretch="Fill" Panel.ZIndex="0" Opacity="0.3"/>
 
                                 <!-- Content Overlay -->
-                                <TextBlock Text="Academic" Foreground="White" FontSize="15" FontWeight="SemiBold" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Panel.ZIndex="1" Margin="16,9,-16,0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-                                <TextBlock Text="GPA" Foreground="White" FontSize="25" FontWeight="DemiBold" Grid.Row="0" Margin="150,5,13,0" VerticalAlignment="Top" Panel.ZIndex="1" Grid.RowSpan="2"/>
+                                <TextBlock Text="Academic" Foreground="White" FontSize="15" FontWeight="SemiBold" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Panel.ZIndex="1" Margin="138,20,24,0" Grid.RowSpan="2"/>
+                                <TextBlock Text="GPA" FontSize="25" FontWeight="DemiBold" Grid.Row="0" Margin="138,35,25,0" VerticalAlignment="Top" Panel.ZIndex="1" Grid.RowSpan="2" TextAlignment="Right">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="White" Opacity="0.6"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                                <TextBlock Text="0" Foreground="White" FontSize="48" FontWeight="DemiBold" Grid.Row="0" Margin="0,52,24,0" VerticalAlignment="Top" Panel.ZIndex="1" Grid.RowSpan="2" HorizontalAlignment="Right" TextAlignment="Right" Width="91" Height="55"/>
 
                                 <!-- Ellipse in Lower Left Corner -->
                                 <Canvas Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" Panel.ZIndex="1">
-                                    <Ellipse Width="50" Height="50" Fill="Transparent" Stroke="White" StrokeThickness="3" HorizontalAlignment="Left" Canvas.Top="-61" VerticalAlignment="Center" Canvas.Left="5"/>
-                                    <TextBlock Text="75%" Foreground="White" FontSize="10" FontWeight="Bold" Canvas.Left="20" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="-42"/>
+                                    <Ellipse Width="83" Height="83" Fill="Transparent" Stroke="White" StrokeThickness="3" HorizontalAlignment="Center" Canvas.Top="-99" VerticalAlignment="Top" Canvas.Left="14"/>
+                                    <TextBlock Text="75%" Foreground="White" FontSize="22" Canvas.Left="35" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="-72"/>
                                 </Canvas>
                             </Grid>
                         </Border>
@@ -1252,14 +1257,20 @@
                                 <Image Source="/View/Green.png" Grid.RowSpan="2" Grid.ColumnSpan="2" Stretch="Fill" Panel.ZIndex="0" Opacity="0.3"/>
 
                                 <!-- Content Overlay -->
-                                <TextBlock Text="Skill" Foreground="White" FontSize="15" FontWeight="SemiBold" Grid.Column="0" VerticalAlignment="Top" Panel.ZIndex="1" Margin="13,9,-13,0" Grid.ColumnSpan="2"/>
-                                <TextBlock Text="Module" Foreground="White" FontSize="25" FontWeight="DemiBold" Margin="110,0,4,0" VerticalAlignment="Center" Panel.ZIndex="1"/>
+                                <TextBlock Text="Skill" FontSize="25" FontWeight="SemiBold" Grid.Column="0" VerticalAlignment="Top" Panel.ZIndex="1" Margin="148,37,23,0" Grid.RowSpan="2" TextAlignment="Right">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="White" Opacity="0.6"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                                <TextBlock Text="Module" Foreground="White" FontSize="15" FontWeight="DemiBold" Margin="91,21,23,0" VerticalAlignment="Top" Panel.ZIndex="1" Grid.RowSpan="2" TextAlignment="Right"/>
 
                                 <!-- Ellipse in Lower Left Corner -->
                                 <Canvas Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" Panel.ZIndex="1">
-                                    <Ellipse Width="50" Height="50" Fill="Transparent" Stroke="White" StrokeThickness="3" HorizontalAlignment="Center" Canvas.Top="-59" VerticalAlignment="Top" Canvas.Left="2"/>
-                                    <TextBlock Text="25%" Foreground="White" FontSize="10" FontWeight="Bold" Canvas.Left="17" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="-40"/>
+                                    <Ellipse Width="83" Height="83" Fill="Transparent" Stroke="White" StrokeThickness="3" HorizontalAlignment="Left" Canvas.Top="-97" VerticalAlignment="Center" Canvas.Left="15"/>
+                                    <TextBlock Text="25%" Foreground="White" FontSize="22" Canvas.Left="38" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="-70"/>
                                 </Canvas>
+                                <TextBlock Text="0%" Foreground="White" FontSize="35" FontWeight="DemiBold" Grid.Row="0" Margin="0,62,23,0" VerticalAlignment="Top" Panel.ZIndex="1" Grid.RowSpan="2" HorizontalAlignment="Right" TextAlignment="Right" Width="90" Height="55"/>
+
                             </Grid>
                         </Border>
                     </StackPanel>
@@ -1291,20 +1302,28 @@
             </Canvas>
 
             <!--<Canvas>
-                --><!-- ScrollViewer for Grade Items --><!--
+                -->
+            <!-- ScrollViewer for Grade Items -->
+            <!--
                 <ScrollViewer Canvas.Left="750" Canvas.Top="166" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" Height="500" Width="341" VerticalAlignment="Top">
-                    --><!-- Set a height here --><!--
+                    -->
+            <!-- Set a height here -->
+            <!--
                     <ItemsControl ItemsSource="{Binding Grades}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <local:GradeItemControl Margin="0,0,0,2"/>
-                                --><!-- Added margin here --><!--
+                                -->
+            <!-- Added margin here -->
+            <!--
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </ScrollViewer>
 
-                --><!-- Vertical Line --><!--
+                -->
+            <!-- Vertical Line -->
+            <!--
             </Canvas>-->
 
         </Grid>
