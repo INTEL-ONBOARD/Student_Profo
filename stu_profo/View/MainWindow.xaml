@@ -675,7 +675,7 @@
 
         </Grid>
 
-        <Grid x:Name="signinScreen" Margin="32,50,30,40" Visibility="Hidden">
+        <Grid x:Name="signinScreen" Margin="32,50,30,40" Visibility="Visible">
             <Border Margin="246,54,244,50" BorderBrush="White" BorderThickness="2" CornerRadius="10" Opacity="40">
                 <Grid Margin="20,40,20,20">
                     <Grid.RowDefinitions>
