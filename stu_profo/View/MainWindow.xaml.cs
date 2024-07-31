@@ -392,25 +392,31 @@ namespace stu_profo
 
         }
 
+        private void getStudents(object sender, EventArgs e)
+        {
+            try
+            {
+                blockModel batchSelected = (blockModel)bBoxSearch.SelectedItem;
+                dataController.setProgramm("configBatch.txt", batchSelected.value);
+                List<blockModel> sm = dataController.getStudents();
+                sBoxSearch.ItemsSource = sm;
+                sBoxSearch.SelectedValuePath = "Value";
+                sBoxSearch.DisplayMemberPath = "text";
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+        }
+
         private void clickSearch(object sender, RoutedEventArgs e)
         {
             viewBoxFrame.Visibility = Visibility.Visible;
             ErrorMessageTextBlock.Visibility = Visibility.Hidden;
 
             System.Diagnostics.Debug.WriteLine($"{bBoxSearch.Text}");
-            if (bBoxSearch.Text != "")
-            {
-                batch = (blockModel)bBoxSearch.SelectedItem;
-                System.Diagnostics.Debug.WriteLine($"{batch.value}");
-                batch_id = batch.value;
-                dataController.setProgramm("configBatch.txt", batch.value);
 
-                List<blockModel> sm = dataController.getStudents();
-                sBoxSearch.ItemsSource = sm;
-                sBoxSearch.DisplayMemberPath = "text";
-                sBoxSearch.SelectedValuePath = "Value";
-            }
-            student  = (blockModel)sBoxSearch.SelectedItem;
+            student = (blockModel)sBoxSearch.SelectedItem;
             dataController.setStudent("configStudent.txt", student.value);
             dataController.getStudents();
             customLinkedList dataset = dataController.getStudentsResults();
