@@ -8,8 +8,11 @@ namespace stu_profo.Model
 {
     public class GradeItem
     {
-        public string Grade { get; set; }
         public string SubjectDetails { get; set; }
+        public string points { get; set; }
+        public string cw { get; set; }
+        public string exam { get; set; }
+        public string finalGrade { get; set; }
     }
 
 }

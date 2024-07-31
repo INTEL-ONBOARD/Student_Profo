@@ -370,7 +370,7 @@ namespace stu_profo
             ErrorMessageTextBlock.Visibility = Visibility.Hidden;
             List<dataModel> dataset = dataController.getStudentsResults();
             foreach (dataModel model in dataset) {
-                System.Diagnostics.Debug.WriteLine( ">>>" +model.id + model.exam_Date + model.exam);
+                System.Diagnostics.Debug.WriteLine( ">>>" +model.Subject + model.Exam_Date + model.Exam);
             }
         
 

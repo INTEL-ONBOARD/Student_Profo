@@ -9,13 +9,13 @@ namespace stu_profo.Model
     class dataModel
     {
         public string id { get; set; }
-        public string subject { get; set; }
-        public string special { get; set; }
-        public string exam_Date { get; set; }
-        public string course_Work { get; set; }
-        public string exam { get; set; }
-        public string final_Grade { get; set; }
-        public string points { get; set; }
+        public string Subject { get; set; }
+        public string Special { get; set; }
+        public string Exam_Date { get; set; }
+        public string Course_Work { get; set; }
+        public string Exam { get; set; }
+        public string Final_Grade { get; set; }
+        public string Points { get; set; }
 
 
 //"#": "1",
