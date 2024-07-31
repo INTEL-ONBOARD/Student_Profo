@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Net.NetworkInformation;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,6 +32,8 @@ namespace stu_profo
         public ObservableCollection<GradeItem> Grades { get; set; }
         public ObservableCollection<Course> Courses { get; set; }
 
+
+
         private Brush _mainBackground;
         public Brush MainBackground
         {
@@ -51,6 +54,21 @@ namespace stu_profo
                 _mainBackgroundImage = value;
                 OnPropertyChanged(nameof(MainBackgroundImage));
             }
+        }
+
+        private object _selectedStudent;
+        public object SelectedStudent
+        {
+            get { return _selectedStudent; }
+            set
+            {
+                _selectedStudent = value;
+                OnPropertyyChanged();
+            }
+        }
+        protected void OnPropertyyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
         public MainWindow()
@@ -130,7 +148,7 @@ namespace stu_profo
             // Trigger binding update
         }
 
-      
+       
 
         private void StViewbackbutton_Click(object sender, RoutedEventArgs e)
         {
@@ -215,6 +233,22 @@ namespace stu_profo
             }
         }
 
+        private void EmailTextBoxTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (emailInput.BorderBrush == Brushes.Red)
+            {
+                emailInput.BorderBrush = Brushes.Gray; // Or the default color
+            }
+        }
+
+        private void PasswordTextBox_TextChanged(object sender, RoutedEventArgs e)
+        {
+            if (passwordInput.BorderBrush == Brushes.Red)
+            {
+                passwordInput.BorderBrush = Brushes.Gray; // Or the default color
+            }
+        }
+
         private void TogglePasswordVisibility(object sender, RoutedEventArgs e)
         {
             if (passwordInput.Visibility == Visibility.Visible)
@@ -232,6 +266,7 @@ namespace stu_profo
                 ((Button)sender).Content = "👁"; // Change icon to visible eye
             }
         }
+
         private async void Login(object sender, RoutedEventArgs e)
         {
             userController userCtn = new userController();
@@ -283,6 +318,7 @@ namespace stu_profo
             System.Diagnostics.Debug.WriteLine("calling");
         }
 
+
         private void getbatch(object sender, RoutedEventArgs e)
         {
             bBoxC.IsEnabled = true;
@@ -307,13 +343,12 @@ namespace stu_profo
             home.Visibility = Visibility.Visible;
             MainBackground = Brushes.White;
             MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Home.png")));
-            ShowWarningOverlay(home, ladinoverlay,true);
+            ShowWarningOverlay(home, ladinoverlay, true);
             await Task.Delay(3000);
             ShowWarningOverlay(home, ladinoverlay, false);
 
             batchLabel.Content = batch.text;
             studentLabel.Content = student.text;
-
         }
 
         private void Signup(object sender, RoutedEventArgs e)

@@ -675,7 +675,7 @@
 
         </Grid>
 
-        <Grid x:Name="signinScreen" Margin="32,50,30,40" Visibility="Visible">
+        <Grid x:Name="signinScreen" Margin="32,50,30,40" Visibility="Hidden">
             <Border Margin="246,54,244,50" BorderBrush="White" BorderThickness="2" CornerRadius="10" Opacity="40">
                 <Grid Margin="20,40,20,20">
                     <Grid.RowDefinitions>
@@ -698,10 +698,11 @@
                             <TextBlock Text="SIGN IN" FontFamily="Barlow" FontSize="24" FontWeight="Bold" Width="94" HorizontalAlignment="Left" Height="33"/>
 
                             <!-- Email -->
+                            <!-- Email -->
                             <StackPanel Margin="0,0,0,10">
                                 <TextBlock Text="Email" Foreground="Gray" Margin="0,0,0,5" Width="231"/>
                                 <Border x:Name="f" Background="White" CornerRadius="5" BorderBrush="{Binding BorderBrush, ElementName=emailInput, Mode=OneWay}" BorderThickness="1" Height="30" Width="231">
-                                    <TextBox x:Name="emailInput" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" TextChanged="EmailTextBox_TextChanged"/>
+                                    <TextBox x:Name="emailInput" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" TextChanged="EmailTextBoxTextChanged"/>
                                 </Border>
                             </StackPanel>
 
@@ -710,12 +711,13 @@
                                 <TextBlock Text="Password" Foreground="Gray" Margin="0,0,0,5" Width="229"/>
                                 <Border Background="White" CornerRadius="5" BorderBrush="{Binding BorderBrush, ElementName=passwordInput, Mode=OneWay}" BorderThickness="1" Height="30" Width="230">
                                     <Grid>
-                                        <PasswordBox x:Name="passwordInput" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0"/>
+                                        <PasswordBox x:Name="passwordInput" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" PasswordChanged="PasswordTextBox_TextChanged"/>
                                         <TextBox x:Name="textInput" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" Visibility="Collapsed"/>
                                         <Button Content="👁" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Click="TogglePasswordVisibility"/>
                                     </Grid>
                                 </Border>
                             </StackPanel>
+
 
 
                             <TextBlock Text="Forgot password?" HorizontalAlignment="Left" Foreground="Gray" Margin="0,0,0,10" />
@@ -846,7 +848,7 @@
                             <StackPanel Margin="0,0,0,10">
                                 <TextBlock Text="Email" Foreground="Gray" Margin="0,0,0,5" Width="231"/>
                                 <Border x:Name="g" Background="White" CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Height="30" Width="231">
-                                    <TextBox x:Name="emailInputreg" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" TextChanged="EmailTextBox_TextChanged"/>
+                                    <TextBox x:Name="emailInputreg" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" TextChanged="EmailTextBoxTextChanged"/>
                                 </Border>
                             </StackPanel>
 
@@ -855,7 +857,7 @@
                                 <TextBlock Text="Password" Foreground="Gray" Margin="0,0,0,5" Width="229"/>
                                 <Border Background="White" CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Height="30" Width="230">
                                     <Grid>
-                                        <PasswordBox x:Name="passwordInputreg" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" />
+                                        <PasswordBox x:Name="passwordInputreg" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" PasswordChanged="PasswordTextBox_TextChanged"/>
                                         <TextBox x:Name="textInputreg" Margin="5,0" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" Visibility="Collapsed"/>
                                         <Button Content="👁" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Click="TogglePasswordVisibilityREG"/>
                                     </Grid>
@@ -1010,10 +1012,6 @@
                     </ScrollViewer>
                 </StackPanel>
             </Border>
-
-
-
-
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="403,56,0,676" Width="58">
 
                 <Button x:Name="StViewbackbutton" Width="40" Height="40" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="0" Click="StViewbackbutton_Click">
@@ -1718,26 +1716,27 @@ CornerRadius="5" Padding="10,2">
         <Grid x:Name="config2" Margin="37,36,25,24" Visibility="Hidden">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Text="Please provide your information to configure your profile" 
-               Foreground="White" FontSize="36" FontWeight="Light" 
-               TextWrapping="Wrap" HorizontalAlignment="Center" 
-               Margin="0,0,0,40" Width="583" TextAlignment="Center"/>
+           Foreground="White" FontSize="36" FontWeight="Light" 
+           TextWrapping="Wrap" HorizontalAlignment="Center" 
+           Margin="0,0,0,40" Width="583" TextAlignment="Center"/>
 
                 <!-- Programme ComboBox -->
-                <ComboBox x:Name="sBoxC" Width="288" Height="34" Margin="0,0,0,20" Tag="StudentId" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
-                </ComboBox>
-
-
+                <ComboBox x:Name="sBoxC" Width="288" Height="34" Margin="0,0,0,20" 
+                  Tag="StudentId" Style="{StaticResource theComboBox}" 
+                  ItemContainerStyle="{StaticResource theComboBoxItem}" 
+                  SelectedIndex="0" 
+                  SelectedItem="{Binding SelectedStudent, Mode=TwoWay}"/>
 
                 <!-- Continue Button -->
                 <Button x:Name="doneBtn" Content="Done" Width="84" Height="25" Margin="0,0,0,20" 
-        Background="Transparent" Foreground="White" BorderBrush="#BFFFFFFF" 
-        BorderThickness="1" Click="Donebtn_Click">
+                Background="Transparent" Foreground="White" BorderBrush="#BFFFFFFF" 
+                BorderThickness="1" Click="Donebtn_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
-                    BorderBrush="{TemplateBinding BorderBrush}" 
-                    BorderThickness="{TemplateBinding BorderThickness}" 
-                    CornerRadius="5">
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            CornerRadius="5">
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </Border>
                         </ControlTemplate>
@@ -1749,16 +1748,19 @@ CornerRadius="5" Padding="10,2">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="Button">
                                         <Border Background="{TemplateBinding Background}" 
-                                BorderBrush="{TemplateBinding BorderBrush}" 
-                                BorderThickness="1" 
-                                CornerRadius="5" 
-                                Padding="10,0">
+                                        BorderBrush="{TemplateBinding BorderBrush}" 
+                                        BorderThickness="1" 
+                                        CornerRadius="5" 
+                                        Padding="10,0">
                                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                         </Border>
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
                             <Style.Triggers>
+                                <DataTrigger Binding="{Binding SelectedStudent}" Value="{x:Null}">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background" Value="White"/>
                                     <Setter Property="Foreground" Value="#0F458D"/>
@@ -1781,15 +1783,15 @@ CornerRadius="5" Padding="10,2">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimation Storyboard.TargetName="doneButtonScale"
-                                     Storyboard.TargetProperty="ScaleX"
-                                     From="1" To="1.1"
-                                     Duration="0:0:0.2"
-                                     AutoReverse="True"/>
+                                             Storyboard.TargetProperty="ScaleX"
+                                             From="1" To="1.1"
+                                             Duration="0:0:0.2"
+                                             AutoReverse="True"/>
                                     <DoubleAnimation Storyboard.TargetName="doneButtonScale"
-                                     Storyboard.TargetProperty="ScaleY"
-                                     From="1" To="1.1"
-                                     Duration="0:0:0.2"
-                                     AutoReverse="True"/>
+                                             Storyboard.TargetProperty="ScaleY"
+                                             From="1" To="1.1"
+                                             Duration="0:0:0.2"
+                                             AutoReverse="True"/>
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -1797,15 +1799,15 @@ CornerRadius="5" Padding="10,2">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimation Storyboard.TargetName="doneButtonScale"
-                                     Storyboard.TargetProperty="ScaleX"
-                                     From="1" To="0.9"
-                                     Duration="0:0:0.2"
-                                     AutoReverse="False"/>
+                                             Storyboard.TargetProperty="ScaleX"
+                                             From="1" To="0.9"
+                                             Duration="0:0:0.2"
+                                             AutoReverse="False"/>
                                     <DoubleAnimation Storyboard.TargetName="doneButtonScale"
-                                     Storyboard.TargetProperty="ScaleY"
-                                     From="1" To="0.9"
-                                     Duration="0:0:0.2"
-                                     AutoReverse="False"/>
+                                             Storyboard.TargetProperty="ScaleY"
+                                             From="1" To="0.9"
+                                             Duration="0:0:0.2"
+                                             AutoReverse="False"/>
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -1813,29 +1815,28 @@ CornerRadius="5" Padding="10,2">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimation Storyboard.TargetName="doneButtonScale"
-                                     Storyboard.TargetProperty="ScaleX"
-                                     From="0.9" To="1"
-                                     Duration="0:0:0.2"
-                                     AutoReverse="False"/>
+                                             Storyboard.TargetProperty="ScaleX"
+                                             From="0.9" To="1"
+                                             Duration="0:0:0.2"
+                                             AutoReverse="False"/>
                                     <DoubleAnimation Storyboard.TargetName="doneButtonScale"
-                                     Storyboard.TargetProperty="ScaleY"
-                                     From="0.9" To="1"
-                                     Duration="0:0:0.2"
-                                     AutoReverse="False"/>
+                                             Storyboard.TargetProperty="ScaleY"
+                                             From="0.9" To="1"
+                                             Duration="0:0:0.2"
+                                             AutoReverse="False"/>
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
                     </Button.Triggers>
                 </Button>
 
-
-
             </StackPanel>
             <!-- Bottom Text -->
             <TextBlock Text="You almost there..." 
-Foreground="White" FontSize="12" HorizontalAlignment="Center" 
-Margin="0,754,0,0"/>
+               Foreground="White" FontSize="12" HorizontalAlignment="Center" 
+               Margin="0,754,0,0"/>
         </Grid>
+
 
         <!-- Warning Overlay Grid -->
         <Grid x:Name="warningOverlayGrid" Visibility="Hidden" Background="#80000000" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
