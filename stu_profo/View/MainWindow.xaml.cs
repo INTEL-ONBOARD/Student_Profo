@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
@@ -76,16 +77,16 @@ namespace stu_profo
             InitializeComponent();
 
             // Dummy data for Courses
-            Courses = new ObservableCollection<Course>
-            {
-                new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055",GPA = 3.4 },
-                new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001",GPA = 3.4 }
-            };
+            //Courses = new ObservableCollection<Course>
+            //{
+            //    new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055",GPA = 3.4 },
+            //    new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001",GPA = 3.4 }
+            //};
 
             // Dummy data for Grades
-         
-            DataContext = this;
 
+            Courses = new ObservableCollection<Course>();
+            DataContext = this;
             // Set default background
             MainBackground = new RadialGradientBrush
             {
@@ -396,11 +397,27 @@ namespace stu_profo
             viewBoxFrame.Visibility = Visibility.Visible;
             ErrorMessageTextBlock.Visibility = Visibility.Hidden;
             customLinkedList dataset = dataController.getStudentsResults();
-            foreach( dataModel data in dataset.DisplayForward())
+
+            Courses.Clear();
+            foreach ( dataModel data in dataset.DisplayForward())
             {
                 System.Diagnostics.Debug.WriteLine(">>>"+ data.FinalGrade + data.Exam + data.CourseWork + data.Subject);
+                Course course = new Course();
+                course.CourseName = data.Subject;
+                course.CourseCode = data.Subject;
+                course.CourseID = data.Subject;
 
+                Courses.Add(course);
             }
+
+
+
+            //{
+            //    new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055",GPA = 3.4 },
+            //    new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001",GPA = 3.4 }
+            //};
+
+
             //blockModel programmeSelected  =  (blockModel)pBoxSearch.SelectedItem;
             //dataController.setProgramm("config.txt", programmeSelected.value);
             //List<blockModel> bm = dataController.getBatches();
