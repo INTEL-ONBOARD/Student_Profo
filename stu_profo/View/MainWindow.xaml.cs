@@ -142,8 +142,6 @@ namespace stu_profo
             // Trigger binding update
         }
 
-       
-
         private void StViewbackbutton_Click(object sender, RoutedEventArgs e)
         {
             // Hide the student view and show the home view
@@ -308,7 +306,6 @@ namespace stu_profo
             }
             System.Diagnostics.Debug.WriteLine("calling");
         }
-
 
         private void getbatch(object sender, RoutedEventArgs e)
         {
