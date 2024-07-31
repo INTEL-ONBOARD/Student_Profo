@@ -454,7 +454,7 @@ namespace stu_profo
             {
                 // Apply blur effect to the target page
                 BlurEffect blurEffect = new BlurEffect();
-                blurEffect.Radius = 10;
+                blurEffect.Radius = 50;
                 targetPage.Effect = blurEffect;
 
                 // Show the warning overlay

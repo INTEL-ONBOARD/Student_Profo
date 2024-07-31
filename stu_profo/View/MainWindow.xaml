@@ -1444,10 +1444,10 @@
     Text="Welcome! Enjoy the freedom to explore your academic journey, identify your strengths and weaknesses, and enhance your educational experience with ease." 
     Foreground="Gray" 
     FontSize="13" 
-    FontWeight="DemiBold" 
+    FontWeight="Light" 
     HorizontalAlignment="Left" 
     Margin="349,100,0,637" 
-    Width="433" 
+    Width="395" 
     TextWrapping="Wrap"
 />
 
@@ -1455,7 +1455,7 @@
     Source="/View/Subtract.png" 
     Stretch="Fill" 
     Grid.Column="0" 
-    Margin="225,459,513,99" 
+    Margin="225,453,513,99" 
     RenderTransformOrigin="0.363,0.301" 
     Width="600"/>
 
@@ -1463,7 +1463,7 @@
     Source="/View/homecard1.png" 
     Stretch="Fill" 
     Grid.Column="0" 
-    Margin="225,182,513,384" 
+    Margin="225,192,513,364" 
     RenderTransformOrigin="0.363,0.301" 
     Width="600"/>
 
@@ -1514,7 +1514,7 @@
 />
 
             <StackPanel HorizontalAlignment="Left" Width="180" Margin="935,214,0,294">
-                <TextBlock Text="Your stats" Foreground="Black" FontSize="30" FontWeight="Light" HorizontalAlignment="Center" Width="110"/>
+                <TextBlock Text="Your stats" Foreground="Black" FontSize="30" FontWeight="Light" HorizontalAlignment="Center" Width="125"/>
                 <TextBlock Text="Servies Time" Foreground="Black" FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Center"/>
                 <TextBlock Text="From 1-6 Dec, 2021" Foreground="Gray" FontSize="14" HorizontalAlignment="Center"/>
                 <Grid Margin="10">
@@ -1538,8 +1538,10 @@ CornerRadius="5" Padding="10,2">
                 <!-- Adjusted Margin -->
                 <Ellipse Width="50" Height="50" Fill="LightGray"/>
                 <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
-                    <Label x:Name="batchLabel" Content="dafault"></Label>
-                    <Label x:Name="studentLabel" Content="dafault" FontSize="20"></Label>
+                    <Canvas>
+                    <Label x:Name="batchLabel" Content="dafault" Canvas.Left="9" Canvas.Top="2"></Label>
+                    <Label x:Name="studentLabel" Content="dafault" FontSize="20" Canvas.Left="3" Canvas.Top="-27"/>
+                    </Canvas>
                 </StackPanel>
             </StackPanel>
             <!-- Left side content -->
