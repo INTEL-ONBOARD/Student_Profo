@@ -414,11 +414,12 @@ namespace stu_profo
             viewBoxFrame.Visibility = Visibility.Visible;
             ErrorMessageTextBlock.Visibility = Visibility.Hidden;
 
-            System.Diagnostics.Debug.WriteLine($"{bBoxSearch.Text}");
+            System.Diagnostics.Debug.WriteLine($"{sBoxSearch.Text}");
 
             student = (blockModel)sBoxSearch.SelectedItem;
             dataController.setStudent("configStudent.txt", student.value);
             dataController.getStudents();
+
             customLinkedList dataset = dataController.getStudentsResults();
 
             Courses.Clear();
