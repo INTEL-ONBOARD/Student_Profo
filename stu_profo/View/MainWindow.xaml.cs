@@ -83,13 +83,7 @@ namespace stu_profo
             };
 
             // Dummy data for Grades
-            Grades = new ObservableCollection<GradeItem>
-            {
-              
-                new GradeItem { Grade = "A+", SubjectDetails = "DSE231F/CO/Introduction to Computer Science" },
-                new GradeItem { Grade = "A+", SubjectDetails = "DSE231F/CO/Introduction to Computer Science" }
-            };
-
+         
             DataContext = this;
 
             // Set default background

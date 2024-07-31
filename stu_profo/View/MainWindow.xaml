@@ -1012,10 +1012,6 @@
                     </ScrollViewer>
                 </StackPanel>
             </Border>
-
-
-
-
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="403,56,0,676" Width="58">
 
                 <Button x:Name="StViewbackbutton" Width="40" Height="40" Margin="5" Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="0" Click="StViewbackbutton_Click">
@@ -1070,18 +1066,6 @@
                         </ItemsControl>
                     </StackPanel>
                 </ScrollViewer>
-            </Border>
-
-
-        </Grid>
-            </Border>
-
-
-        </Grid>
-            </Border>
-
-
-        </Grid>
             </Border>
 
 
@@ -1716,26 +1700,27 @@ CornerRadius="5" Padding="10,2">
                                      AutoReverse="False"/>
                                 </Storyboard>
                             </BeginStoryboard>
-               Foreground="White" FontSize="36" FontWeight="Light" 
-               TextWrapping="Wrap" HorizontalAlignment="Center" 
-               Margin="0,0,0,40" Width="583" TextAlignment="Center"/>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
 
 
-                <ComboBox x:Name="sBoxC" Width="288" Height="34" Margin="0,0,0,20" Tag="StudentId" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}" SelectedIndex="0">
-                </ComboBox>
 
-
+            </StackPanel>
+            <!-- Bottom Text -->
+            <TextBlock x:Name="statusText1" Text="Programs and courses have just been updated! Check out the latest content now!" 
+            Foreground="White" FontSize="12" HorizontalAlignment="Center" 
             Margin="0,754,0,0"/>
         </Grid>
 
-        Background="Transparent" Foreground="White" BorderBrush="#BFFFFFFF" 
-        BorderThickness="1" Click="Donebtn_Click">
+        <Grid x:Name="config2" Margin="37,36,25,24" Visibility="Hidden">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Text="Please provide your information to configure your profile" 
            Foreground="White" FontSize="36" FontWeight="Light" 
            TextWrapping="Wrap" HorizontalAlignment="Center" 
-                    BorderBrush="{TemplateBinding BorderBrush}" 
-                    BorderThickness="{TemplateBinding BorderThickness}" 
-                    CornerRadius="5">
+           Margin="0,0,0,40" Width="583" TextAlignment="Center"/>
+
+                <!-- Programme ComboBox -->
                 <ComboBox x:Name="sBoxC" Width="288" Height="34" Margin="0,0,0,20" 
                   Tag="StudentId" Style="{StaticResource theComboBox}" 
                   ItemContainerStyle="{StaticResource theComboBoxItem}" 
@@ -1747,16 +1732,19 @@ CornerRadius="5" Padding="10,2">
                 Background="Transparent" Foreground="White" BorderBrush="#BFFFFFFF" 
                 BorderThickness="1" Click="Donebtn_Click">
                     <Button.Template>
-                                BorderBrush="{TemplateBinding BorderBrush}" 
-                                BorderThickness="1" 
-                                CornerRadius="5" 
-                                Padding="10,0">
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
                             CornerRadius="5">
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </Border>
                         </ControlTemplate>
                     </Button.Template>
                     <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="OverridesDefaultStyle" Value="True"/>
+                            <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="Button">
                                         <Border Background="{TemplateBinding Background}" 
@@ -1779,15 +1767,15 @@ CornerRadius="5" Padding="10,2">
                                     <Setter Property="Cursor" Value="Hand"/>
                                 </Trigger>
                             </Style.Triggers>
-                                     Storyboard.TargetProperty="ScaleX"
-                                     From="1" To="1.1"
-                                     Duration="0:0:0.2"
-                                     AutoReverse="True"/>
+                        </Style>
+                    </Button.Style>
+                    <Button.RenderTransformOrigin>0.5,0.5</Button.RenderTransformOrigin>
+                    <Button.RenderTransform>
                         <TransformGroup>
-                                     Storyboard.TargetProperty="ScaleY"
-                                     From="1" To="1.1"
-                                     Duration="0:0:0.2"
-                                     AutoReverse="True"/>
+                            <ScaleTransform x:Name="doneButtonScale" ScaleY="1" ScaleX="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
                         </TransformGroup>
                     </Button.RenderTransform>
                     <Button.Triggers>
@@ -1795,15 +1783,15 @@ CornerRadius="5" Padding="10,2">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimation Storyboard.TargetName="doneButtonScale"
-                                     Storyboard.TargetProperty="ScaleX"
-                                     From="1" To="0.9"
-                                     Duration="0:0:0.2"
-                                     AutoReverse="False"/>
+                                             Storyboard.TargetProperty="ScaleX"
+                                             From="1" To="1.1"
+                                             Duration="0:0:0.2"
+                                             AutoReverse="True"/>
                                     <DoubleAnimation Storyboard.TargetName="doneButtonScale"
-                                     Storyboard.TargetProperty="ScaleY"
-                                     From="1" To="0.9"
-                                     Duration="0:0:0.2"
-                                     AutoReverse="False"/>
+                                             Storyboard.TargetProperty="ScaleY"
+                                             From="1" To="1.1"
+                                             Duration="0:0:0.2"
+                                             AutoReverse="True"/>
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -1811,15 +1799,15 @@ CornerRadius="5" Padding="10,2">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimation Storyboard.TargetName="doneButtonScale"
-                                     Storyboard.TargetProperty="ScaleX"
-                                     From="0.9" To="1"
-                                     Duration="0:0:0.2"
-                                     AutoReverse="False"/>
+                                             Storyboard.TargetProperty="ScaleX"
+                                             From="1" To="0.9"
+                                             Duration="0:0:0.2"
+                                             AutoReverse="False"/>
                                     <DoubleAnimation Storyboard.TargetName="doneButtonScale"
-                                     Storyboard.TargetProperty="ScaleY"
-                                     From="0.9" To="1"
-                                     Duration="0:0:0.2"
-                                     AutoReverse="False"/>
+                                             Storyboard.TargetProperty="ScaleY"
+                                             From="1" To="0.9"
+                                             Duration="0:0:0.2"
+                                             AutoReverse="False"/>
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
