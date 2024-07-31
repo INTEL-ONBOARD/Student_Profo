@@ -428,6 +428,9 @@ namespace stu_profo
 
             customLinkedList dataset = dataController.getStudentsResults();
 
+            batchDataLabel.Text = bBoxSearch.Text;
+            studentDataLabel.Text = sBoxSearch.Text;
+
             Courses.Clear();
             if (dataset != null) {
                 List<dataModel> dataSet = dataset.DisplayForward();

@@ -1202,8 +1202,8 @@
                         <!-- Adjusted Margin -->
                         <Ellipse Width="50" Height="50" Fill="LightGray"/>
                         <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
-                            <TextBlock Text="DSE231F/CO" FontSize="12" FontWeight="Light" FontFamily="Open Sans"/>
-                            <TextBlock Text="CODSE231F-055" FontSize="24" FontWeight="DemiBold" FontFamily="Open Sans"/>
+                            <TextBlock x:Name="batchDataLabel" Text="-" FontSize="12" FontWeight="Light" FontFamily="Open Sans"/>
+                            <TextBlock x:Name="studentDataLabel" Text="-" FontSize="24" FontWeight="DemiBold" FontFamily="Open Sans"/>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Height="319" Width="230" Margin="0,30,0,0">
