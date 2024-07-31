@@ -1071,7 +1071,7 @@
 
         </Grid>
 
-        <Grid x:Name="Search" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">
+        <Grid x:Name="Search" Background="Transparent" Margin="32,50,30,10" Visibility="Visible">
             <Canvas>
                 <!-- Back Button -->
                 <Button Canvas.Left="103" Canvas.Top="105" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center" Click="search_back" 
@@ -1099,12 +1099,15 @@
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="726" Grid.ColumnSpan="2" Canvas.Left="296" Canvas.Top="181" VerticalAlignment="Center">
                     <!-- Programme ComboBox -->
-                    <ComboBox x:Name="pBoxSearch" Width="441" Height="34" Margin="0,0,10,0" Tag="Programme" Style="{StaticResource darkerComboBox}" ItemContainerStyle="{StaticResource darkerComboBoxItem}" SelectedIndex="0" DropDownClosed="getBatches">
+                    <ComboBox x:Name="pBoxSearch" Width="276" Height="34" Margin="0,0,10,0" Tag="Programme" Style="{StaticResource darkerComboBox}" ItemContainerStyle="{StaticResource darkerComboBoxItem}" SelectedIndex="0" DropDownClosed="getBatches">
                     </ComboBox>
 
                     <!-- Batch ComboBox -->
                     <ComboBox x:Name="bBoxSearch" Width="212" Height="34" Margin="0,0,10,0" Tag="Batch" Style="{StaticResource darkerComboBox}" ItemContainerStyle="{StaticResource darkerComboBoxItem}" SelectedIndex="0">
                     </ComboBox>
+                    <!-- student ComboBox -->
+                    <ComboBox x:Name="sBoxSearch" Width="166" Height="34" Tag="Batch" Style="{StaticResource darkerComboBox}" ItemContainerStyle="{StaticResource darkerComboBoxItem}" SelectedIndex="0"/>
+
                     <!-- Search Button -->
                     <Button x:Name="searchBtn" Width="40" Height="40" Margin="10,0,0,0" Grid.Row="0" Grid.Column="0" Background="White" Click="clickSearch">
                         <Button.Template>

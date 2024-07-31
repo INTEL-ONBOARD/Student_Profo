@@ -396,18 +396,40 @@ namespace stu_profo
         {
             viewBoxFrame.Visibility = Visibility.Visible;
             ErrorMessageTextBlock.Visibility = Visibility.Hidden;
+
+            System.Diagnostics.Debug.WriteLine($"{bBoxSearch.Text}");
+            if (bBoxSearch.Text != "")
+            {
+                batch = (blockModel)bBoxSearch.SelectedItem;
+                System.Diagnostics.Debug.WriteLine($"{batch.value}");
+                batch_id = batch.value;
+                dataController.setProgramm("configBatch.txt", batch.value);
+
+                List<blockModel> sm = dataController.getStudents();
+                sBoxSearch.ItemsSource = sm;
+                sBoxSearch.DisplayMemberPath = "text";
+                sBoxSearch.SelectedValuePath = "Value";
+            }
+            student  = (blockModel)sBoxSearch.SelectedItem;
+            dataController.setStudent("configStudent.txt", student.value);
+            dataController.getStudents();
             customLinkedList dataset = dataController.getStudentsResults();
 
             Courses.Clear();
-            foreach ( dataModel data in dataset.DisplayForward())
-            {
-                System.Diagnostics.Debug.WriteLine(">>>"+ data.FinalGrade + data.Exam + data.CourseWork + data.Subject);
-                Course course = new Course();
-                course.CourseName = data.Subject;
-                course.CourseCode = data.Subject;
-                course.CourseID = data.Subject;
+            if (dataset != null) {
+                List<dataModel> dataSet = dataset.DisplayForward();
+                if (dataSet != null) {
+                    foreach (dataModel data in dataSet)
+                    {
+                        System.Diagnostics.Debug.WriteLine(">>>" + data.FinalGrade + data.Exam + data.CourseWork + data.Subject);
+                        Course course = new Course();
+                        course.CourseName = data.Subject;
+                        course.CourseCode = data.Subject;
+                        course.CourseID = data.Subject;
 
-                Courses.Add(course);
+                        Courses.Add(course);
+                    }
+                }
             }
 
 

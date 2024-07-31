@@ -82,6 +82,7 @@ namespace stu_profo.Controller
             }
 
         }
+
         public static customLinkedList getStudentsResults()
         {
             List<dataModel> studentData = new List<dataModel>();   
@@ -105,7 +106,8 @@ namespace stu_profo.Controller
                 };
             } else
             {
-                System.Diagnostics.Debug.WriteLine("data inserting done..."); return null; }
+                System.Diagnostics.Debug.WriteLine("data inserting done..."); return null; 
+            }
         }
 
         public static void setProgramm(string fileName , string data)
@@ -114,6 +116,11 @@ namespace stu_profo.Controller
         }
 
         public static void setBatch(string fileName, string data)
+        {
+            using (StreamWriter writer = new StreamWriter(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName))) { writer.Write(data); writer.Dispose(); }
+        }
+
+        public static void setStudent(string fileName, string data)
         {
             using (StreamWriter writer = new StreamWriter(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName))) { writer.Write(data); writer.Dispose(); }
         }
