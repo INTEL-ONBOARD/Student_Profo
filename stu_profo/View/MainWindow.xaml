@@ -1169,7 +1169,7 @@
 
                 </StackPanel>
 
-                <Border x:Name="viewBoxFrame" Background="#FFFFFF" Visibility="Visible" CornerRadius="20" Grid.ColumnSpan="2" Canvas.Left="562" Canvas.Top="284" Width="677" HorizontalAlignment="Left" VerticalAlignment="Top" Height="400">
+                <Border x:Name="viewBoxFrame" Background="#FFFFFF" Visibility="Hidden" CornerRadius="20" Grid.ColumnSpan="2" Canvas.Left="562" Canvas.Top="284" Width="677" HorizontalAlignment="Left" VerticalAlignment="Top" Height="400">
                     <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="10,10,10,10">
                         <StackPanel x:Name="viewBox" Height="390" Width="657">
                             <ItemsControl ItemsSource="{Binding Courses}">
@@ -1196,7 +1196,7 @@
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"/>
 
-                <StackPanel x:Name="leftSector" Canvas.Left="166" Canvas.Top="291" Visibility="Visible" HorizontalAlignment="Center" VerticalAlignment="Top" Height="399" Width="275">
+                <StackPanel x:Name="leftSector" Canvas.Left="166" Canvas.Top="291" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Top" Height="399" Width="275">
 
                     <StackPanel Orientation="Horizontal" Width="310" Canvas.Left="174" Canvas.Top="277" HorizontalAlignment="Left" VerticalAlignment="Top">
                         <!-- Adjusted Margin -->
