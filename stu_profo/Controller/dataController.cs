@@ -81,10 +81,18 @@ namespace stu_profo.Controller
             }
 
         }
-        public void run()
+        public static List<dataModel> getStudentsResults()
         {
-            if (engine.dumpStudentGrade()) { System.Diagnostics.Debug.WriteLine("yes"); } else { System.Diagnostics.Debug.WriteLine("no"); }
+            List<dataModel> dm = new List<dataModel>();   
+            if (engine.dumpStudentGrade()) {
+                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "stuData.json");
+                using StreamReader reader = new StreamReader(path);
+                var json = reader.ReadToEnd();
+                dm = JsonConvert.DeserializeObject<List<dataModel>>(json);
+                if (dm != null) { return dm; } else { return dm; };
+            } else { return null; }
         }
+
         public static void setProgramm(string fileName , string data)
         {
             using (StreamWriter writer = new StreamWriter(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName))) { writer.Write(data);writer.Dispose(); }

@@ -242,11 +242,8 @@ namespace stu_profo
 
                 List<blockModel> pm = dataController.getProgramms();
                 pBoxSearch.ItemsSource = pm;
-                pBox.ItemsSource = pm;
                 pBoxC.ItemsSource = pm;
-                pBox.DisplayMemberPath = "text";
                 pBoxC.DisplayMemberPath = "text";
-                pBox.SelectedValuePath = "Value";
                 pBoxC.SelectedValuePath = "Value";
 
                 signinScreen.Visibility = Visibility.Hidden;
@@ -350,12 +347,20 @@ namespace stu_profo
 
         private void getBatches(object sender, EventArgs e)
         {
-            blockModel programmeSelected = (blockModel)pBoxSearch.SelectedItem;
-            dataController.setProgramm("config.txt", programmeSelected.value);
-            List<blockModel> bm = dataController.getBatches();
-            bBoxSearch.ItemsSource = bm;
-            bBoxSearch.SelectedValuePath = "Value";
-            bBoxSearch.DisplayMemberPath = "text";
+            try
+            {
+                blockModel programmeSelected = (blockModel)pBoxSearch.SelectedItem;
+                dataController.setProgramm("config.txt", programmeSelected.value);
+                List<blockModel> bm = dataController.getBatches();
+                bBoxSearch.ItemsSource = bm;
+                bBoxSearch.SelectedValuePath = "Value";
+                bBoxSearch.DisplayMemberPath = "text";
+            }
+            catch(Exception ex) 
+            {
+                    System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+
 
         }
 
@@ -363,9 +368,11 @@ namespace stu_profo
         {
             viewBoxFrame.Visibility = Visibility.Visible;
             ErrorMessageTextBlock.Visibility = Visibility.Hidden;
-
-            dataController dn = new dataController();
-            dn.run();
+            List<dataModel> dataset = dataController.getStudentsResults();
+            foreach (dataModel model in dataset) {
+                System.Diagnostics.Debug.WriteLine( ">>>" +model.id + model.exam_Date + model.exam);
+            }
+        
 
             //blockModel programmeSelected  =  (blockModel)pBoxSearch.SelectedItem;
             //dataController.setProgramm("config.txt", programmeSelected.value);
