@@ -443,8 +443,9 @@ namespace stu_profo
         //Search feature :)
         private async void clickSearch(object sender, RoutedEventArgs e)
         {
-            // Show loading GIF
+            // Show loading GIF and apply blur effect
             loadingGif.Visibility = Visibility.Visible;
+            ApplyBlurEffect(Search, true); // Assuming 'mainGrid' is the parent UI element that should be blurred
 
             line.Visibility = Visibility.Visible;
             leftSector.Visibility = Visibility.Visible;
@@ -490,9 +491,34 @@ namespace stu_profo
                 }
             }
 
-            // Hide loading GIF
+            // Hide loading GIF and remove blur effect
             loadingGif.Visibility = Visibility.Hidden;
+            ApplyBlurEffect(Search, false);
         }
+
+        private void ApplyBlurEffect(UIElement targetPage, bool applyBlur)
+        {
+            if (targetPage == null)
+            {
+                throw new ArgumentNullException(nameof(targetPage), "targetPage cannot be null");
+            }
+
+            if (applyBlur)
+            {
+                // Apply blur effect to the target page
+                BlurEffect blurEffect = new BlurEffect
+                {
+                    Radius = 50
+                };
+                targetPage.Effect = blurEffect;
+            }
+            else
+            {
+                // Remove blur effect from the target page
+                targetPage.Effect = null;
+            }
+        }
+
 
 
         private void setting_back(object sender, RoutedEventArgs e)
