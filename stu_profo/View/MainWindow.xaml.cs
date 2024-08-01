@@ -329,6 +329,8 @@ namespace stu_profo
             System.Diagnostics.Debug.WriteLine($"{student.value}");
             batch_id = student.value;
             dataController.setProgramm("configStudent.txt", student.value);
+            Image img = new Image();
+            pfp.ImageSource = new BitmapImage(new Uri("pack://application:,,,/View/p1.png"));
 
             config2.Visibility = Visibility.Hidden;
             home.Visibility = Visibility.Visible;
@@ -337,6 +339,9 @@ namespace stu_profo
             ShowWarningOverlay(home, ladinoverlay, true);
             await Task.Delay(3000);
             ShowWarningOverlay(home, ladinoverlay, false);
+
+
+
 
             batchLabel.Content = batch.text;
             studentLabel.Content = student.text;
@@ -673,7 +678,6 @@ namespace stu_profo
         {
 
         }
-
 
         //filter feature :)
         private void filter(object sender, RoutedEventArgs e)
