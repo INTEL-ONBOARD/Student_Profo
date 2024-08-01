@@ -1364,7 +1364,7 @@
        HorizontalAlignment="Center" 
        VerticalAlignment="Center" 
        Width="100" Height="100"/>
-        <!-- Sort By thing -->
+            <!-- Sort By thing -->
             <StackPanel x:Name="SortByPanel" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="532" Canvas.Top="330" Visibility="Hidden">
                 <TextBlock Text="Sort By" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10" Foreground="Gray" />
                 <TextBlock Text="Feel free to organize your view" FontSize="16" FontWeight="Light" HorizontalAlignment="Center" Margin="0,0,0,20" Foreground="Gray"/>
@@ -1393,7 +1393,7 @@
                             <ImageBrush ImageSource="/View/solar_bell-outline.png"/>
                         </Ellipse.Fill>
                     </Ellipse>
-                    
+
                     <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
                         <TextBlock Text="DSE231F/CO" FontSize="12" FontWeight="Light" FontFamily="Open Sans"/>
                         <TextBlock Text="CODSE231F-055" FontSize="24" FontWeight="DemiBold" FontFamily="Open Sans"/>
@@ -1630,7 +1630,7 @@
         <Grid x:Name="home" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden" IsVisibleChanged="initHome" >
             <TextBlock Text="Home" Foreground="Black" FontSize="36" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="216,100,0,637" Width="106"/>
             <Rectangle Canvas.Left="283" Canvas.Top="105" Width="1" Height="50" Fill="Gray" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="332,104,0,0"/>
-            
+
             <TextBlock 
     Text="Welcome! Enjoy the freedom to explore your academic journey, identify your strengths and weaknesses, and enhance your educational experience with ease." 
     Foreground="Gray" 
@@ -1642,62 +1642,71 @@
     TextWrapping="Wrap"
 />
             <!-- Content to be toggled -->
-            <Button Click="Find_Ideal_Course" Background="Transparent" BorderBrush="Transparent" Margin="-2,0,2,0" Name="hbutton">
-                <Image Source="/View/Subtract.png" 
-               Stretch="Fill" 
-               Width="600" 
-               Margin="225,453,513,99" 
-               RenderTransformOrigin="0.363,0.301" />
+            <!-- Button containing image and text blocks with Grid layout -->
+            <Button Click="Find_Ideal_Course" Background="Transparent" BorderBrush="Transparent" Name="hbutton" Margin="215,442,503,99">
+                <Grid>
+                    <Image Source="/View/Subtract.png" 
+            Stretch="Fill" 
+            Width="600" 
+            HorizontalAlignment="Center"
+            RenderTransformOrigin="0.363,0.301" Margin="0,3,0,0" />
+
+                    <TextBlock Name="htext1"
+            Text="FIND YOUR IDEAL COURSE AND BOOST YOUR ACADEMIC SUCCESS!" 
+            Foreground="White" 
+            FontSize="30" 
+            FontWeight="Bold" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Margin="32,30,0,0" 
+            Width="398" 
+            TextWrapping="Wrap"/>
+
+                    <TextBlock Name="htext2"
+            Text="Discover the perfect course to match your goals effortlessly. Start shaping your academic future today and unlock new opportunities for success!" 
+            Foreground="White" 
+            FontSize="16" 
+            FontWeight="Light" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Margin="28,155,0,0" 
+            Width="347" 
+            TextWrapping="Wrap"/>
+                </Grid>
             </Button>
 
             <Image Name="himage"
-           Source="/View/homecard1.png" 
-           Stretch="Fill" 
-           Grid.Column="0" 
-           Margin="225,192,513,364" 
-           RenderTransformOrigin="0.363,0.301" 
-           Width="600"/>
+    Source="/View/homecard1.png" 
+    Stretch="Fill" 
+    Grid.Column="0" 
+    Margin="225,192,513,364" 
+    RenderTransformOrigin="0.363,0.301" 
+    Width="600"/>
 
-            <TextBlock Name="htext1"
-               Text="FIND YOUR IDEAL COURSE AND BOOST YOUR ACADEMIC SUCCESS!" 
-               Foreground="White" 
-               FontSize="30" 
-               FontWeight="Bold" 
-               HorizontalAlignment="Left" 
-               Margin="257,480,0,178" 
-               Width="398" 
-               TextWrapping="Wrap"/>
-            <TextBlock Name="htext2"
-               Text="Discover the perfect course to match your goals effortlessly. Start shaping your academic future today and unlock new opportunities for success!" 
-               Foreground="White" 
-               FontSize="16" 
-               FontWeight="Light" 
-               HorizontalAlignment="Left" 
-               Margin="253,605,0,99" 
-               Width="347" 
-               TextWrapping="Wrap"/>
             <TextBlock Name="Htext3"
-               Text="              INSTANT ACCESS TO YOUR RESULTS AND GPA!" 
-               Foreground="White" 
-               FontSize="30" 
-               FontWeight="Bold" 
-               HorizontalAlignment="Left" 
-               TextAlignment="Right"
-               Margin="386,218,0,497" 
-               Width="408" 
-               TextWrapping="Wrap"/>
-            <TextBlock Name="Hname4"
-               Text="Experience the ease of accessing your results and GPA with just one click! Now it's simpler than ever to view all your academic details in one place." 
-               Foreground="White" 
-               FontSize="16" 
-               FontWeight="Light" 
-               HorizontalAlignment="Left" 
-               TextAlignment="Right"
-               Margin="448,311,0,410" 
-               Width="348" 
-               TextWrapping="Wrap"/>
+    Text="INSTANT ACCESS TO YOUR RESULTS AND GPA!" 
+    Foreground="White" 
+    FontSize="30" 
+    FontWeight="Bold" 
+    HorizontalAlignment="Left" 
+    TextAlignment="Right"
+    Margin="386,218,0,497" 
+    Width="408" 
+    TextWrapping="Wrap"/>
 
-          
+            <TextBlock Name="Hname4"
+    Text="Experience the ease of accessing your results and GPA with just one click! Now it's simpler than ever to view all your academic details in one place." 
+    Foreground="White" 
+    FontSize="16" 
+    FontWeight="Light" 
+    HorizontalAlignment="Left" 
+    TextAlignment="Right"
+    Margin="448,311,0,410" 
+    Width="348" 
+    TextWrapping="Wrap"/>
+
+
+
 
             <!-- New ScrollViewer content -->
             <ScrollViewer x:Name="scrollViewer" Visibility="Hidden" Margin="180,192,621,99" >
