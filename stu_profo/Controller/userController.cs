@@ -10,6 +10,7 @@ using System.Data;
 using System.Configuration;
 using System.Windows.Shapes;
 using Newtonsoft.Json.Linq;
+using System.Windows.Media;
 
 
 namespace stu_profo.Controller
@@ -122,6 +123,12 @@ namespace stu_profo.Controller
 
                 return false;
             }
+        }
+
+        public int getprofile()
+        {
+            Random random = new Random();
+            return random.Next(1,9);
         }
     }
 }
