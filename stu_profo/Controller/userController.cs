@@ -125,10 +125,10 @@ namespace stu_profo.Controller
             }
         }
 
-        public int getprofile()
+        public string getprofile()
         {
             Random random = new Random();
-            return random.Next(1,9);
+            return ("p"+random.Next(1,9)+".png");
         }
     }
 }
