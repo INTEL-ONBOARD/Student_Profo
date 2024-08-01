@@ -439,10 +439,10 @@ namespace stu_profo
                     {
                         System.Diagnostics.Debug.WriteLine(">>>" + data.FinalGrade + data.Exam + data.CourseWork + data.Subject);
                         Course course = new Course();
-                        course.CourseName = data.Subject;
-                        course.CourseCode = data.Subject;
-                        course.CourseID = data.Subject;
-
+                        course.Subject = data.Subject;
+                        course.Exam = data.Exam;
+                        course.FinalGrade = data.FinalGrade;
+                        course.Points = data.Points;
                         Courses.Add(course);
                     }
                     double gpa = gpaCalculator.CalculateGPA(dataSet);
@@ -681,9 +681,10 @@ namespace stu_profo
                     {
                         System.Diagnostics.Debug.WriteLine(">>>" + data.FinalGrade + data.Exam + data.CourseWork + data.Subject);
                         Course course = new Course();
-                        course.CourseName = data.Subject;
-                        course.CourseCode = data.Subject;
-                        course.CourseID = data.Subject;
+                        course.Subject = data.Subject;
+                        course.Exam = data.Exam;
+                        course.FinalGrade = data.FinalGrade;
+                        course.Points = data.Points;
 
                         Courses.Add(course);
                     }
