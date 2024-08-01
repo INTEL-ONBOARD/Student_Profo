@@ -5,36 +5,48 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              Width="660" Height="Auto">
-    <Border Background="White" CornerRadius="10" Margin="2" BorderBrush="Transparent" BorderThickness="1">
-        <Grid Height="101">
+    <Border Background="#557fa0" CornerRadius="10" Margin="2" BorderBrush="Transparent" BorderThickness="1">
+        <Canvas Height="101">
+            <TextBlock Text="{Binding Subject}" FontSize="14" FontWeight="Light" Foreground="White" 
+                       Canvas.Left="92" Canvas.Top="16" HorizontalAlignment="Left" VerticalAlignment="Center" Width="403"/>
 
+            <TextBlock Text="Exam" FontSize="12" FontWeight="Regular" Foreground="White" 
+                       Canvas.Left="67" Canvas.Top="53" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBlock Text="{Binding Exam}" FontSize="24" FontWeight="Bold" Foreground="White" 
+                       Canvas.Left="164" Canvas.Top="53" HorizontalAlignment="Center" RenderTransformOrigin="0.428,0.525" VerticalAlignment="Top" Width="13">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="1.872"/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
 
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0">
-                <Ellipse Width="48" Height="48" Fill="LightGray" Margin="0,0,10,0"/>
-                <StackPanel VerticalAlignment="Center">
-                    <TextBlock Text="{Binding CourseName}" FontSize="14" FontWeight="Light"/>
-                    <TextBlock Text="{Binding CourseCode}" FontSize="7" FontWeight="ExtraLight"/>
-                    <TextBlock Text="{Binding CourseID}" FontSize="11" FontWeight="Bold"/>
-                </StackPanel>
-            </StackPanel>
+            <TextBlock Text="|" FontSize="30" FontWeight="Bold" Foreground="White" 
+                       Canvas.Left="219" Canvas.Top="46" HorizontalAlignment="Center" VerticalAlignment="Top" Height="39"/>
 
-            <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10,0,40,15">
-                <TextBlock Text="{Binding GPA, StringFormat='{}{0:N1}'}" FontSize="11" FontWeight="Bold" Foreground="Gray" VerticalAlignment="Center"/>
-                <TextBlock Text=" GPA" FontSize="11" FontWeight="Bold" Foreground="Gray"/>
-            </StackPanel>
+            <TextBlock Text="CourseWork" FontSize="12" FontWeight="Regular" Foreground="White" 
+                       Canvas.Left="269" Canvas.Top="53" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBlock Text="{Binding CourseWork}" FontSize="24" FontWeight="Bold" Foreground="White" 
+                       Canvas.Left="374" Canvas.Top="53" HorizontalAlignment="Center" VerticalAlignment="Top" Width="7"/>
 
-            <Button Content="Select" Background="White" Foreground="#1a4e96" BorderBrush="LightBlue" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="66" Margin="0,69,19,0" Height="22">
-                <Button.Template>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="5" Padding="5,0">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-        </Grid>
+            <TextBlock Text="|" FontSize="30" FontWeight="Bold" Foreground="White" 
+                       Canvas.Left="436" Canvas.Top="46" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+            <TextBlock Text="Final" FontSize="12" FontWeight="Regular" Foreground="White" 
+                       Canvas.Left="486" Canvas.Top="53" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBlock Text="{Binding FinalGrade}" FontSize="24" FontWeight="Bold" Foreground="White" 
+                       Canvas.Left="560" Canvas.Top="53" HorizontalAlignment="Center" VerticalAlignment="Top" Width="7"/>
+
+            <!-- Points Capsule -->
+            <Border Background="White" CornerRadius="10" Canvas.Right="10" Canvas.Top="-17" Padding="5,2" BorderBrush="LightGray" BorderThickness="1" Width="91" Height="27" HorizontalAlignment="Center" Canvas.Left="553" VerticalAlignment="Top">
+                <Canvas>
+                    <TextBlock Text="Credits: " FontSize="12" FontWeight="Bold" Foreground="#557fa0" Canvas.Top="3"/>
+                    <TextBlock Text="{Binding Points}" FontSize="12" FontWeight="Bold" Foreground="#557fa0" Canvas.Left="54" Canvas.Top="3" HorizontalAlignment="Left" VerticalAlignment="Center" Width="15"/>
+                </Canvas>
+            </Border>
+        </Canvas>
     </Border>
 </UserControl>
