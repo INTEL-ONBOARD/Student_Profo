@@ -445,8 +445,13 @@ namespace stu_profo
 
                         Courses.Add(course);
                     }
+                    double gpa = gpaCalculator.CalculateGPA(dataSet);
+                    System.Diagnostics.Debug.WriteLine(">>>GPA"+ gpa);
                 }
+                
             }
+            
+
         }
 
         private void setting_back(object sender, RoutedEventArgs e)
