@@ -18,10 +18,10 @@
             </TextBlock>
 
             <TextBlock Text="|" FontSize="30" FontWeight="Bold" Foreground="White" 
-                       Canvas.Left="149" Canvas.Top="34" HorizontalAlignment="Left" VerticalAlignment="Top" Height="39" RenderTransformOrigin="0.461,0.575" Width="4"/>
+                       Canvas.Left="164" Canvas.Top="34" HorizontalAlignment="Left" VerticalAlignment="Center" Height="39" RenderTransformOrigin="0.461,0.575" Width="4"/>
 
             <TextBlock Text="CourseWork" FontSize="12" FontWeight="Regular" Foreground="White" 
-                       Canvas.Left="215" Canvas.Top="51" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                       Canvas.Left="197" Canvas.Top="51" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <TextBlock Text="{Binding CourseWork}" FontSize="24" FontWeight="Bold" Foreground="White" 
                        Canvas.Left="308" Canvas.Top="40" HorizontalAlignment="Left" VerticalAlignment="Center" Width="66"/>
 
@@ -34,9 +34,9 @@
                        Canvas.Left="508" Canvas.Top="42" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="34"/>
 
             <!-- Points Capsule -->
-            <Border Background="White" CornerRadius="10" Canvas.Right="10" Canvas.Top="-11" Padding="5,2" BorderBrush="LightGray" BorderThickness="1" Width="91" Height="27" HorizontalAlignment="Left" Canvas.Left="493" VerticalAlignment="Center">
+            <Border Background="White" CornerRadius="10" Canvas.Right="10" Canvas.Top="-11" Padding="5,2" BorderBrush="#FF557FA0" BorderThickness="1" Width="91" Height="27" HorizontalAlignment="Left" Canvas.Left="493" VerticalAlignment="Center">
                 <Canvas>
-                    <TextBlock Text="Credits: " FontSize="12" FontWeight="Bold" Foreground="#557fa0" Canvas.Top="3"/>
+                    <TextBlock Text="Credits: " FontSize="12" Foreground="#557fa0" Canvas.Top="3"/>
                     <TextBlock Text="{Binding Points}" FontSize="12" FontWeight="Bold" Foreground="#557fa0" Canvas.Left="54" Canvas.Top="3" HorizontalAlignment="Left" VerticalAlignment="Center" Width="15"/>
                 </Canvas>
             </Border>
