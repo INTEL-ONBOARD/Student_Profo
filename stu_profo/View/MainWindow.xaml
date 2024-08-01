@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:stu_profo.View" 
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
         Topmost="false"
         Title="MainWindow" Height="850" Width="1400"
@@ -1171,7 +1172,7 @@
 
                 <Border x:Name="viewBoxFrame" Background="#FFFFFF" Visibility="Hidden" CornerRadius="20" Grid.ColumnSpan="2" Canvas.Left="562" Canvas.Top="284" Width="677" HorizontalAlignment="Left" VerticalAlignment="Top" Height="400">
                     <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="10,10,10,10">
-                        <StackPanel x:Name="viewBox" Height="390" Width="657">
+                        <StackPanel x:Name="viewBox" Height="1615" Width="657">
                             <ItemsControl ItemsSource="{Binding Courses}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
@@ -1326,6 +1327,11 @@
             <!-- Vertical Line -->
             <!--
             </Canvas>-->
+            <Image x:Name="loadingGif" gif:ImageBehavior.AnimatedSource="/View/loading.gif" 
+       Visibility="Hidden" 
+       HorizontalAlignment="Center" 
+       VerticalAlignment="Center" 
+       Width="100" Height="100"/>
 
         </Grid>
 

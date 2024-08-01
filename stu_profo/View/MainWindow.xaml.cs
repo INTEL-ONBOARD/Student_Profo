@@ -417,19 +417,24 @@ namespace stu_profo
         }
 
         //Search feature :)
-        private void clickSearch(object sender, RoutedEventArgs e)
+        private async void clickSearch(object sender, RoutedEventArgs e)
         {
+            // Show loading GIF
+            loadingGif.Visibility = Visibility.Visible;
+
             line.Visibility = Visibility.Visible;
             leftSector.Visibility = Visibility.Visible;
             viewBoxFrame.Visibility = Visibility.Visible;
-            filterBtn.Visibility = Visibility.Visible;  
+            filterBtn.Visibility = Visibility.Visible;
             ErrorMessageTextBlock.Visibility = Visibility.Hidden;
 
             System.Diagnostics.Debug.WriteLine($"{sBoxSearch.Text}");
 
             student = (blockModel)sBoxSearch.SelectedItem;
             dataController.setStudent("configStudent.txt", student.value);
-            dataController.getStudents();
+
+            // Fetch data asynchronously
+            await Task.Run(() => dataController.getStudents());
 
             customLinkedList dataset = dataController.getStudentsResults();
 
@@ -437,9 +442,11 @@ namespace stu_profo
             studentDataLabel.Text = sBoxSearch.Text;
 
             Courses.Clear();
-            if (dataset != null) {
+            if (dataset != null)
+            {
                 List<dataModel> dataSet = dataset.DisplayForward();
-                if (dataSet != null) {
+                if (dataSet != null)
+                {
                     foreach (dataModel data in dataSet)
                     {
                         System.Diagnostics.Debug.WriteLine(">>>" + data.FinalGrade + data.Exam + data.CourseWork + data.Subject);
@@ -449,19 +456,20 @@ namespace stu_profo
                         course.CourseWork = data.CourseWork;
                         course.FinalGrade = data.FinalGrade;
                         course.Points = data.Points;
-                        System.Diagnostics.Debug.WriteLine(">>>vales" + data.Exam +"  " + data.Exam);
+                        System.Diagnostics.Debug.WriteLine(">>>values" + data.Exam + "  " + data.Exam);
                         Courses.Add(course);
                     }
                     double gpa = gpaCalculator.CalculateGPA(dataSet);
-                    System.Diagnostics.Debug.WriteLine(">>>GPA"+ gpa);
+                    System.Diagnostics.Debug.WriteLine(">>>GPA" + gpa);
                     gpaLabel.Text = gpa.ToString();
-                    gpaPrecentageLabel.Text = (((int)gpa/4)*100).ToString()+"%";
+                    gpaPrecentageLabel.Text = (((int)gpa / 4) * 100).ToString() + "%";
                 }
-                
             }
-            
 
+            // Hide loading GIF
+            loadingGif.Visibility = Visibility.Hidden;
         }
+
 
         private void setting_back(object sender, RoutedEventArgs e)
         {
