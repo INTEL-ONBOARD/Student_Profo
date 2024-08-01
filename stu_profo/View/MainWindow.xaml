@@ -1199,7 +1199,7 @@
                 </StackPanel>
 
                 <Border x:Name="viewBoxFrame" Background="#FFFFFF" Visibility="Hidden" CornerRadius="20" Grid.ColumnSpan="2" Canvas.Left="562" Canvas.Top="284" Width="677" HorizontalAlignment="Left" VerticalAlignment="Top" Height="400">
-                    <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="10,10,10,10">
+                    <ScrollViewer VerticalScrollBarVisibility="Hidden" Margin="10,10,10,10">
                         <StackPanel x:Name="viewBox" Height="1615" Width="657">
                             <ItemsControl ItemsSource="{Binding Courses}">
                                 <ItemsControl.ItemTemplate>
