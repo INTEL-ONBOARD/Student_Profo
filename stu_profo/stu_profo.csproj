@@ -24,6 +24,7 @@
     <None Remove="View\homecard1.png" />
     <None Remove="View\homeicon.png" />
     <None Remove="View\image 42.png" />
+    <None Remove="View\loading.gif" />
     <None Remove="View\loadinglogo2.png" />
     <None Remove="View\loghead.png" />
     <None Remove="View\NIBM.png" />
@@ -48,6 +49,7 @@
     <PackageReference Include="HtmlAgilityPack.NetCore" Version="1.5.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Python.Runtime" Version="2.7.9" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -66,6 +68,7 @@
     <Resource Include="View\homecard1.png" />
     <Resource Include="View\homeicon.png" />
     <Resource Include="View\image 42.png" />
+    <Resource Include="View\loading.gif" />
     <Resource Include="View\loadinglogo2.png" />
     <Resource Include="View\loghead.png" />
     <Resource Include="View\NIBM.png" />
