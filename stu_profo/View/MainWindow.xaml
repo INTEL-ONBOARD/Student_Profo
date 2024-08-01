@@ -2044,8 +2044,5 @@ HorizontalAlignment="Center"/>
             </Canvas>
         </Grid>
 
-
-
-
     </Grid>
 </Window>
