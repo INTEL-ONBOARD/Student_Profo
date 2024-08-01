@@ -441,14 +441,16 @@ namespace stu_profo
                         Course course = new Course();
                         course.Subject = data.Subject;
                         course.Exam = data.Exam;
+                        course.CourseWork = data.CourseWork;
                         course.FinalGrade = data.FinalGrade;
                         course.Points = data.Points;
+                        System.Diagnostics.Debug.WriteLine(">>>vales" + data.Exam +"  " + data.Exam);
                         Courses.Add(course);
                     }
                     double gpa = gpaCalculator.CalculateGPA(dataSet);
                     System.Diagnostics.Debug.WriteLine(">>>GPA"+ gpa);
                     gpaLabel.Text = gpa.ToString();
-                    gpaPrecentageLabel.Text = ((gpa/4.00)*100).ToString()+"%";
+                    gpaPrecentageLabel.Text = (((int)gpa/4)*100).ToString()+"%";
                 }
                 
             }
@@ -683,6 +685,7 @@ namespace stu_profo
                         Course course = new Course();
                         course.Subject = data.Subject;
                         course.Exam = data.Exam;
+                        course.CourseWork = data.CourseWork;
                         course.FinalGrade = data.FinalGrade;
                         course.Points = data.Points;
 
