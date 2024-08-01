@@ -42,7 +42,8 @@ namespace stu_profo.Model
                 totalCredits += credits;
             }
 
-            return totalCredits > 0 ? totalGradePoints / totalCredits : 0;
+            double gpa = totalCredits > 0 ? totalGradePoints / totalCredits : 0;
+            return Math.Round(gpa, 2);
         }
     }
 }
