@@ -26,6 +26,7 @@ namespace stu_profo.Controller
         public static void getCourses(int programme) { 
         
         }
+
         public static List<blockModel> getProgramms() 
         {
             List<blockModel> pm = new List<blockModel>();
@@ -46,6 +47,7 @@ namespace stu_profo.Controller
 
 
         }
+
         public static List<blockModel> getBatches()
         {
             List<blockModel> bm = new List<blockModel>();
@@ -64,6 +66,7 @@ namespace stu_profo.Controller
             
 
         }
+
         public static List<blockModel> getStudents()
         {
             List<blockModel> sm = new List<blockModel>();
