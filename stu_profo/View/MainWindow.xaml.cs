@@ -330,7 +330,7 @@ namespace stu_profo
             batch_id = student.value;
             dataController.setProgramm("configStudent.txt", student.value);
             Image img = new Image();
-            pfp.ImageSource = new BitmapImage(new Uri("pack://application:,,,/View/p1.png"));
+            //pfp.ImageSource = new BitmapImage(new Uri("pack://application:,,,/View/p1.png"));
 
             config2.Visibility = Visibility.Hidden;
             home.Visibility = Visibility.Visible;

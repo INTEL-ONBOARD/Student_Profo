@@ -4,34 +4,34 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             Width="598" Height="Auto">
+             Width="598" Height="Auto" Margin="0,10,0,10">
     <Border Background="#557fa0" CornerRadius="10" Margin="2" BorderBrush="Transparent" BorderThickness="1">
         <Canvas Height="84">
             <TextBlock Text="{Binding Subject}" FontSize="14" FontWeight="Light" Foreground="White" 
-                       Canvas.Left="92" Canvas.Top="16" HorizontalAlignment="Left" VerticalAlignment="Center" Width="524" TextAlignment="Center"/>
+                       Canvas.Left="36" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center" Width="470"/>
 
             <TextBlock Text="Exam" FontSize="12" FontWeight="Regular" Foreground="White" 
-                       Canvas.Left="36" Canvas.Top="53" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                       Canvas.Left="51" Canvas.Top="51" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <TextBlock Text="{Binding Exam}" FontSize="24" FontWeight="Bold" Foreground="White" 
-                       Canvas.Left="94" Canvas.Top="51" HorizontalAlignment="Left" RenderTransformOrigin="0.428,0.525" VerticalAlignment="Center" Width="74">
+                       Canvas.Left="75" Canvas.Top="42" HorizontalAlignment="Left" RenderTransformOrigin="0.428,0.525" VerticalAlignment="Top" Width="74" TextAlignment="Right">
 
             </TextBlock>
 
             <TextBlock Text="|" FontSize="30" FontWeight="Bold" Foreground="White" 
-                       Canvas.Left="190" Canvas.Top="44" HorizontalAlignment="Left" VerticalAlignment="Center" Height="39"/>
+                       Canvas.Left="149" Canvas.Top="34" HorizontalAlignment="Left" VerticalAlignment="Top" Height="39" RenderTransformOrigin="0.461,0.575" Width="4"/>
 
             <TextBlock Text="CourseWork" FontSize="12" FontWeight="Regular" Foreground="White" 
-                       Canvas.Left="228" Canvas.Top="53" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                       Canvas.Left="215" Canvas.Top="51" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <TextBlock Text="{Binding CourseWork}" FontSize="24" FontWeight="Bold" Foreground="White" 
-                       Canvas.Left="320" Canvas.Top="48" HorizontalAlignment="Left" VerticalAlignment="Center" Width="74"/>
+                       Canvas.Left="308" Canvas.Top="40" HorizontalAlignment="Left" VerticalAlignment="Center" Width="66"/>
 
             <TextBlock Text="|" FontSize="30" FontWeight="Bold" Foreground="White" 
-                       Canvas.Left="398" Canvas.Top="44" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                       Canvas.Left="412" Canvas.Top="34" HorizontalAlignment="Left" VerticalAlignment="Top" Width="4"/>
 
-            <TextBlock Text="Final" FontSize="12" FontWeight="Regular" Foreground="White" 
-                       Canvas.Left="447" Canvas.Top="53" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBlock Text="Final Result" FontSize="12" FontWeight="Regular" Foreground="White" 
+                       Canvas.Left="435" Canvas.Top="51" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <TextBlock Text="{Binding FinalGrade}" FontSize="24" FontWeight="Bold" Foreground="White" 
-                       Canvas.Left="478" Canvas.Top="51" HorizontalAlignment="Left" VerticalAlignment="Center" Width="117"/>
+                       Canvas.Left="508" Canvas.Top="42" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="34"/>
 
             <!-- Points Capsule -->
             <Border Background="White" CornerRadius="10" Canvas.Right="10" Canvas.Top="-11" Padding="5,2" BorderBrush="LightGray" BorderThickness="1" Width="91" Height="27" HorizontalAlignment="Left" Canvas.Left="493" VerticalAlignment="Center">
