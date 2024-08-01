@@ -33,7 +33,7 @@ namespace stu_profo
 
         public ObservableCollection<GradeItem> Grades { get; set; }
         public ObservableCollection<Course> Courses { get; set; }
-
+        public ObservableCollection<ScrollItemModel> Items { get; set; }
 
 
         private Brush _mainBackground;
@@ -75,12 +75,21 @@ namespace stu_profo
             InitializeComponent();
 
             // Dummy data for Courses
-            //Courses = new ObservableCollection<Course>
-            //{
-            //    new Course { CourseName = "Diploma in Software Engineering", CourseCode = "DSE231F/CO", CourseID = "CODSE231F-055",GPA = 3.4 },
-            //    new Course { CourseName = "Another Course", CourseCode = "AC123", CourseID = "AC123-001",GPA = 3.4 }
-            //};
-
+            /*       Courses = new ObservableCollection<Course>
+               {
+                   new Course { Id = "1", Subject = "Mathematics", CourseWork = "A", Exam = "B+", FinalGrade = "A-", Points = "4.0" },
+                   new Course { Id = "2", Subject = "Physics", CourseWork = "B", Exam = "A", FinalGrade = "A-", Points = "3.7" },
+                   new Course { Id = "3", Subject = "Chemistry", CourseWork = "A-", Exam = "A-", FinalGrade = "A-", Points = "3.9" },
+                   new Course { Id = "4", Subject = "Biology", CourseWork = "B+", Exam = "B+", FinalGrade = "B+", Points = "3.5" },
+                   new Course { Id = "5", Subject = "Computer Science", CourseWork = "A", Exam = "A", FinalGrade = "A", Points = "4.0" }
+               };
+       */
+            Items = new ObservableCollection<ScrollItemModel>
+        {
+            new ScrollItemModel { Content = "Item 1" },
+            new ScrollItemModel { Content = "Item 2" },
+            new ScrollItemModel { Content = "Item 3" }
+        };
             // Dummy data for Grades
 
             Courses = new ObservableCollection<Course>();
@@ -261,6 +270,21 @@ namespace stu_profo
                 ((Button)sender).Content = "👁"; // Change icon to visible eye
             }
         }
+
+        private void Find_Ideal_Course(object sender, RoutedEventArgs e)
+        {
+            // Hide the current content
+            hbutton.Visibility = Visibility.Collapsed;
+            himage.Visibility = Visibility.Collapsed;
+            htext1.Visibility = Visibility.Collapsed;
+            htext2.Visibility = Visibility.Collapsed;
+            Htext3.Visibility = Visibility.Collapsed;
+            Hname4.Visibility = Visibility.Collapsed;
+
+            // Show the new ScrollViewer
+            scrollViewer.Visibility = Visibility.Visible;
+        }
+
 
         private async void Login(object sender, RoutedEventArgs e)
         {
@@ -706,5 +730,14 @@ namespace stu_profo
                 }
             }
         }
+
+        private void OnBackClick(object sender, RoutedEventArgs e)
+        {
+        }
+        private void OnFilterClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

@@ -507,6 +507,34 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+
+        <Style x:Key="RoundedButtonStyley" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="20" Background="Transparent" BorderBrush="LightGray" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="DarkGray"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Foreground" Value="Gray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="Gray"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="0,10,0,10"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
     </Window.Resources>
 
     <Grid Background="{Binding MainBackground}">
@@ -1201,7 +1229,11 @@
 
                     <StackPanel Orientation="Horizontal" Width="310" Canvas.Left="174" Canvas.Top="277" HorizontalAlignment="Left" VerticalAlignment="Top">
                         <!-- Adjusted Margin -->
-                        <Ellipse Width="50" Height="50" Fill="LightGray"/>
+                        <Ellipse Width="50" Height="50" Canvas.Left="20" Canvas.Top="10">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/View/p3.png"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
                         <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
                             <TextBlock x:Name="batchDataLabel" Text="-" FontSize="12" FontWeight="Light" FontFamily="Open Sans"/>
                             <TextBlock x:Name="studentDataLabel" Text="-" FontSize="24" FontWeight="DemiBold" FontFamily="Open Sans"/>
@@ -1332,6 +1364,23 @@
        HorizontalAlignment="Center" 
        VerticalAlignment="Center" 
        Width="100" Height="100"/>
+        <!-- Sort By thing -->
+            <StackPanel x:Name="SortByPanel" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="532" Canvas.Top="330" Visibility="Hidden">
+                <TextBlock Text="Sort By" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10" Foreground="Gray" />
+                <TextBlock Text="Feel free to organize your view" FontSize="16" FontWeight="Light" HorizontalAlignment="Center" Margin="0,0,0,20" Foreground="Gray"/>
+                <ComboBox x:Name="SortByField" Width="250" Height="40" Margin="0,0,0,10" HorizontalAlignment="Center" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}">
+                    <ComboBoxItem Content="Student Id" />
+                    <!-- Add other sorting options here -->
+                </ComboBox>
+                <ComboBox x:Name="SortOrder" Width="250" Height="40" Margin="0,0,0,20" HorizontalAlignment="Center" Style="{StaticResource theComboBox}" ItemContainerStyle="{StaticResource theComboBoxItem}">
+                    <ComboBoxItem Content="Top to Bottom" />
+                    <!-- Add other order options here -->
+                </ComboBox>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Back" Width="100" Height="40" Margin="10,0,10,0" Style="{StaticResource RoundedButtonStyley}" Click="OnBackClick"/>
+                    <Button Content="Filter" Width="100" Height="40" Style="{StaticResource RoundedButtonStyley}" Click="OnFilterClick"/>
+                </StackPanel>
+            </StackPanel>
 
         </Grid>
 
@@ -1581,7 +1630,7 @@
         <Grid x:Name="home" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden" IsVisibleChanged="initHome" >
             <TextBlock Text="Home" Foreground="Black" FontSize="36" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="216,100,0,637" Width="106"/>
             <Rectangle Canvas.Left="283" Canvas.Top="105" Width="1" Height="50" Fill="Gray" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="332,104,0,0"/>
-
+            
             <TextBlock 
     Text="Welcome! Enjoy the freedom to explore your academic journey, identify your strengths and weaknesses, and enhance your educational experience with ease." 
     Foreground="Gray" 
@@ -1592,68 +1641,74 @@
     Width="395" 
     TextWrapping="Wrap"
 />
+            <!-- Content to be toggled -->
+            <Button Click="Find_Ideal_Course" Background="Transparent" BorderBrush="Transparent" Margin="-2,0,2,0" Name="hbutton">
+                <Image Source="/View/Subtract.png" 
+               Stretch="Fill" 
+               Width="600" 
+               Margin="225,453,513,99" 
+               RenderTransformOrigin="0.363,0.301" />
+            </Button>
 
-            <Image 
-    Source="/View/Subtract.png" 
-    Stretch="Fill" 
-    Grid.Column="0" 
-    Margin="225,453,513,99" 
-    RenderTransformOrigin="0.363,0.301" 
-    Width="600"/>
+            <Image Name="himage"
+           Source="/View/homecard1.png" 
+           Stretch="Fill" 
+           Grid.Column="0" 
+           Margin="225,192,513,364" 
+           RenderTransformOrigin="0.363,0.301" 
+           Width="600"/>
 
-            <Image 
-    Source="/View/homecard1.png" 
-    Stretch="Fill" 
-    Grid.Column="0" 
-    Margin="225,192,513,364" 
-    RenderTransformOrigin="0.363,0.301" 
-    Width="600"/>
+            <TextBlock Name="htext1"
+               Text="FIND YOUR IDEAL COURSE AND BOOST YOUR ACADEMIC SUCCESS!" 
+               Foreground="White" 
+               FontSize="30" 
+               FontWeight="Bold" 
+               HorizontalAlignment="Left" 
+               Margin="257,480,0,178" 
+               Width="398" 
+               TextWrapping="Wrap"/>
+            <TextBlock Name="htext2"
+               Text="Discover the perfect course to match your goals effortlessly. Start shaping your academic future today and unlock new opportunities for success!" 
+               Foreground="White" 
+               FontSize="16" 
+               FontWeight="Light" 
+               HorizontalAlignment="Left" 
+               Margin="253,605,0,99" 
+               Width="347" 
+               TextWrapping="Wrap"/>
+            <TextBlock Name="Htext3"
+               Text="              INSTANT ACCESS TO YOUR RESULTS AND GPA!" 
+               Foreground="White" 
+               FontSize="30" 
+               FontWeight="Bold" 
+               HorizontalAlignment="Left" 
+               TextAlignment="Right"
+               Margin="386,218,0,497" 
+               Width="408" 
+               TextWrapping="Wrap"/>
+            <TextBlock Name="Hname4"
+               Text="Experience the ease of accessing your results and GPA with just one click! Now it's simpler than ever to view all your academic details in one place." 
+               Foreground="White" 
+               FontSize="16" 
+               FontWeight="Light" 
+               HorizontalAlignment="Left" 
+               TextAlignment="Right"
+               Margin="448,311,0,410" 
+               Width="348" 
+               TextWrapping="Wrap"/>
 
-            <TextBlock 
-    Text="FIND YOUR IDEAL COURSE AND BOOST YOUR ACADEMIC SUCCESS!" 
-    Foreground="White" 
-    FontSize="30" 
-    FontWeight="Bold" 
-    HorizontalAlignment="Left" 
-    Margin="257,480,0,178" 
-    Width="398" 
-    TextWrapping="Wrap"
-/>
-            <TextBlock 
-    Text="Discover the perfect course to match your goals effortlessly. Start shaping your academic future today and unlock new opportunities for success!" 
-    Foreground="White" 
-    FontSize="16" 
-    FontWeight="Light" 
-    HorizontalAlignment="Left" 
-    Margin="253,605,0,99" 
-    Width="347" 
-    TextWrapping="Wrap"
-/>
+          
 
-            <TextBlock 
-    Text="              INSTANT ACCESS TO YOUR RESULTS AND GPA!" 
-    Foreground="White" 
-    FontSize="30" 
-   
-    FontWeight="Bold" 
-    HorizontalAlignment="Left" 
-    TextAlignment="Right"
-    Margin="405,218,0,497" 
-    Width="408" 
-    TextWrapping="Wrap"
-/>
-
-            <TextBlock 
-    Text="Experience the ease of accessing your results and GPA with just one click! Now it's simpler than ever to view all your academic details in one place." 
-    Foreground="White" 
-    FontSize="16" 
-    FontWeight="Light" 
-    HorizontalAlignment="Left" 
-    TextAlignment="Right"
-    Margin="465,311,0,410" 
-    Width="348" 
-    TextWrapping="Wrap"
-/>
+            <!-- New ScrollViewer content -->
+            <ScrollViewer x:Name="scrollViewer" Visibility="Hidden" Margin="180,192,621,99" >
+                <ItemsControl ItemsSource="{Binding Items}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:ScrollViewer Margin="0,0,0,2"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
 
             <StackPanel HorizontalAlignment="Left" Width="180" Margin="935,214,0,294">
                 <TextBlock Text="Your stats" Foreground="Black" FontSize="30" FontWeight="Light" HorizontalAlignment="Center" Width="125"/>
