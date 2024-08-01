@@ -6,42 +6,35 @@
              mc:Ignorable="d" 
              Width="660" Height="Auto">
     <Border Background="#557fa0" CornerRadius="10" Margin="2" BorderBrush="Transparent" BorderThickness="1">
-        <Canvas Height="101">
+        <Canvas Height="84">
             <TextBlock Text="{Binding Subject}" FontSize="14" FontWeight="Light" Foreground="White" 
                        Canvas.Left="92" Canvas.Top="16" HorizontalAlignment="Left" VerticalAlignment="Center" Width="524" TextAlignment="Center"/>
 
             <TextBlock Text="Exam" FontSize="12" FontWeight="Regular" Foreground="White" 
                        Canvas.Left="67" Canvas.Top="53" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <TextBlock Text="{Binding Exam}" FontSize="24" FontWeight="Bold" Foreground="White" 
-                       Canvas.Left="112" Canvas.Top="53" HorizontalAlignment="Left" RenderTransformOrigin="0.428,0.525" VerticalAlignment="Center" Width="74">
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="-1"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform X="1.872"/>
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
+                       Canvas.Left="112" Canvas.Top="51" HorizontalAlignment="Center" RenderTransformOrigin="0.428,0.525" VerticalAlignment="Top" Width="74">
+
             </TextBlock>
 
             <TextBlock Text="|" FontSize="30" FontWeight="Bold" Foreground="White" 
-                       Canvas.Left="219" Canvas.Top="46" HorizontalAlignment="Center" VerticalAlignment="Top" Height="39"/>
+                       Canvas.Left="219" Canvas.Top="44" HorizontalAlignment="Center" VerticalAlignment="Top" Height="39"/>
 
             <TextBlock Text="CourseWork" FontSize="12" FontWeight="Regular" Foreground="White" 
                        Canvas.Left="269" Canvas.Top="53" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             <TextBlock Text="{Binding CourseWork}" FontSize="24" FontWeight="Bold" Foreground="White" 
-                       Canvas.Left="337" Canvas.Top="53" HorizontalAlignment="Left" VerticalAlignment="Center" Width="94"/>
+                       Canvas.Left="354" Canvas.Top="48" HorizontalAlignment="Center" VerticalAlignment="Top" Width="74"/>
 
             <TextBlock Text="|" FontSize="30" FontWeight="Bold" Foreground="White" 
-                       Canvas.Left="436" Canvas.Top="46" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                       Canvas.Left="436" Canvas.Top="44" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
             <TextBlock Text="Final" FontSize="12" FontWeight="Regular" Foreground="White" 
                        Canvas.Left="486" Canvas.Top="53" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <TextBlock Text="{Binding FinalGrade}" FontSize="24" FontWeight="Bold" Foreground="White" 
-                       Canvas.Left="530" Canvas.Top="53" HorizontalAlignment="Left" VerticalAlignment="Center" Width="117"/>
+                       Canvas.Left="530" Canvas.Top="51" HorizontalAlignment="Center" VerticalAlignment="Top" Width="117"/>
 
             <!-- Points Capsule -->
-            <Border Background="White" CornerRadius="10" Canvas.Right="10" Canvas.Top="-17" Padding="5,2" BorderBrush="LightGray" BorderThickness="1" Width="91" Height="27" HorizontalAlignment="Center" Canvas.Left="553" VerticalAlignment="Top">
+            <Border Background="White" CornerRadius="10" Canvas.Right="10" Canvas.Top="-11" Padding="5,2" BorderBrush="LightGray" BorderThickness="1" Width="91" Height="27" HorizontalAlignment="Center" Canvas.Left="553" VerticalAlignment="Top">
                 <Canvas>
                     <TextBlock Text="Credits: " FontSize="12" FontWeight="Bold" Foreground="#557fa0" Canvas.Top="3"/>
                     <TextBlock Text="{Binding Points}" FontSize="12" FontWeight="Bold" Foreground="#557fa0" Canvas.Left="54" Canvas.Top="3" HorizontalAlignment="Left" VerticalAlignment="Center" Width="15"/>
