@@ -237,21 +237,7 @@ namespace stu_profo
             }
         }
 
-        private void EmailTextBoxTextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (emailInput.BorderBrush == Brushes.Red)
-            {
-                emailInput.BorderBrush = Brushes.Gray; // Or the default color
-            }
-        }
-
-        private void PasswordTextBox_TextChanged(object sender, RoutedEventArgs e)
-        {
-            if (passwordInput.BorderBrush == Brushes.Red)
-            {
-                passwordInput.BorderBrush = Brushes.Gray; // Or the default color
-            }
-        }
+       
 
         private void TogglePasswordVisibility(object sender, RoutedEventArgs e)
         {
@@ -284,7 +270,15 @@ namespace stu_profo
             // Show the new ScrollViewer
             scrollViewer.Visibility = Visibility.Visible;
         }
+        private void EmailTextBoxTextChanged(object sender, TextChangedEventArgs e)
+        {
+            ResetTextBoxes();
+        }
 
+        private void PasswordTextBox_TextChanged(object sender, RoutedEventArgs e)
+        {
+            ResetTextBoxes();
+        }
 
         private async void Login(object sender, RoutedEventArgs e)
         {
@@ -338,7 +332,6 @@ namespace stu_profo
         {
             bBoxC.IsEnabled = true;
             System.Diagnostics.Debug.WriteLine($"{pBoxC.Text}");
-
         }
 
         private void ResetTextBoxes()
@@ -346,6 +339,7 @@ namespace stu_profo
             emailInput.BorderBrush = Brushes.Gray;
             passwordInput.BorderBrush = Brushes.Gray;
         }
+
 
         private async void Donebtn_Click(object sender, RoutedEventArgs e)
         {
