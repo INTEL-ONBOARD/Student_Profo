@@ -29,6 +29,7 @@
     <None Remove="View\loghead.png" />
     <None Remove="View\NIBM.png" />
     <None Remove="View\p3.png" />
+    <None Remove="View\p7.png" />
     <None Remove="View\Rectangle 5622.png" />
     <None Remove="View\serchcon.png" />
     <None Remove="View\serchicon.png" />
@@ -74,6 +75,7 @@
     <Resource Include="View\loghead.png" />
     <Resource Include="View\NIBM.png" />
     <Resource Include="View\p3.png" />
+    <Resource Include="View\p7.png" />
     <Resource Include="View\Rectangle 5622.png" />
     <Resource Include="View\serchcon.png" />
     <Resource Include="View\serchicon.png" />

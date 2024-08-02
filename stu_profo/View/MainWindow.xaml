@@ -1627,7 +1627,7 @@
             </Canvas>
         </Grid>
 
-        <Grid x:Name="home" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden" IsVisibleChanged="initHome" >
+        <Grid x:Name="home" Background="Transparent" Margin="32,50,30,10" Visibility="Visible" IsVisibleChanged="initHome" >
             <TextBlock Text="Home" Foreground="Black" FontSize="36" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="216,100,0,637" Width="106"/>
             <Rectangle Canvas.Left="283" Canvas.Top="105" Width="1" Height="50" Fill="Gray" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="332,104,0,0"/>
 
@@ -1744,7 +1744,7 @@ CornerRadius="5" Padding="10,2">
                 <!-- Adjusted Margin -->
                 <Ellipse Width="50" Height="50" Canvas.Left="20" Canvas.Top="10">
                     <Ellipse.Fill>
-                        <ImageBrush x:Name="pfp" ImageSource="/View/solar_bell-outline.png"/>
+                        <ImageBrush x:Name="pfp" ImageSource="/View/p7.png"/>
                     </Ellipse.Fill>
                 </Ellipse>
                 <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">

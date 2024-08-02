@@ -481,7 +481,7 @@ namespace stu_profo
                     double gpa = gpaCalculator.CalculateGPA(dataSet);
                     System.Diagnostics.Debug.WriteLine(">>>GPA" + gpa);
                     gpaLabel.Text = gpa.ToString();
-                    gpaPrecentageLabel.Text = (((int)gpa / 4) * 100).ToString() + "%";
+                    gpaPrecentageLabel.Text = ((gpa / 4.00) * 100).ToString("0.0") + "%";
                 }
             }
 
