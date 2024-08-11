@@ -444,7 +444,10 @@ namespace stu_profo
             line.Visibility = Visibility.Visible;
             leftSector.Visibility = Visibility.Visible;
             viewBoxFrame.Visibility = Visibility.Visible;
-            filterBtn.Visibility = Visibility.Visible;
+            filterBtn1.Visibility = Visibility.Visible;
+            filterBtn2.Visibility = Visibility.Visible;
+            filterBtn3.Visibility = Visibility.Visible;
+
             ErrorMessageTextBlock.Visibility = Visibility.Hidden;
 
             System.Diagnostics.Debug.WriteLine($"{sBoxSearch.Text}");
@@ -536,7 +539,10 @@ namespace stu_profo
             line.Visibility = Visibility.Hidden;
             leftSector.Visibility = Visibility.Hidden;
             viewBoxFrame.Visibility = Visibility.Hidden;
-            filterBtn.Visibility = Visibility.Hidden;
+            filterBtn1.Visibility = Visibility.Hidden;
+            filterBtn2.Visibility = Visibility.Hidden;
+            filterBtn3.Visibility = Visibility.Hidden;
+
             ErrorMessageTextBlock.Visibility = Visibility.Visible;
 
             home.Visibility = Visibility.Visible;
@@ -724,14 +730,72 @@ namespace stu_profo
         }
 
         //filter feature :)
-        private void filter(object sender, RoutedEventArgs e)
+        private void filter1(object sender, RoutedEventArgs e)
+        {
+
+            this.clickSearch();
+            //customLinkedList dataset = dataController.getStudentsResults();
+            //Courses.Clear();
+            //if (dataset != null)
+            //{
+            //    List<dataModel> dataSet = dataset.DisplayForward();
+
+            //    dataSet = engineSort.BubbleSortAscending(dataSet, "Points");
+            //    if (dataSet != null)
+            //    {
+            //        foreach (dataModel data in dataSet)
+            //        {
+            //            System.Diagnostics.Debug.WriteLine(">>>" + data.FinalGrade + data.Exam + data.CourseWork + data.Subject);
+            //            Course course = new Course();
+            //            course.Subject = data.Subject;
+            //            course.Exam = data.Exam;
+            //            course.CourseWork = data.CourseWork;
+            //            course.FinalGrade = data.FinalGrade;
+            //            course.Points = data.Points;
+
+            //            Courses.Add(course);
+            //        }
+            //    }
+            //}
+        }
+
+
+        private void filter2(object sender, RoutedEventArgs e)
         {
             customLinkedList dataset = dataController.getStudentsResults();
             Courses.Clear();
             if (dataset != null)
             {
                 List<dataModel> dataSet = dataset.DisplayForward();
-                
+
+                dataSet = engineSort.BubbleSortDescending(dataSet, "Points");
+                if (dataSet != null)
+                {
+                    foreach (dataModel data in dataSet)
+                    {
+                        System.Diagnostics.Debug.WriteLine(">>>" + data.FinalGrade + data.Exam + data.CourseWork + data.Subject);
+                        Course course = new Course();
+                        course.Subject = data.Subject;
+                        course.Exam = data.Exam;
+                        course.CourseWork = data.CourseWork;
+                        course.FinalGrade = data.FinalGrade;
+                        course.Points = data.Points;
+
+                        Courses.Add(course);
+                    }
+                }
+            }
+        }
+
+
+        private void filter3(object sender, RoutedEventArgs e)
+        {
+            customLinkedList dataset = dataController.getStudentsResults();
+            Courses.Clear();
+            if (dataset != null)
+            {
+                List<dataModel> dataSet = dataset.DisplayForward();
+
                 dataSet = engineSort.BubbleSortAscending(dataSet, "Points");
                 if (dataSet != null)
                 {
@@ -750,6 +814,7 @@ namespace stu_profo
                 }
             }
         }
+
 
         private void OnBackClick(object sender, RoutedEventArgs e)
         {

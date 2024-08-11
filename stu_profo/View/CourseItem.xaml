@@ -11,7 +11,7 @@
                        Canvas.Left="36" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center" Width="470"/>
 
             <TextBlock Text="Exam" FontSize="12" FontWeight="Regular" Foreground="White" 
-                       Canvas.Left="51" Canvas.Top="51" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                       Canvas.Left="61" Canvas.Top="51" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <TextBlock Text="{Binding Exam}" FontSize="24" FontWeight="Bold" Foreground="White" 
                        Canvas.Left="75" Canvas.Top="42" HorizontalAlignment="Left" RenderTransformOrigin="0.428,0.525" VerticalAlignment="Top" Width="74" TextAlignment="Right">
 
@@ -21,7 +21,7 @@
                        Canvas.Left="164" Canvas.Top="34" HorizontalAlignment="Left" VerticalAlignment="Center" Height="39" RenderTransformOrigin="0.461,0.575" Width="4"/>
 
             <TextBlock Text="CourseWork" FontSize="12" FontWeight="Regular" Foreground="White" 
-                       Canvas.Left="219" Canvas.Top="51" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                       Canvas.Left="226" Canvas.Top="51" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <TextBlock Text="{Binding CourseWork}" FontSize="24" FontWeight="Bold" Foreground="White" 
                        Canvas.Left="308" Canvas.Top="40" HorizontalAlignment="Left" VerticalAlignment="Center" Width="66"/>
 

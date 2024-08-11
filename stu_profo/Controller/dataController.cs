@@ -128,7 +128,6 @@ namespace stu_profo.Controller
             using (StreamWriter writer = new StreamWriter(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName))) { writer.Write(data); writer.Dispose(); }
         }
 
-
     }
 
 }
