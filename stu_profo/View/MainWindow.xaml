@@ -1148,7 +1148,7 @@
 
         </Grid>
 
-        <Grid x:Name="Search" Background="Transparent" Margin="32,50,30,10" Visibility="Visible">
+        <Grid x:Name="Search" Background="Transparent" Margin="32,50,30,10" Visibility="Hidden">
             <Canvas>
                 <!-- Back Button -->
                 <Button Canvas.Left="103" Canvas.Top="105" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center" Click="search_back" 

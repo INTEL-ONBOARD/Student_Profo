@@ -730,33 +730,45 @@ namespace stu_profo
         }
 
         //filter feature :)
-        private void filter1(object sender, RoutedEventArgs e)
+        private async void filter1(object sender, RoutedEventArgs e)
         {
 
-            this.clickSearch();
-            //customLinkedList dataset = dataController.getStudentsResults();
-            //Courses.Clear();
-            //if (dataset != null)
-            //{
-            //    List<dataModel> dataSet = dataset.DisplayForward();
 
-            //    dataSet = engineSort.BubbleSortAscending(dataSet, "Points");
-            //    if (dataSet != null)
-            //    {
-            //        foreach (dataModel data in dataSet)
-            //        {
-            //            System.Diagnostics.Debug.WriteLine(">>>" + data.FinalGrade + data.Exam + data.CourseWork + data.Subject);
-            //            Course course = new Course();
-            //            course.Subject = data.Subject;
-            //            course.Exam = data.Exam;
-            //            course.CourseWork = data.CourseWork;
-            //            course.FinalGrade = data.FinalGrade;
-            //            course.Points = data.Points;
+            student = (blockModel)sBoxSearch.SelectedItem;
+            dataController.setStudent("configStudent.txt", student.value);
 
-            //            Courses.Add(course);
-            //        }
-            //    }
-            //}
+            // Fetch data asynchronously
+            await Task.Run(() => dataController.getStudents());
+
+            customLinkedList dataset = dataController.getStudentsResults();
+
+            batchDataLabel.Text = bBoxSearch.Text;
+            studentDataLabel.Text = sBoxSearch.Text;
+
+            Courses.Clear();
+            if (dataset != null)
+            {
+                List<dataModel> dataSet = dataset.DisplayForward();
+                if (dataSet != null)
+                {
+                    foreach (dataModel data in dataSet)
+                    {
+                        System.Diagnostics.Debug.WriteLine(">>>" + data.FinalGrade + data.Exam + data.CourseWork + data.Subject);
+                        Course course = new Course();
+                        course.Subject = data.Subject;
+                        course.Exam = data.Exam;
+                        course.CourseWork = data.CourseWork;
+                        course.FinalGrade = data.FinalGrade;
+                        course.Points = data.Points;
+                        System.Diagnostics.Debug.WriteLine(">>>values" + data.Exam + "  " + data.Exam);
+                        Courses.Add(course);
+                    }
+                    double gpa = gpaCalculator.CalculateGPA(dataSet);
+                    System.Diagnostics.Debug.WriteLine(">>>GPA" + gpa);
+                    gpaLabel.Text = gpa.ToString();
+                    gpaPrecentageLabel.Text = ((gpa / 4.00) * 100).ToString("0.0") + "%";
+                }
+            }
         }
 
 
