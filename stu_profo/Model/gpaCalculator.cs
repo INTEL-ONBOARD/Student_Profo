@@ -29,13 +29,20 @@ namespace stu_profo.Model
             }
         }
 
-        public static double  CalculateGPA(List<dataModel> dataSet)
+        public static double CalculateGPA(List<dataModel> dataSet)
         {
+            CustomStack<dataModel> stack = new CustomStack<dataModel>();
+            foreach (dataModel data in dataSet)
+            {
+                stack.Push(data);
+            }
+
             double totalGradePoints = 0;
             double totalCredits = 0;
 
-            foreach (dataModel data in dataSet)
+            while (!stack.IsEmpty())
             {
+                dataModel data = stack.Pop();
                 double gradePoint = ConvertGradeToPoint(data.FinalGrade);
                 double credits = double.TryParse(data.Points, out double result) ? result : 0;
                 totalGradePoints += gradePoint * credits;
@@ -45,5 +52,6 @@ namespace stu_profo.Model
             double gpa = totalCredits > 0 ? totalGradePoints / totalCredits : 0;
             return Math.Round(gpa, 2);
         }
+
     }
 }
