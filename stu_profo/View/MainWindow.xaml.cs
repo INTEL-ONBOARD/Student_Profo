@@ -438,8 +438,13 @@ namespace stu_profo
         private async void clickSearch(object sender, RoutedEventArgs e)
         {
             // Show loading GIF and apply blur effect
-            loadingGif.Visibility = Visibility.Visible;
-            ApplyBlurEffect(Search, true); // Assuming 'mainGrid' is the parent UI element that should be blurred
+            //loadingGif.Visibility = Visibility.Visible;
+            //ApplyBlurEffect(Search, true); // Assuming 'mainGrid' is the parent UI element that should be blurred
+            //Panel.SetZIndex(loadingGif, 3);
+
+            ShowWarningOverlay(home, ladinoverlay, true);
+
+
 
             line.Visibility = Visibility.Visible;
             leftSector.Visibility = Visibility.Visible;
@@ -462,7 +467,8 @@ namespace stu_profo
 
             batchDataLabel.Text = bBoxSearch.Text;
             studentDataLabel.Text = sBoxSearch.Text;
-
+            await Task.Delay(3000);
+            ShowWarningOverlay(home, ladinoverlay, false);
             Courses.Clear();
             if (dataset != null)
             {
@@ -490,7 +496,10 @@ namespace stu_profo
 
             // Hide loading GIF and remove blur effect
             loadingGif.Visibility = Visibility.Hidden;
-            ApplyBlurEffect(Search, false);
+            //ApplyBlurEffect(Search, false);
+
+
+
         }
 
         private void ApplyBlurEffect(UIElement targetPage, bool applyBlur)
