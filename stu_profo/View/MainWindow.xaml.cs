@@ -262,10 +262,10 @@ namespace stu_profo
             // Hide the current content
             hbutton.Visibility = Visibility.Collapsed;
             himage.Visibility = Visibility.Collapsed;
-            htext1.Visibility = Visibility.Collapsed;
-            htext2.Visibility = Visibility.Collapsed;
-            Htext3.Visibility = Visibility.Collapsed;
-            Hname4.Visibility = Visibility.Collapsed;
+            //htext1.Visibility = Visibility.Collapsed;
+            //htext2.Visibility = Visibility.Collapsed;
+            //Htext3.Visibility = Visibility.Collapsed;
+            //Hname4.Visibility = Visibility.Collapsed;
 
             // Show the new ScrollViewer
             scrollViewer.Visibility = Visibility.Visible;
@@ -535,6 +535,10 @@ namespace stu_profo
 
             MainBackground = Brushes.White;
             MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Home.png")));
+
+            hbutton.Visibility = Visibility.Visible;
+            himage.Visibility = Visibility.Visible;
+            scrollViewer.Visibility = Visibility.Hidden;
             // Optionally, reset the background if needed
 
             //engine.dumpProgrammes();
@@ -559,6 +563,9 @@ namespace stu_profo
             MainBackground = Brushes.White;
             MainBackgroundImage = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/View/Home.png")));
             // Optionally, reset the background if needed
+            hbutton.Visibility = Visibility.Visible;
+            himage.Visibility = Visibility.Visible;
+            scrollViewer.Visibility = Visibility.Hidden;
 
             //engine.dumpProgrammes();
         }

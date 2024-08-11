@@ -1695,37 +1695,81 @@
 />
             <!-- Content to be toggled -->
             <!-- Button containing image and text blocks with Grid layout -->
-            <Button Click="Find_Ideal_Course" Background="Transparent" BorderBrush="Transparent" Name="hbutton" Margin="215,442,503,99">
-                <Grid>
-                    <Image Source="/View/Subtract.png" 
-            Stretch="Fill" 
-            Width="600" 
-            HorizontalAlignment="Center"
-            RenderTransformOrigin="0.363,0.301" Margin="0,3,0,0" />
+            <Button Click="Find_Ideal_Course" Cursor="Hand" Background="Transparent" BorderBrush="Transparent" Name="hbutton" Margin="215,442,503,99">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <!-- Remove default hover effects -->
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid RenderTransformOrigin="0.5, 0.5">
+                                        <Grid.RenderTransform>
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </Grid.RenderTransform>
+                                        <Image Source="/View/Subtract.png" 
+                                   Stretch="Fill" 
+                                   Width="600" 
+                                   HorizontalAlignment="Center"
+                                   Margin="0,3,0,0" />
+                                        <TextBlock Name="htext1"
+                                       Text="FIND YOUR IDEAL COURSE AND BOOST YOUR ACADEMIC SUCCESS!" 
+                                       Foreground="White" 
+                                       FontSize="30" 
+                                       FontWeight="Bold" 
+                                       HorizontalAlignment="Left" 
+                                       VerticalAlignment="Top"
+                                       Margin="32,30,0,0" 
+                                       Width="398" 
+                                       TextWrapping="Wrap"/>
+                                        <TextBlock Name="htext2"
+                                       Text="Discover the perfect course to match your goals effortlessly. Start shaping your academic future today and unlock new opportunities for success!" 
+                                       Foreground="White" 
+                                       FontSize="16" 
+                                       FontWeight="Light" 
+                                       HorizontalAlignment="Left" 
+                                       VerticalAlignment="Top"
+                                       Margin="28,155,0,0" 
+                                       Width="347" 
+                                       TextWrapping="Wrap"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
 
-                    <TextBlock Name="htext1"
-            Text="FIND YOUR IDEAL COURSE AND BOOST YOUR ACADEMIC SUCCESS!" 
-            Foreground="White" 
-            FontSize="30" 
-            FontWeight="Bold" 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Top"
-            Margin="32,30,0,0" 
-            Width="398" 
-            TextWrapping="Wrap"/>
-
-                    <TextBlock Name="htext2"
-            Text="Discover the perfect course to match your goals effortlessly. Start shaping your academic future today and unlock new opportunities for success!" 
-            Foreground="White" 
-            FontSize="16" 
-            FontWeight="Light" 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Top"
-            Margin="28,155,0,0" 
-            Width="347" 
-            TextWrapping="Wrap"/>
-                </Grid>
+                        <!-- Scale down animation on hover -->
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                                    Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                    To="0.95" Duration="0:0:0.1" />
+                                            <DoubleAnimation 
+                                    Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                    To="0.95" Duration="0:0:0.1" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                                    Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                    To="1.0" Duration="0:0:0.1" />
+                                            <DoubleAnimation 
+                                    Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                    To="1.0" Duration="0:0:0.1" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
             </Button>
+
+
 
             <Image Name="himage"
     Source="/View/homecard1.png" 
