@@ -238,8 +238,6 @@ namespace stu_profo
             }
         }
 
-       
-
         private void TogglePasswordVisibility(object sender, RoutedEventArgs e)
         {
             if (passwordInput.Visibility == Visibility.Visible)
@@ -260,6 +258,7 @@ namespace stu_profo
 
         private void Find_Ideal_Course(object sender, RoutedEventArgs e)
         {
+
             // Hide the current content
             //htext1.Visibility = Visibility.Collapsed;
             //htext2.Visibility = Visibility.Collapsed;
@@ -289,8 +288,6 @@ namespace stu_profo
         {
             ResetTextBoxes();
         }
-
-
 
         private async void Login(object sender, RoutedEventArgs e)
         {
@@ -798,7 +795,6 @@ namespace stu_profo
             }
         }
 
-
         private void filter2(object sender, RoutedEventArgs e)
         {
             customLinkedList dataset = dataController.getStudentsResults();
@@ -825,7 +821,6 @@ namespace stu_profo
                 }
             }
         }
-
 
         private void filter3(object sender, RoutedEventArgs e)
         {
@@ -854,15 +849,9 @@ namespace stu_profo
             }
         }
 
+        private void OnBackClick(object sender, RoutedEventArgs e){}
 
-        private void OnBackClick(object sender, RoutedEventArgs e)
-        {
-        }
-        private void OnFilterClick(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        private void OnFilterClick(object sender, RoutedEventArgs e){}
     }
 }
 
