@@ -1,11 +1,11 @@
-﻿    using stu_profo.Model;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.IO;
-    using System.Text.Json;
+﻿using stu_profo.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Text.Json;
 using System.Data;
 using System.Configuration;
 using System.Windows.Shapes;
@@ -29,20 +29,34 @@ namespace stu_profo.Controller
             string userData = File.ReadAllText(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "users.json"));
             var userBin = JsonSerializer.Deserialize<Users>(userData);
             int sizeOfUsers = userBin.users.Count();
-            customArray userArray = new customArray(sizeOfUsers);
+
+
+            CustomQueue<User> userQueue = new CustomQueue<User>(sizeOfUsers);
+
             foreach (var user in userBin.users)
             {
-               userArray.insert(user);
+                userQueue.Enqueue(user);
             }
-            if ((userArray.search("email", useremail)) && (userArray.search("password", pwd)))
+
+            bool emailExists = false;
+            bool passwordMatches = false;
+
+            while (!userQueue.IsEmpty())
             {
-                return true;
+                User currentUser = userQueue.Dequeue();
+                if (currentUser.email == useremail)
+                {
+                    emailExists = true;
+                    if (currentUser.password == pwd)
+                    {
+                        passwordMatches = true;
+                    }
+                    break;
+                }
             }
-            else
-            {
-                return false;
-            }
-            
+
+            return emailExists && passwordMatches;
+
         }
         public bool addUser(string username, string password)
         {
