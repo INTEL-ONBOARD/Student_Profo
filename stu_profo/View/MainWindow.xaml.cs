@@ -35,6 +35,7 @@ namespace stu_profo
         public ObservableCollection<Course> Courses { get; set; }
         public ObservableCollection<ScrollItemModel> Items { get; set; }
 
+        private CustomStack<blockModel> stack;
 
         private Brush _mainBackground;
         public Brush MainBackground
@@ -260,16 +261,25 @@ namespace stu_profo
         private void Find_Ideal_Course(object sender, RoutedEventArgs e)
         {
             // Hide the current content
-            hbutton.Visibility = Visibility.Collapsed;
-            himage.Visibility = Visibility.Collapsed;
             //htext1.Visibility = Visibility.Collapsed;
             //htext2.Visibility = Visibility.Collapsed;
             //Htext3.Visibility = Visibility.Collapsed;
             //Hname4.Visibility = Visibility.Collapsed;
 
-            // Show the new ScrollViewer
+            hbutton.Visibility = Visibility.Collapsed;
+            himage.Visibility = Visibility.Collapsed;               
             scrollViewer.Visibility = Visibility.Visible;
+
+            Items.Clear();
+            for(int i=0; i<= stack.Count(); i++)
+            {
+                blockModel binModel = stack.Pop();
+                ScrollItemModel sc = new ScrollItemModel();
+                sc.Content = binModel.text;
+                Items.Add(sc);
+            }
         }
+
         private void EmailTextBoxTextChanged(object sender, TextChangedEventArgs e)
         {
             ResetTextBoxes();
@@ -279,6 +289,8 @@ namespace stu_profo
         {
             ResetTextBoxes();
         }
+
+
 
         private async void Login(object sender, RoutedEventArgs e)
         {
@@ -290,6 +302,8 @@ namespace stu_profo
                 signinScreen.Visibility = Visibility.Hidden;
 
                 List<blockModel> pm = dataController.getProgramms();
+                stack = new CustomStack<blockModel>();
+                foreach (blockModel programme in pm) { stack.Push(programme); }
                 pBoxSearch.ItemsSource = pm;
                 pBoxC.ItemsSource = pm;
                 pBoxC.DisplayMemberPath = "text";
@@ -339,7 +353,6 @@ namespace stu_profo
             emailInput.BorderBrush = Brushes.Gray;
             passwordInput.BorderBrush = Brushes.Gray;
         }
-
 
         private async void Donebtn_Click(object sender, RoutedEventArgs e)
         {
@@ -524,8 +537,6 @@ namespace stu_profo
                 targetPage.Effect = null;
             }
         }
-
-
 
         private void setting_back(object sender, RoutedEventArgs e)
         {
@@ -854,3 +865,4 @@ namespace stu_profo
 
     }
 }
+
