@@ -43,7 +43,7 @@ namespace stu_profo.Controller
 
             while (!userQueue.IsEmpty())
             {
-                User currentUser = userQueue.Dequeue();
+                User currentUser = userQueue.Dequeue(); 
                 if (currentUser.email == useremail)
                 {
                     emailExists = true;

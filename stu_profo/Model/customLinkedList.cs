@@ -33,7 +33,6 @@ namespace stu_profo.Model
             tail = null;
         }
 
-        // Method to insert a new node at the end
         public void Insert(dataModel data)
         {
             Node newNode = new Node(data);
@@ -51,7 +50,6 @@ namespace stu_profo.Model
             }
         }
 
-        // Method to display the doubly linked list in forward direction
         public List<dataModel> DisplayForward()
         {
             List<dataModel> list = new List<dataModel>();
@@ -71,7 +69,6 @@ namespace stu_profo.Model
 
         }
 
-        // Method to display the doubly linked list in backward direction
         public void DisplayBackward()
         {
             if (tail == null)
@@ -90,7 +87,6 @@ namespace stu_profo.Model
             Console.WriteLine();
         }
 
-        // Method to delete a node with a specific value
         public void Delete(dataModel data)
         {
             if (head == null)
@@ -98,7 +94,6 @@ namespace stu_profo.Model
 
             Node temp = head;
 
-            // If head node itself holds the key to be deleted
             if (head.Data == data)
             {
                 head = head.Next;
@@ -109,20 +104,17 @@ namespace stu_profo.Model
                 return;
             }
 
-            // Search for the key to be deleted
             while (temp != null && temp.Data != data)
             {
                 temp = temp.Next;
             }
 
-            // If the key was not found
             if (temp == null)
             {
                 Console.WriteLine("Node with dataModel {0} not found.", data);
                 return;
             }
 
-            // If node to be deleted is the tail node
             if (temp == tail)
             {
                 tail = tail.Prev;

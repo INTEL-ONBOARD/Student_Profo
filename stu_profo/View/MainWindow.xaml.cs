@@ -35,7 +35,7 @@ namespace stu_profo
         public ObservableCollection<Course> Courses { get; set; }
         public ObservableCollection<ScrollItemModel> Items { get; set; }
 
-        private CustomStack<blockModel> stack;
+        private CustomQueue<blockModel> que;
 
         private Brush _mainBackground;
         public Brush MainBackground
@@ -270,9 +270,9 @@ namespace stu_profo
             scrollViewer.Visibility = Visibility.Visible;
 
             Items.Clear();
-            for(int i=0; i<= stack.Count(); i++)
+            for(int i=0; i<= que.Count(); i++)
             {
-                blockModel binModel = stack.Pop();
+                blockModel binModel = que.Dequeue();
                 ScrollItemModel sc = new ScrollItemModel();
                 sc.Content = binModel.text;
                 Items.Add(sc);
@@ -288,7 +288,7 @@ namespace stu_profo
         {
             ResetTextBoxes();
         }
-
+        //here - Queue
         private async void Login(object sender, RoutedEventArgs e)
         {
             userController userCtn = new userController();
@@ -299,8 +299,8 @@ namespace stu_profo
                 signinScreen.Visibility = Visibility.Hidden;
 
                 List<blockModel> pm = dataController.getProgramms();
-                stack = new CustomStack<blockModel>();
-                foreach (blockModel programme in pm) { stack.Push(programme); }
+                que = new CustomQueue<blockModel>(5000);
+                foreach (blockModel programme in pm) { que.Enqueue(programme); }
                 pBoxSearch.ItemsSource = pm;
                 pBoxC.ItemsSource = pm;
                 pBoxC.DisplayMemberPath = "text";
@@ -444,7 +444,7 @@ namespace stu_profo
             }
         }
 
-        //Search feature :)
+        //Search feature :) Linkedlist
         private async void clickSearch(object sender, RoutedEventArgs e)
         {
             // Show loading GIF and apply blur effect
@@ -855,3 +855,4 @@ namespace stu_profo
     }
 }
 
+    
